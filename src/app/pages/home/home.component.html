@@ -1,1 +1,11 @@
-<p>home works!</p>
+<div class="home">
+  <app-homeheader (onToggleMenu)="toggleMenu($event)" [isMenuOpened]="isMenuOpened"></app-homeheader>
+
+  <div [ngClass]="!isMenuOpened ? 'menu' : 'menu menu--opened'">
+    <button [ngClass]="!isMenuOpened ? 'menu__login' : 'menu__login menu__login--opened'" (click)="toggleMenu(!isMenuOpened)">connexion</button>
+  </div>
+
+  <main></main>
+
+  <footer></footer>
+</div>
