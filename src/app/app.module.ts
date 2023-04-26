@@ -1,7 +1,9 @@
+// Modules
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
+
+// Composants
 import { AppComponent } from './app.component';
 import { SavingComponent } from './pages/saving/saving.component';
 import { AlertComponent } from './pages/alert/alert.component';
@@ -68,7 +70,7 @@ import { HomeheaderComponent } from './pages/home/homeheader/homeheader.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
