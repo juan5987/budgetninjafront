@@ -3,10 +3,33 @@
 
   <!-- contenu du menu mobile (bouton connexion) -->
   <div [ngClass]="!isMenuOpened ? 'menu' : 'menu menu--opened'">
-    <button [ngClass]="!isMenuOpened ? 'menu__login' : 'menu__login menu__login--opened'" (click)="toggleMenu(!isMenuOpened)">connexion</button>
+    <button [ngClass]="!isMenuOpened ? 'menu__login' : 'menu__login menu__login--opened'"
+      (click)="toggleMenu(!isMenuOpened)">connexion</button>
   </div>
 
-  <main></main>
+  <main>
+    <h1 class="home__title"><span style="color: black">budget</span> ninja</h1>
+    <div class="home__description">
+      <p class="home__description__paragraph">
+        Budget Ninja est une application web vous permettant de gérer vos budgets. Pour cela, l'application offre
+        plusieurs
+        fonctionnalités: une gestion de vos transactions, une gestion de votre épargne, un dashboard complet et
+        personnalisable et une gestion d'alertes vous permettant d'être prévenu quand vous le souhaitez et sur les
+        critères
+        que vous souhaitez.
+      </p>
+      <p class="home__description__paragraph">
+        Contrairement aux applications bancaires, Budget Ninja vous permet notamment de faire de la prévision en
+        anticipant
+        vos dépenses afin de calculer votre solde prévisionnel, votre capacité d'épargne ou encore être alerté si un seuil
+        que vous aurez paramétré est atteint.
+      </p>
+      <p class="home__description__paragraph">
+        Laissez-vous guider et gérez votre budget avec la sérénité du Ninja avec Budget Ninja !
+      </p>
+      <button class="home__signup">Créer mon compte</button>
+    </div>
+  </main>
 
   <footer></footer>
 </div>
