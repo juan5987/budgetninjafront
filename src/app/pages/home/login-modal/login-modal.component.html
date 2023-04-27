@@ -1,5 +1,9 @@
 <div class="modal" (click)="closeModal()">
   <div class="modal__container" (click)="stopPropagation($event)">
+    <span class="cross" (click)="closeModal()">
+      <span class="cross__line cross__line__one">&nbsp;</span>
+      <span class="cross__line cross__line__two">&nbsp;</span>
+    </span>
     <img class="modal__container__logo" src="assets/images/logo.png" alt="logo représentant un ninja">
     <h2 class="modal__container__title">connexion</h2>
     <form class="modal__container__form" (submit)="handleSubmit($event)">
