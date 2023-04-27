@@ -1,0 +1,94 @@
+.modal
+    display: flex
+    justify-content: center
+    align-items: center
+    position: fixed
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background-color: rgba(0,0,0, .75)
+    z-index: 1
+    font-family: 'Shojumaru', 'Roboto', cursive
+
+    &__container
+        display: flex
+        flex-direction: column
+        align-items: center
+        background-color: rgb(24,24,24)
+        padding: 2rem
+        border-radius: 1rem
+        border: 5px solid orange
+
+        &__logo
+            height: 100px
+            margin-bottom: 2rem
+
+        &__title
+            color: orange
+            text-transform: uppercase
+            font-size: 2rem
+            font-weight: bold
+            margin-bottom: 2rem
+            font-family: 'Shojumaru', 'Roboto', cursive
+
+        &__form
+            display: flex
+            flex-direction: column
+
+            &__element
+                display: flex
+                flex-direction: column
+                margin-bottom: 1rem
+
+                &__label
+                    color: orange
+                    margin-bottom: .25em
+                    font-size: 1.2rem
+                    font-weight: bold
+
+                &__input
+                    font-size: 1.2rem
+                    padding: .5em
+                    outline: none
+                    background-color: #fff
+                    width: 350px
+
+                &__error
+                    color: red
+                    font-family: 'Roboto', cursive
+                    text-align: center
+                    margin-top: .25rem
+                    font-weight: bold
+                    font-size: 1.2rem
+
+            &__submit
+                background-color: orange
+                color: white
+                margin-top: 1rem
+                font-size: 1.5rem
+                font-weight: bold
+                border-radius: 1.5rem
+                cursor: pointer
+                padding: .5em 2em
+
+                &:hover
+                    background-color: rgb(255, 198, 73)
+
+.cross
+    position: absolute
+    top: 1rem
+    right: 1rem
+    font-size: 2rem
+    color: orange
+    cursor: pointer
+
+@media all and (max-width: 650px)
+    .modal
+        padding: 0 .5rem
+
+        &__container
+            width: 100%
+            border-radius: 0
+            border: 2px solid orange
+            padding: .75rem

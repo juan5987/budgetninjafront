@@ -8,6 +8,7 @@ import { CategoriesComponent } from './pages/categories/categories.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SavingComponent } from './pages/saving/saving.component';
 
+
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'account', component: AccountComponent},

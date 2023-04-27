@@ -1,0 +1,27 @@
+<div class="modal" (click)="closeModal()">
+  <div class="modal__container" (click)="stopPropagation($event)">
+    <img class="modal__container__logo" src="assets/images/logo.png" alt="logo représentant un ninja">
+    <h2 class="modal__container__title">connexion</h2>
+    <form class="modal__container__form" (submit)="handleSubmit($event)">
+      <div class="modal__container__form__element">
+        <label for="connexion_email" class="modal__container__form__element__label">Email</label>
+        <input type="email" class="modal__container__form__element__input form-control" id="connexion_email"
+          name="email" required
+          pattern="^(?=.{1,254}$)(?=.{1,64}@.{1,255}$)[A-Za-z0-9-]+(?:.[A-Za-z0-9-]+)@[A-Za-z0-9-]+(?:.[A-Za-z0-9-]+)(?:.[A-Za-z]{2,})$" />
+      </div>
+      <div class="modal__container__form__element">
+        <label for="connexion_password" class="modal__container__form__element__label">Mot de passe</label>
+        <input type="password" class="modal__container__form__element__input" id="connexion_password" name="password">
+        <p class="modal__container__form__element__error"></p>
+      </div>
+      <div class="modal__container__form__stayConnected">
+        <label class="modal__container__form__stayConnected__label" for="stayConnected">Rester connecté</label>
+        <input type="checkbox" id="stayConnected" class="modal__container__form__stayConnected__checkbox">
+      </div>
+      <button class="modal__container__form__forgot" type="button">Mot de passe oublié ?</button>
+      <button class="main_button modal__container__form__submit" type="submit">valider</button>
+    </form>
+    <button class="modal__container__form__signup" type="button">Pas encore
+      inscrit ? créez votre compte</button>
+  </div>
+</div>

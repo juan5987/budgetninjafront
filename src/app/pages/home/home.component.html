@@ -1,10 +1,16 @@
 <div class="home">
-  <app-homeheader (onToggleMenu)="toggleMenu($event)" [isMenuOpened]="isMenuOpened"></app-homeheader>
+  <app-homeheader 
+  (onToggleMenu)="toggleMenu($event)" 
+  [isMenuOpened]="isMenuOpened" 
+  (onOpenLoginModal)="openLoginModal()"></app-homeheader>
+  
+  <app-login-modal *ngIf="isLoginModalOpened" (onCloseLoginModal)="closeLoginModal()"></app-login-modal>
+  <app-signup-modal *ngIf="isSignupModalOpened" (onCloseSignupModal)="closeSignupModal()"></app-signup-modal>
 
   <!-- contenu du menu mobile (bouton connexion) -->
   <div [ngClass]="!isMenuOpened ? 'menu' : 'menu menu--opened'">
     <button [ngClass]="!isMenuOpened ? 'menu__login' : 'menu__login menu__login--opened'"
-      (click)="toggleMenu(!isMenuOpened)">connexion</button>
+      (click)="openLoginModal()">connexion</button>
   </div>
 
   <main>
@@ -15,6 +21,76 @@
       </h1>
       <h2 class="home__heading__subtitle">Gérez votre argent avec sérénité</h2>
     </div>
+    <section class="home__features">
+      <article class="home__features__feature">
+        <div class="home__features__feature__image">
+          <img src="../../assets/images/budget.jpg" alt="image d'une personne gérant son budget"
+            class="home__features__feature__image__img">
+        </div>
+        <div class="home__features__feature__description">
+          <h3 class="home__features__feature__description__title">Gérez votre budget</h3>
+          <p class="home__features__feature__description__detail">La fonctionnalité Budget de notre application vous
+            permet de prendre des décisions éclairées en gérant facilement vos finances en temps réel.
+          </p>
+          <p class="home__features__feature__description__detail">
+            Vous pouvez ajouter des budgets pour différentes catégories de dépenses et de revenus, et enregistrer toutes
+            vos transactions en toute simplicité.
+          </p>
+        </div>
+      </article>
+      <article class="home__features__feature">
+        <div class="home__features__feature__image">
+          <img src="../../assets/images/epargne.jpg" alt="image d'une tirelire en forme de cochon"
+            class="home__features__feature__image__img">
+        </div>
+        <div class="home__features__feature__description">
+          <h3 class="home__features__feature__description__title">Gérez votre épargne</h3>
+            <p class="home__features__feature__description__detail">
+              Maximisez vos économies et accomplissez vos projets.
+            </p>
+            <p class="home__features__feature__description__detail">
+              Budget Ninja vérifie votre capacité d'épargne en fonction de vos revenus et de vos dépenses.
+            </p>
+            <p class="home__features__feature__description__detail">
+              Indiquez le montant et l'intervalle souhaités à mettre de côté et configurez et atteignez vos objectifs
+              d’épargne
+            </p>
+        </div>
+      </article>
+      <article class="home__features__feature">
+        <div class="home__features__feature__image">
+          <img src="../../assets/images/dashboard.jpg" alt="image de graphiques"
+            class="home__features__feature__image__img">
+        </div>
+        <div class="home__features__feature__description">
+          <h3 class="home__features__feature__description__title">Accédez au dashboard</h3>
+          <p class="home__features__feature__description__detail">Visualisez l'état de votre budget en un coup d'œil : suivez facilement votre solde, votre épargne ainsi que vos transactions de manière synthétique grâce à des graphiques clairs et intuitifs.
+          </p>
+          <p class="home__features__feature__description__detail">
+            Avec ces informations, vous pouvez prendre des décisions éclairées pour optimiser vos finances et atteindre vos objectifs d'épargne plus rapidement.
+          </p>
+        </div>
+      </article>
+      <article class="home__features__feature">
+        <div class="home__features__feature__image">
+          <img src="../../assets/images/alert.jpg" alt="image représentant un logo d'une alerte"
+            class="home__features__feature__image__img">
+        </div>
+        <div class="home__features__feature__description">
+          <h3 class="home__features__feature__description__title">Gérez vos alertes</h3>
+          <p class="home__features__feature__description__detail">Créez des alertes personnalisées en fonction de votre budget.
+          </p>
+          <p class="home__features__feature__description__detail">Vous pouvez choisir la périodicité des alertes et définir un seuil de dépenses à ne pas dépasser. Budget Ninja vous informera alors en temps réel lorsque vous êtes sur le point de dépasser votre budget, vous aidant ainsi à mieux gérer vos finances et éviter les mauvaises surprises.
+          </p>
+        </div>
+      </article>
+    </section>
+    <section class="home__register">
+      <h3 class="home__register__text">
+        Créez votre compte maintenant pour profiter de toutes les fonctionnalités de Budget Ninja.
+      </h3>
+      <button class="home__signup" (click)="openSignupModal()">Créer mon compte</button>
+    </section>
   </main>
 
   <footer></footer>
