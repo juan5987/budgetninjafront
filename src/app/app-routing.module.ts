@@ -7,6 +7,7 @@ import { BudgetComponent } from './pages/budget/budget.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SavingComponent } from './pages/saving/saving.component';
+import { FooterComponent } from './commons/footer/footer.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'categories', component: CategoriesComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'saving', component: SavingComponent},
+  {path: 'footer', component: FooterComponent},
   {path: '**', component: HomeComponent}
 ];
 
