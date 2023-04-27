@@ -6,36 +6,80 @@
     </span>
     <img class="modal__container__logo" src="../../assets/images/logo.png" alt="logo représentant un ninja">
     <h2 class="modal__container__title">inscription</h2>
-    <form action="" class="modal__container__form">
+    <form action="" class="modal__container__form" [formGroup]="formValues" (ngSubmit)="handleSubmit($event)">
       <div class="modal__container__form__element">
-        <label for="username" class="modal__container__form__element__label">Nom d'utilisateur</label>
-        <input type="text" class="modal__container__form__element__input form-control" id="username" name="email"
-          required />
+        <label for="username" class="modal__container__form__element__label">
+          Nom d'utilisateur
+        </label>
+        <input type="text" class="modal__container__form__element__input form-control" id="username" name="username"
+          placeholder="saisir un nom d'utilisateur" formControlName="username" />
+        <span *ngIf="submitted && form['username'].hasError('required')"
+          class="modal__container__form__element__input__error">
+          Veuillez saisir un pseudo
+        </span>
+        <span *ngIf="submitted && form['username'].hasError('minlength')"
+          class="modal__container__form__element__input__error">
+          Le pseudo doit contenir 3 lettres minimum
+        </span>
       </div>
       <div class="modal__container__form__element">
-        <label for="signup_email" class="modal__container__form__element__label">Email</label>
-        <input type="email" class="modal__container__form__element__input form-control" id="signup_email"
-          name="signup_email" required
-          pattern="^(?=.{1,254}$)(?=.{1,64}@.{1,255}$)[A-Za-z0-9-]+(?:.[A-Za-z0-9-]+)@[A-Za-z0-9-]+(?:.[A-Za-z0-9-]+)(?:.[A-Za-z]{2,})$" />
+        <label for="signup_email" class="modal__container__form__element__label">
+          Email
+        </label>
+        <input type="email" class="modal__container__form__element__input form-control" id="email" name="email"
+          placeholder="saisir une adresse email valide" formControlName="email" />
+        <span *ngIf="submitted && form['email'].hasError('required')"
+          class="modal__container__form__element__input__error">
+          Veuillez saisir une adresse email
+        </span>
+        <span *ngIf="submitted && form['email'].hasError('email')"
+          class="modal__container__form__element__input__error">
+          L'email n'est pas au bon format
+        </span>
       </div>
       <div class="modal__container__form__element">
-        <label for="connexion_emailConfirm" class="modal__container__form__element__label">Confirmation de
-          l'email</label>
-        <input type="email" class="modal__container__form__element__input form-control" id="connexion_emailConfirm"
-          name="connexion_emailConfirm" required
-          pattern="^(?=.{1,254}$)(?=.{1,64}@.{1,255}$)[A-Za-z0-9-]+(?:.[A-Za-z0-9-]+)@[A-Za-z0-9-]+(?:.[A-Za-z0-9-]+)(?:.[A-Za-z]{2,})$" />
+        <label for="connexion_emailConfirm" class="modal__container__form__element__label">
+          Confirmation de l'email
+        </label>
+        <input type="email" class="modal__container__form__element__input form-control" id="emailConfirm"
+          name="emailConfirm" placeholder="confirmer l'adresse email" formControlName="emailConfirm" />
+        <span *ngIf="submitted && form['emailConfirm'].hasError('required')"
+          class="modal__container__form__element__input__error">
+          Veuillez confirmer l'email
+        </span>
+        <span *ngIf="submitted && form['emailConfirm'].hasError('email')"
+          class="modal__container__form__element__input__error">
+          L'email n'est pas au bon format
+        </span>
+        <!-- //TODO : ajouter une validation pour vérifier que les deux emails sont identiques
+        //TODO: afficher l'erreur si les deux emails ne sont pas identiques -->
       </div>
       <div class="modal__container__form__element">
-        <label for="signup_password" class="modal__container__form__element__label">Mot de passe</label>
-        <input type="password" class="modal__container__form__element__input" id="signup_password"
-          name="signup_password">
+        <label for="signup_password" class="modal__container__form__element__label">
+          Mot de passe
+        </label>
+        <input type="password" class="modal__container__form__element__input" id="password" name="password"
+          placeholder="saisir un mot de passe" formControlName="password" />
+        <span *ngIf="submitted && form['password'].hasError('required')"
+          class="modal__container__form__element__input__error">
+          Veuillez saisir un mot de passe
+        </span>
+        <span *ngIf="submitted && form['password'].hasError('pattern')"
+          class="modal__container__form__element__input__error">
+          Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre
+        </span>
         <p class="modal__container__form__element__error"></p>
       </div>
       <div class="modal__container__form__element">
-        <label for="signup_passwordConfirm" class="modal__container__form__element__label">Confirmation du mot de
-          passe</label>
-        <input type="password" class="modal__container__form__element__input" id="signup_passwordConfirm"
-          name="signup_passwordConfirm">
+        <label for="signup_passwordConfirm" class="modal__container__form__element__label">
+          Confirmation du mot de passe
+        </label>
+        <input type="password" class="modal__container__form__element__input" id="passwordConfirm"
+          name="passwordConfirm" placeholder="confirmer le mot de passe" formControlName="passwordConfirm" />
+        <span *ngIf="submitted && form['passwordConfirm'].hasError('required')"
+          class="modal__container__form__element__input__error">
+          Veuillez confirmer le mot de passe
+        </span>
         <p class="modal__container__form__element__error"></p>
       </div>
       <button class="main_button modal__container__form__submit" type="submit">valider</button>

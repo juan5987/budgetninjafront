@@ -6,35 +6,32 @@
     </span>
     <img class="modal__container__logo" src="assets/images/logo.png" alt="logo représentant un ninja">
     <h2 class="modal__container__title">connexion</h2>
-    <form class="modal__container__form" (submit)="handleSubmit($event)">
+    <form class="modal__container__form" [formGroup]="formValues" (ngSubmit)="handleSubmit($event)">
       <div class="modal__container__form__element">
         <label for="connexion_email" class="modal__container__form__element__label">Email</label>
         <input 
           type="email" 
           class="modal__container__form__element__input form-control" 
-          id="connexion_email"
+          id="email"
           name="email"
-          pattern="^(?=.{1,254}$)(?=.{1,64}@.{1,255}$)[A-Za-z0-9-]+(?:.[A-Za-z0-9-]+)@[A-Za-z0-9-]+(?:.[A-Za-z0-9-]+)(?:.[A-Za-z]{2,})$" 
           placeholder="Entrez votre email"
-          formControlName="formValues.email"
+          formControlName="email"
           required
           />
-          <span *ngIf="submitted && form['email'].hasError('required')">Veuillez renseigner une adresse email</span>
-          <!-- je crée un span qui affiche un message d'erreur si le champ email n'est pas au bon format -->
-          <span *ngIf="submitted && form['email'].hasError('email')">L'email n'est pas au bon format</span>
+          <span *ngIf="submitted && form['email'].hasError('email')" class="modal__container__form__element__input__error">L'email n'est pas au bon format</span>
+          <span *ngIf="submitted && form['email'].hasError('required')" class="modal__container__form__element__input__error">Veuillez renseigner votre adresse email</span>
       </div>
       <div class="modal__container__form__element">
         <label for="connexion_password" class="modal__container__form__element__label">Mot de passe</label>
         <input 
           type="password" 
           class="modal__container__form__element__input" 
-          id="connexion_password" 
+          id="password" 
           name="password"
           placeholder="Entrez votre mot de passe"
-          formControlName="formValues.password"
-          required
+          formControlName="password"
         />
-        <p class="modal__container__form__element__error"></p>
+        <span *ngIf="submitted && form['password'].hasError('required')" class="modal__container__form__element__input__error">Veuillez renseigner votre mot de passe</span>
       </div>
       <div class="modal__container__form__stayConnected">
         <label class="modal__container__form__stayConnected__label" for="stayConnected">Rester connecté</label>
