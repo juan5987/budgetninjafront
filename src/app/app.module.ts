@@ -38,6 +38,7 @@ import { HomeheaderComponent } from './pages/home/homeheader/homeheader.componen
 import { LoginModalComponent } from './pages/home/login-modal/login-modal.component';
 import { SignupModalComponent } from './pages/home/signup-modal/signup-modal.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +73,7 @@ import { SignupModalComponent } from './pages/home/signup-modal/signup-modal.com
     HomeheaderComponent,
     LoginModalComponent,
     SignupModalComponent,
+
   ],
   imports: [
     BrowserModule,
