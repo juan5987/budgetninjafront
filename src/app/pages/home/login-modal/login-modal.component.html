@@ -9,23 +9,49 @@
     <form class="modal__container__form" (submit)="handleSubmit($event)">
       <div class="modal__container__form__element">
         <label for="connexion_email" class="modal__container__form__element__label">Email</label>
-        <input type="email" class="modal__container__form__element__input form-control" id="connexion_email"
-          name="email" required
-          pattern="^(?=.{1,254}$)(?=.{1,64}@.{1,255}$)[A-Za-z0-9-]+(?:.[A-Za-z0-9-]+)@[A-Za-z0-9-]+(?:.[A-Za-z0-9-]+)(?:.[A-Za-z]{2,})$" />
+        <input 
+          type="email" 
+          class="modal__container__form__element__input form-control" 
+          id="connexion_email"
+          name="email"
+          pattern="^(?=.{1,254}$)(?=.{1,64}@.{1,255}$)[A-Za-z0-9-]+(?:.[A-Za-z0-9-]+)@[A-Za-z0-9-]+(?:.[A-Za-z0-9-]+)(?:.[A-Za-z]{2,})$" 
+          placeholder="Entrez votre email"
+          formControlName="formValues.email"
+          required
+          />
+          <span *ngIf="submitted && form['email'].hasError('required')">Veuillez renseigner une adresse email</span>
+          <!-- je crée un span qui affiche un message d'erreur si le champ email n'est pas au bon format -->
+          <span *ngIf="submitted && form['email'].hasError('email')">L'email n'est pas au bon format</span>
       </div>
       <div class="modal__container__form__element">
         <label for="connexion_password" class="modal__container__form__element__label">Mot de passe</label>
-        <input type="password" class="modal__container__form__element__input" id="connexion_password" name="password">
+        <input 
+          type="password" 
+          class="modal__container__form__element__input" 
+          id="connexion_password" 
+          name="password"
+          placeholder="Entrez votre mot de passe"
+          formControlName="formValues.password"
+          required
+        />
         <p class="modal__container__form__element__error"></p>
       </div>
       <div class="modal__container__form__stayConnected">
         <label class="modal__container__form__stayConnected__label" for="stayConnected">Rester connecté</label>
-        <input type="checkbox" id="stayConnected" class="modal__container__form__stayConnected__checkbox">
+        <input 
+        type="checkbox" 
+        id="stayConnected" 
+        class="modal__container__form__stayConnected__checkbox"
+        aria-describedby="stayConnectedHelp"
+        stayConnectedHelp="Veuillez cocher la case pour rester connecté"
+        >
       </div>
       <button class="modal__container__form__forgot" type="button">Mot de passe oublié ?</button>
       <button class="main_button modal__container__form__submit" type="submit">valider</button>
     </form>
-    <button class="modal__container__form__signup" type="button">Pas encore
-      inscrit ? créez votre compte</button>
+    <button class="modal__container__form__signup" type="button">
+      Pas encore
+      inscrit ? créez votre compte
+    </button>
   </div>
 </div>
