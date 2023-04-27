@@ -34,7 +34,9 @@ import { SavingProjectComponent } from './pages/saving/saving-project/saving-pro
 import { DeleteProgramedSavingModalComponent } from './pages/saving/delete-programed-saving-modal/delete-programed-saving-modal.component';
 import { DeleteSavingProjectModalComponent } from './pages/saving/delete-saving-project-modal/delete-saving-project-modal.component';
 import { HomeheaderComponent } from './pages/home/homeheader/homeheader.component';
-import { FooterComponent } from './commons/footer/footer.component';
+import { LoginModalComponent } from './pages/home/login-modal/login-modal.component';
+import { SignupModalComponent } from './pages/home/signup-modal/signup-modal.component';
+
 
 @NgModule({
   declarations: [
@@ -68,7 +70,9 @@ import { FooterComponent } from './commons/footer/footer.component';
     DeleteProgramedSavingModalComponent,
     DeleteSavingProjectModalComponent,
     HomeheaderComponent,
-    FooterComponent,
+    LoginModalComponent,
+    SignupModalComponent,
+
   ],
   imports: [
     BrowserModule,

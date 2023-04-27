@@ -7,7 +7,7 @@
     </div>
   </div>
   <div class="header__connexion">
-    <button class="header__connexion__button">connexion</button>
+    <button class="header__connexion__button" (click)="openLoginModal()">connexion</button>
     <button class="header__connexion__burger" (click)="handleToggleMenu()">
       <div [ngClass]="!isMenuOpened ? 'header__connexion__burger__line' : 'header__connexion__burger__line--opened'"></div>
       <div [ngClass]="!isMenuOpened ? 'header__connexion__burger__line': 'header__connexion__burger__line--opened'"></div>

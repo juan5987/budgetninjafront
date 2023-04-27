@@ -1,0 +1,44 @@
+<div class="modal" (click)="closeModal()">
+  <div class="modal__container" (click)="stopPropagation($event)">
+    <span class="cross" (click)="closeModal()">
+      <span class="cross__line cross__line__one">&nbsp;</span>
+      <span class="cross__line cross__line__two">&nbsp;</span>
+    </span>
+    <img class="modal__container__logo" src="../../assets/images/logo.png" alt="logo représentant un ninja">
+    <h2 class="modal__container__title">inscription</h2>
+    <form action="" class="modal__container__form">
+      <div class="modal__container__form__element">
+        <label for="username" class="modal__container__form__element__label">Nom d'utilisateur</label>
+        <input type="text" class="modal__container__form__element__input form-control" id="username" name="email"
+          required />
+      </div>
+      <div class="modal__container__form__element">
+        <label for="signup_email" class="modal__container__form__element__label">Email</label>
+        <input type="email" class="modal__container__form__element__input form-control" id="signup_email"
+          name="signup_email" required
+          pattern="^(?=.{1,254}$)(?=.{1,64}@.{1,255}$)[A-Za-z0-9-]+(?:.[A-Za-z0-9-]+)@[A-Za-z0-9-]+(?:.[A-Za-z0-9-]+)(?:.[A-Za-z]{2,})$" />
+      </div>
+      <div class="modal__container__form__element">
+        <label for="connexion_emailConfirm" class="modal__container__form__element__label">Confirmation de
+          l'email</label>
+        <input type="email" class="modal__container__form__element__input form-control" id="connexion_emailConfirm"
+          name="connexion_emailConfirm" required
+          pattern="^(?=.{1,254}$)(?=.{1,64}@.{1,255}$)[A-Za-z0-9-]+(?:.[A-Za-z0-9-]+)@[A-Za-z0-9-]+(?:.[A-Za-z0-9-]+)(?:.[A-Za-z]{2,})$" />
+      </div>
+      <div class="modal__container__form__element">
+        <label for="signup_password" class="modal__container__form__element__label">Mot de passe</label>
+        <input type="password" class="modal__container__form__element__input" id="signup_password"
+          name="signup_password">
+        <p class="modal__container__form__element__error"></p>
+      </div>
+      <div class="modal__container__form__element">
+        <label for="signup_passwordConfirm" class="modal__container__form__element__label">Confirmation du mot de
+          passe</label>
+        <input type="password" class="modal__container__form__element__input" id="signup_passwordConfirm"
+          name="signup_passwordConfirm">
+        <p class="modal__container__form__element__error"></p>
+      </div>
+      <button class="main_button modal__container__form__submit" type="submit">valider</button>
+    </form>
+  </div>
+</div>
