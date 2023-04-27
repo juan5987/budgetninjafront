@@ -15,6 +15,8 @@ export class HomeheaderComponent {
   // afin d'ouvrir ou de fermer le menu
   handleToggleMenu():void {
     this.isMenuOpened = !this.isMenuOpened;
+    // on émet l'évènement onToggleMenu avec la nouvelle valeur de la variable isMenuOpened
+    // afin de pouvoir changer la valeur de la variable isMenuOpened depuis le composant parent
     this.onToggleMenu.emit(this.isMenuOpened);
   }
 }
