@@ -1,6 +1,6 @@
 footer {
     padding: 1rem;
-    background: rgb(245, 241, 241);
+    background:  #f2f2f2;
     color: rgb(3, 3, 3);
     font-weight: 100;
     display: flex;
@@ -14,4 +14,19 @@ footer {
   .navbar-element{
     margin-right:1rem ;
   }
-  
+  .navbar-element:hover a {
+    color: orange;
+  }
+  @media screen and (max-width: 768px) {
+    footer {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .navbar-list {
+      flex-direction: column;
+    }
+    .navbar-element {
+      margin-right: 0;
+      margin-bottom: 0.5rem;
+    }
+  }
