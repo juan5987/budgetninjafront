@@ -1,9 +1,11 @@
 <div class="home">
-  <app-homeheader 
-  (onToggleMenu)="toggleMenu($event)" 
-  [isMenuOpened]="isMenuOpened" 
-  (onOpenLoginModal)="openLoginModal()"></app-homeheader>
-  
+  <app-homeheader
+  (onToggleMenu)="toggleMenu($event)"
+  [isMenuOpened]="isMenuOpened"
+  (onOpenLoginModal)="openLoginModal()"
+  class="header"
+  ></app-homeheader>
+
   <app-login-modal *ngIf="isLoginModalOpened" (onCloseLoginModal)="closeLoginModal()"></app-login-modal>
   <app-signup-modal *ngIf="isSignupModalOpened" (onCloseSignupModal)="closeSignupModal()"></app-signup-modal>
 
@@ -92,6 +94,4 @@
       <button class="home__signup" (click)="openSignupModal()">Créer mon compte</button>
     </section>
   </main>
-
-  <footer></footer>
 </div>
