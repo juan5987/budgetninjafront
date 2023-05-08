@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { HomeService } from '../../services/home.service';
 
 @Component({
   selector: 'app-login-modal',
@@ -9,18 +10,15 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 export class LoginModalComponent  implements OnInit{
   submitted: boolean = false;
-  isModalOpen = false;
   formValues: FormGroup = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
   })
-  
-  @Output() onCloseLoginModal:EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor(private formBuilder: FormBuilder) { };
+  constructor(private formBuilder: FormBuilder, private service: HomeService) { };
 
   closeModal() {
-    this.onCloseLoginModal.emit();
+    this.service.isLoginModalOpenedSetter = false;
   }
 
   handleSubmit(e: Event) {
@@ -31,7 +29,7 @@ export class LoginModalComponent  implements OnInit{
 
   stopPropagation(e: Event) {
     e.stopPropagation();
-  }  
+  }
 
   ngOnInit() {
   this.formValues.valueChanges.subscribe(() => {

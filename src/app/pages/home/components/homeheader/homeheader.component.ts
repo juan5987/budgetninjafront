@@ -1,27 +1,26 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { HomeService } from '../../services/home.service';
 
 @Component({
   selector: 'app-homeheader',
   templateUrl: './homeheader.component.html',
   styleUrls: ['./homeheader.component.sass']
 })
-export class HomeheaderComponent {
-  // on récupère la variable isMenuOpened depuis le composant parent
-  @Input() isMenuOpened:boolean=false;
-  // on crée un évènement qui permettra de changer la valeur de la variable isMenuOpened depuis le composant parent
-  @Output() onToggleMenu:EventEmitter<boolean> = new EventEmitter<boolean>();
-  @Output() onOpenLoginModal:EventEmitter<boolean> = new EventEmitter<boolean>();
+export class HomeheaderComponent implements OnInit {
+  @Input() isMenuOpened!:boolean;
 
-  // on crée une fonction qui permet de changer la valeur de la variable isMenuOpened
-  // afin d'ouvrir ou de fermer le menu
+  constructor(private service: HomeService) { }
+
+  ngOnInit(): void {
+    this.isMenuOpened = this.service.isMenuOpenedGetter;
+  }
+
   handleToggleMenu():void {
     this.isMenuOpened = !this.isMenuOpened;
-    // on émet l'évènement onToggleMenu avec la nouvelle valeur de la variable isMenuOpened
-    // afin de pouvoir changer la valeur de la variable isMenuOpened depuis le composant parent
-    this.onToggleMenu.emit(this.isMenuOpened);
+    this.service.isMenuOpenedSetter = !this.service.isMenuOpenedGetter;
   }
 
   openLoginModal():void {
-    this.onOpenLoginModal.emit();
+    this.service.isLoginModalOpenedSetter = true;
   }
 }

@@ -1,37 +1,55 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { HomeService } from '../services/home.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.sass']
 })
-export class HomeComponent {
-  // on initialise la variable isMenuOpened à false
+export class HomeComponent implements OnInit, OnDestroy{
   isMenuOpened:boolean = false;
-  // on initialise la variable isLoginModalOpened à false
   isLoginModalOpened:boolean = false;
   isSignupModalOpened:boolean = false;
-  /**
-   * une fonction qui permet de changer la valeur de la variable isMenuOpened
-   * afin d'ouvrir ou de fermer le menu
-   * @param bool un booléen qui permet de savoir si le menu est ouvert ou non
-   */
+  subscription!: Subscription;
+
+  constructor(private service: HomeService) { }
+
+  ngOnInit() {
+    this.subscription = this.service.isMenuOpenedSubject.subscribe(
+      (bool:boolean) => {
+        this.isMenuOpened = bool;
+      });
+    this.subscription = this.service.isLoginModalOpenedSubject.subscribe(
+      (bool:boolean) => {
+        this.isLoginModalOpened = bool;
+      });
+    this.subscription = this.service.isSignupModalOpenedSubject.subscribe(
+      (bool:boolean) => {
+        this.isSignupModalOpened = bool;
+      });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
   openLoginModal() {
-    this.isLoginModalOpened = true;
-    this.isMenuOpened = false;
+    this.service.isLoginModalOpenedSetter = true;
+    this.service.isMenuOpenedSetter = false;
   }
   openSignupModal() {
-    this.isSignupModalOpened = true;
-    this.isMenuOpened = false;
+    this.service.isSignupModalOpenedSetter = true;
+    this.service.isMenuOpenedSetter = false;
   }
   closeLoginModal() {
-    this.isLoginModalOpened = false;
+    this.service.isLoginModalOpenedSetter = false;
   }
   closeSignupModal() {
-    this.isSignupModalOpened = false;
+    this.service.isSignupModalOpenedSetter = false;
   }
 
   toggleMenu(bool:boolean) {
-    this.isMenuOpened = bool;
+    this.service.isMenuOpenedSetter = bool;
   }
 }
