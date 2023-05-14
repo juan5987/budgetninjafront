@@ -36,6 +36,10 @@
           class="modal__container__form__element__input__error">
           L'email n'est pas au bon format
         </span>
+        <span *ngIf="submitted && form['email'].hasError('notConfirmed')"
+          class="modal__container__form__element__input__error">
+          Les emails doivent être identiques
+        </span>
       </div>
       <div class="modal__container__form__element">
         <label for="connexion_emailConfirm" class="modal__container__form__element__label">
@@ -51,8 +55,10 @@
           class="modal__container__form__element__input__error">
           L'email n'est pas au bon format
         </span>
-        <!-- //TODO : ajouter une validation pour vérifier que les deux emails sont identiques
-        //TODO: afficher l'erreur si les deux emails ne sont pas identiques -->
+        <span *ngIf="submitted && form['emailConfirm'].hasError('notConfirmed')"
+          class="modal__container__form__element__input__error">
+          Les emails doivent être identiques
+        </span>
       </div>
       <div class="modal__container__form__element">
         <label for="signup_password" class="modal__container__form__element__label">
