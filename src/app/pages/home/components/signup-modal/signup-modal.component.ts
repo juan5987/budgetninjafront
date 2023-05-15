@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder, ValidatorFn, AbstractControl, ValidationErrors, FormControl } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { CustomValidatorsService } from './services/custom-validators.service';
 
 @Component({
   selector: 'app-signup-modal',
@@ -10,35 +11,21 @@ export class SignupModalComponent implements OnInit {
   isModalOpen = false;
   submitted: boolean = false;
 
-  isEmailConfirmed = () => {
-    const email = this.formValues?.get('email')?.value;
-    const emailConfirm = this.formValues?.get('emailConfirm')?.value;
-    const isConfirmed = email === emailConfirm;
-    return isConfirmed ? null : { emailNotConfirmed: true };
-  }
-
-  isPasswordConfirmed = () => {
-    const password = this.formValues?.get('password')?.value;
-    const passwordConfirm = this.formValues?.get('passwordConfirm')?.value;
-    const isConfirmed = password === passwordConfirm;
-    return isConfirmed ? null : { passwordNotConfirmed: true };
-  }
-
   formValues: FormGroup = this.formBuilder.group({
-    username: ['aze', [Validators.required, Validators.minLength(3)]],
-    email: ['aze@aze', [Validators.required, Validators.email]],
-    emailConfirm: ['aze@aze', [Validators.required, Validators.email]],
-    password: ['aze', [Validators.required, Validators.minLength(8)]],
-    passwordConfirm: ['aze', [Validators.required, Validators.minLength(8), Validators.pattern("^(?=.*[0-9])(?=.*[!@#$%^&*()])(?=.*[A-Z])(?=.*[a-z]).+$")]],
+    username: ['', [Validators.required, Validators.minLength(3)]],
+    email: ['', [Validators.required, Validators.email]],
+    emailConfirm: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(8)]],
+    passwordConfirm: ['', [Validators.required, Validators.minLength(8), Validators.pattern("^(?=.*[0-9])(?=.*[!@#$%^&*()])(?=.*[A-Z])(?=.*[a-z]).+$")]],
   }, {
-    validators: [this.isEmailConfirmed, this.isPasswordConfirmed],
+    validators: [this.service.isEmailConfirmed, this.service.isPasswordConfirmed],
   })
 
 
 
   @Output() onCloseSignupModal:EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor(private formBuilder: FormBuilder) { };
+  constructor(private formBuilder: FormBuilder, private service: CustomValidatorsService) { };
 
   closeModal() {
     this.onCloseSignupModal.emit();
