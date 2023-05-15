@@ -10,19 +10,28 @@ export class SignupModalComponent implements OnInit {
   isModalOpen = false;
   submitted: boolean = false;
 
-  isConfirmed = (input: FormControl) => {
+  isEmailConfirmed = () => {
     const email = this.formValues?.get('email')?.value;
     const emailConfirm = this.formValues?.get('emailConfirm')?.value;
     const isConfirmed = email === emailConfirm;
-    return isConfirmed ? null : { notConfirmed: true };
+    return isConfirmed ? null : { emailNotConfirmed: true };
+  }
+
+  isPasswordConfirmed = () => {
+    const password = this.formValues?.get('password')?.value;
+    const passwordConfirm = this.formValues?.get('passwordConfirm')?.value;
+    const isConfirmed = password === passwordConfirm;
+    return isConfirmed ? null : { passwordNotConfirmed: true };
   }
 
   formValues: FormGroup = this.formBuilder.group({
-    username: ['', [Validators.required, Validators.minLength(3)]],
-    email: ['', [Validators.required, Validators.email, this.isConfirmed]],
-    emailConfirm: ['', [Validators.required, Validators.email, this.isConfirmed]],
-    password: ['', [Validators.required, Validators.minLength(8)]],
-    passwordConfirm: ['', [Validators.required, Validators.minLength(8), Validators.pattern("^(?=.*[0-9])(?=.*[!@#$%^&*()])(?=.*[A-Z])(?=.*[a-z]).+$")]],
+    username: ['aze', [Validators.required, Validators.minLength(3)]],
+    email: ['aze@aze', [Validators.required, Validators.email]],
+    emailConfirm: ['aze@aze', [Validators.required, Validators.email]],
+    password: ['aze', [Validators.required, Validators.minLength(8)]],
+    passwordConfirm: ['aze', [Validators.required, Validators.minLength(8), Validators.pattern("^(?=.*[0-9])(?=.*[!@#$%^&*()])(?=.*[A-Z])(?=.*[a-z]).+$")]],
+  }, {
+    validators: [this.isEmailConfirmed, this.isPasswordConfirmed],
   })
 
 
