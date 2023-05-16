@@ -27,7 +27,7 @@
           Email
         </label>
         <input type="email" class="modal__container__form__element__input form-control" id="email" name="email"
-          placeholder="saisir une adresse email valide" formControlName="email" />
+          placeholder="saisir une adresse email valide" formControlName="email" autocomplete="email"/>
         <span *ngIf="submitted && form['email'].hasError('required')"
           class="modal__container__form__element__input__error">
           Veuillez saisir une adresse email
@@ -42,7 +42,7 @@
           Confirmation de l'email
         </label>
         <input type="email" class="modal__container__form__element__input form-control" id="emailConfirm"
-          name="emailConfirm" placeholder="confirmer l'adresse email" formControlName="emailConfirm" />
+          name="emailConfirm" placeholder="confirmer l'adresse email" formControlName="emailConfirm" autocomplete="email" />
         <span *ngIf="submitted && form['emailConfirm'].hasError('required')"
           class="modal__container__form__element__input__error">
           Veuillez confirmer l'email
@@ -61,7 +61,7 @@
           Mot de passe
         </label>
         <input type="password" class="modal__container__form__element__input" id="password" name="password"
-          placeholder="saisir un mot de passe" formControlName="password" />
+          placeholder="saisir un mot de passe" formControlName="password" autocomplete="new-password"/>
         <span *ngIf="submitted && form['password'].hasError('required')"
           class="modal__container__form__element__input__error">
           Veuillez saisir un mot de passe
@@ -77,7 +77,7 @@
           Confirmation du mot de passe
         </label>
         <input type="password" class="modal__container__form__element__input" id="passwordConfirm"
-          name="passwordConfirm" placeholder="confirmer le mot de passe" formControlName="passwordConfirm" />
+          name="passwordConfirm" placeholder="confirmer le mot de passe" formControlName="passwordConfirm" autocomplete="new-password"/>
         <span *ngIf="submitted && form['passwordConfirm'].hasError('required')"
           class="modal__container__form__element__input__error">
           Veuillez confirmer le mot de passe
