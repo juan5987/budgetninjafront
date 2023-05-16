@@ -17,9 +17,13 @@
           class="modal__container__form__element__input__error">
           Veuillez saisir un pseudo
         </span>
-        <span *ngIf="submitted && form['username'].hasError('minlength')"
+        <span *ngIf="submitted && (form['username'].hasError('minlength') ||form['username'].hasError('maxlength'))"
           class="modal__container__form__element__input__error">
-          Le pseudo doit contenir 3 lettres minimum
+          Le pseudo doit contenir entre 3 et 20 caractères
+        </span>
+        <span *ngIf="submitted && form['username'].hasError('pattern')"
+          class="modal__container__form__element__input__error">
+          Le pseudo ne doit contenir que des lettres ou des chiffres
         </span>
       </div>
       <div class="modal__container__form__element">

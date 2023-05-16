@@ -12,7 +12,7 @@ export class SignupModalComponent implements OnInit {
   submitted: boolean = false;
 
   formValues: FormGroup = this.formBuilder.group({
-    username: ['', [Validators.required, Validators.minLength(3)]],
+    username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern("^[a-zA-Z0-9]+$")]],
     email: ['', [Validators.required, Validators.email]],
     emailConfirm: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(8)]],
