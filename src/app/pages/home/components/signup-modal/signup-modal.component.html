@@ -36,7 +36,7 @@
           class="modal__container__form__element__input__error">
           Veuillez saisir une adresse email
         </span>
-        <span *ngIf="submitted && form['email'].hasError('email')"
+        <span *ngIf="submitted && form['email'].hasError('pattern')"
           class="modal__container__form__element__input__error">
           L'email n'est pas au bon format
         </span>
@@ -51,7 +51,7 @@
           class="modal__container__form__element__input__error">
           Veuillez confirmer l'email
         </span>
-        <span *ngIf="submitted && form['emailConfirm'].hasError('email')"
+        <span *ngIf="submitted && form['emailConfirm'].hasError('pattern')"
           class="modal__container__form__element__input__error">
           L'email n'est pas au bon format
         </span>
@@ -70,9 +70,13 @@
           class="modal__container__form__element__input__error">
           Veuillez saisir un mot de passe
         </span>
+        <span *ngIf="submitted && form['password'].hasError('minlength')"
+        class="modal__container__form__element__input__error">
+        Le mot de passe doit contenir au moins 8 caractères
+      </span>
         <span *ngIf="submitted && form['password'].hasError('pattern')"
           class="modal__container__form__element__input__error">
-          Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre
+          Le mot de passe doit contenir une majuscule, une minuscule et un chiffre
         </span>
         <p class="modal__container__form__element__error"></p>
       </div>
@@ -89,6 +93,14 @@
         <span *ngIf="submitted && formValues.hasError('passwordNotConfirmed')"
           class="modal__container__form__element__input__error">
           Les mots de passe doivent être identiques
+        </span>
+        <span *ngIf="submitted && form['passwordConfirm'].hasError('minlength')"
+        class="modal__container__form__element__input__error">
+        Le mot de passe doit contenir au moins 8 caractères
+      </span>
+        <span *ngIf="submitted && form['passwordConfirm'].hasError('pattern')"
+          class="modal__container__form__element__input__error">
+          Le mot de passe doit contenir une majuscule, une minuscule et un chiffre
         </span>
         <p class="modal__container__form__element__error"></p>
       </div>

@@ -4,12 +4,12 @@
     align-items: center
     position: fixed
     top: 0
-    bottom: 0
     left: 0
     right: 0
     background-color: rgba(0,0,0, .75)
     z-index: 1
     font-family: 'Shojumaru', 'Roboto', cursive
+    min-height: 100vh
 
     &__container
         display: flex
@@ -20,6 +20,11 @@
         border-radius: 1rem
         border: 5px solid orange
         position: relative
+        overflow-y: scroll
+        max-height: 100vh
+
+        &::-webkit-scrollbar
+          display: none
 
         &__logo
             height: 80px
@@ -40,8 +45,7 @@
             &__element
                 display: flex
                 flex-direction: column
-                height: 6rem
-                position: relative
+                margin-bottom: .75rem
 
                 &__label
                     color: orange
@@ -62,9 +66,8 @@
                         text-align: center
                         font-weight: normal
                         font-size: 1rem
-                        position: absolute
-                        bottom: 0
-                        width: 100%
+                        margin-top: .25rem
+                        width: 350px
 
             &__submit
                 background-color: orange
