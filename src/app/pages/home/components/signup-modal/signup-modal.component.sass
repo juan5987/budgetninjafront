@@ -63,11 +63,15 @@
                     &__error
                         color: red
                         font-family: 'Roboto', cursive
-                        text-align: center
+                        text-align: left
                         font-weight: normal
                         font-size: 1rem
                         margin-top: .25rem
                         width: 350px
+
+                        &::before
+                            content: '⚠ '
+                            font-size: 1.2rem
 
             &__submit
                 background-color: orange
