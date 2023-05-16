@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { CustomValidatorsService } from './services/custom-validators.service';
+import { FormService } from './services/form.service';
 
 @Component({
   selector: 'app-signup-modal',
@@ -18,14 +19,14 @@ export class SignupModalComponent implements OnInit {
     password: ['', [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*()])(?=.*[A-Z])(?=.*[a-z]).+$/)]],
     passwordConfirm: ['', [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*()])(?=.*[A-Z])(?=.*[a-z]).+$/)]],
   }, {
-    validators: [this.service.isEmailConfirmed, this.service.isPasswordConfirmed],
+    validators: [this.CustomValidatorsService.isEmailConfirmed, this.CustomValidatorsService.isPasswordConfirmed],
   })
 
 
 
-  @Output() onCloseSignupModal:EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() onCloseSignupModal: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor(private formBuilder: FormBuilder, private service: CustomValidatorsService) { };
+  constructor(private formBuilder: FormBuilder, private CustomValidatorsService: CustomValidatorsService, private FormService: FormService ) { };
 
   closeModal() {
     this.onCloseSignupModal.emit();
@@ -34,6 +35,15 @@ export class SignupModalComponent implements OnInit {
   handleSubmit(e: Event) {
     e.preventDefault();
     this.submitted = true;
+    if (this.formValues.valid) {
+      this.FormService.signup(this.formValues.value).subscribe(
+        (response:any) => {
+          console.log(response);
+        }, (error:any) => {
+          console.log(error);
+        }
+      )
+    }
   }
 
   stopPropagation(e: Event) {
