@@ -11,6 +11,7 @@ import { FormService } from './services/form.service';
 export class SignupModalComponent implements OnInit {
   isModalOpen = false;
   submitted: boolean = false;
+  showPassword: boolean = false;
 
   formValues: FormGroup = this.formBuilder.group({
     username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern(/^[a-zA-Z0-9]+$/)]],
@@ -48,6 +49,10 @@ export class SignupModalComponent implements OnInit {
 
   stopPropagation(e: Event) {
     e.stopPropagation();
+  }
+
+  handleToggleShowPassword() {
+    this.showPassword = !this.showPassword;
   }
 
   ngOnInit() {
