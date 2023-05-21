@@ -7,4 +7,21 @@ import { Component } from '@angular/core';
 })
 export class SidebarComponent {
 
-}
+    elementsListe = document.querySelectorAll("#maListe li");
+  
+    attachEventListeners() {
+      this.elementsListe.forEach((element) => {
+        element.addEventListener("mouseover", () => {
+          element.classList.add("highlight");
+        });
+  
+        element.addEventListener("mouseout", () => {
+          element.classList.remove("highlight");
+        });
+  
+        element.addEventListener("click", () => {
+          element.classList.toggle("highlight");
+        });
+      });
+    }
+  }
