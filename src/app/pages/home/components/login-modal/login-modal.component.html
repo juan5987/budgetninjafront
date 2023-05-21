@@ -1,0 +1,54 @@
+<div class="modal" (click)="closeModal()">
+  <div class="modal__container" (click)="stopPropagation($event)">
+    <span class="cross" (click)="closeModal()">
+      <span class="cross__line cross__line__one">&nbsp;</span>
+      <span class="cross__line cross__line__two">&nbsp;</span>
+    </span>
+    <img class="modal__container__logo" src="assets/images/logo.png" alt="logo représentant un ninja">
+    <h2 class="modal__container__title">connexion</h2>
+    <form class="modal__container__form" [formGroup]="formValues" (ngSubmit)="handleSubmit($event)">
+      <div class="modal__container__form__element">
+        <label for="connexion_email" class="modal__container__form__element__label">Email</label>
+        <input 
+          type="email" 
+          class="modal__container__form__element__input form-control" 
+          id="email"
+          name="email"
+          placeholder="Entrez votre email"
+          formControlName="email"
+          required
+          />
+          <span *ngIf="submitted && form['email'].hasError('email')" class="modal__container__form__element__input__error">L'email n'est pas au bon format</span>
+          <span *ngIf="submitted && form['email'].hasError('required')" class="modal__container__form__element__input__error">Veuillez renseigner votre adresse email</span>
+      </div>
+      <div class="modal__container__form__element">
+        <label for="connexion_password" class="modal__container__form__element__label">Mot de passe</label>
+        <input 
+          type="password" 
+          class="modal__container__form__element__input" 
+          id="password" 
+          name="password"
+          placeholder="Entrez votre mot de passe"
+          formControlName="password"
+        />
+        <span *ngIf="submitted && form['password'].hasError('required')" class="modal__container__form__element__input__error">Veuillez renseigner votre mot de passe</span>
+      </div>
+      <div class="modal__container__form__stayConnected">
+        <label class="modal__container__form__stayConnected__label" for="stayConnected">Rester connecté</label>
+        <input 
+        type="checkbox" 
+        id="stayConnected" 
+        class="modal__container__form__stayConnected__checkbox"
+        aria-describedby="stayConnectedHelp"
+        stayConnectedHelp="Veuillez cocher la case pour rester connecté"
+        >
+      </div>
+      <button class="modal__container__form__forgot" type="button">Mot de passe oublié ?</button>
+      <button class="main_button modal__container__form__submit" type="submit">valider</button>
+    </form>
+    <button class="modal__container__form__signup" type="button">
+      Pas encore
+      inscrit ? créez votre compte
+    </button>
+  </div>
+</div>
