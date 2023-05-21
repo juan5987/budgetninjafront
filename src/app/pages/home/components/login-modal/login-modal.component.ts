@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { HomeService } from '../../services/home.service';
+import { FormService } from './services/form.service';
 
 @Component({
   selector: 'app-login-modal',
@@ -15,7 +16,7 @@ export class LoginModalComponent  implements OnInit{
     password: ['', Validators.required],
   })
 
-  constructor(private formBuilder: FormBuilder, private service: HomeService) { };
+  constructor(private formBuilder: FormBuilder, private service: HomeService, private FormService: FormService ) { };
 
   closeModal() {
     this.service.isLoginModalOpenedSetter = false;
@@ -24,7 +25,15 @@ export class LoginModalComponent  implements OnInit{
   handleSubmit(e: Event) {
     e.preventDefault();
     this.submitted = true;
-    //TODO: REQUETTE HTTP
+    if (this.formValues.valid) {
+      this.FormService.signup(this.formValues.value).subscribe(
+        (response:any) => {
+          console.log(response);
+        }, (error:any) => {
+          console.log(error);
+        }
+      )
+    }
   }
 
   stopPropagation(e: Event) {
