@@ -74,7 +74,6 @@ import { SignupModalComponent } from './pages/home/components/signup-modal/signu
     HomeheaderComponent,
     LoginModalComponent,
     SignupModalComponent,
-
   ],
   imports: [
     BrowserModule,
