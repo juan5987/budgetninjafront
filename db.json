@@ -2,27 +2,19 @@
   "alertList": [
     {
       "alertName": "money",
-      "seuilAmount": "450",
-      "periodInput": "2",
-      "periodDropdown": "semaines",
-      "commentaries": "c'est le montant à ne pas dépasser !",
-      "id": 1
-    },
-    {
-      "alertName": "test",
-      "seuilAmount": "48",
-      "periodInput": "14",
-      "periodDropdown": "mois",
-      "commentaries": "blahblah",
-      "id": 2
-    },
-    {
-      "alertName": "money",
-      "seuilAmount": "8",
+      "seuilAmount": "15",
       "periodInput": "2",
       "periodDropdown": "mois",
       "commentaries": "c'est le montant à ne pas dépasser !",
       "id": 4
+    },
+    {
+      "alertName": "sfwdf",
+      "seuilAmount": "45",
+      "periodInput": "6",
+      "periodDropdown": "semaines",
+      "commentaries": "fdxfdwf",
+      "id": 5
     }
   ],
   "comments": [

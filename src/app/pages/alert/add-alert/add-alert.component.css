@@ -21,54 +21,160 @@ h2{
   border-radius: 5px;
   padding: 10px;
   font-size: 16px;
-  width: 30%;
+  width: 40%;
 }
 
-.twoButtonSideBySide{
-  display: flex;
-  flex-direction: row;
 
 
-
-}
 
 .example-full-width {
   width: 88%;
 }
 
 
-.main{
-  display: flex;
-  flex-direction: column;
-  gap: 45px;
-}
 
-.lineOne, .lineTwo {
-  display: flex;
-  flex-direction: row;
-  gap: 20%;
-}
 
-.lineThree{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10%;
-}
 
-.allLines{
-  display: flex;
-  flex-direction: column;
-  gap: 35px;
-}
+
 
 .customDropdown{
 
   border: 2px solid black;
   border-radius: 5px;
   padding: 10px;
+  margin-right: 32%;
   font-size: 16px;
-  width: 5%px;
 }
+
+
+.textDiv{
+  display: flex;
+  flex-direction: column;
+  gap: 75px;
+
+}
+
+.inputDiv{
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}
+
+.textAndInputDivs{
+  display: flex;
+  flex-direction: row;
+  gap: 45px;
+
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.twoButtonSideBySide{
+  display: flex;
+  flex-direction: row;
+
+ ;
+}
+
+
+
+.content{
+  margin-left: 10%;
+  margin-top: 35px;
+}
+
+
+h2{
+  margin-bottom: 60px;
+  margin-left: 34%;
+}
+
+.dialogInput{
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.periodButtonSmall{
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  width: 30%;
+}
+
+
+
+
+.example-full-width {
+  width: 88%;
+}
+
+
+
+
+
+
+
+.customDropdown{
+
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 10px;
+
+  font-size: 16px;
+}
+
+
+.textDiv{
+  display: flex;
+  flex-direction: column;
+  gap: 75px;
+
+}
+
+.inputDiv{
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}
+
+.textAndInputDivs{
+  display: flex;
+  flex-direction: row;
+  gap: 45px;
+
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+
+}
+
+
+
+.CommentariesPlusBothDivs{
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+
+
+
+
+
+.CommentariesPlusBothDivs{
+  display: flex;
+  flex-direction: column;
+gap: 50px;
+}
+
 
 

@@ -1,92 +1,77 @@
-
-
 <div class="content">
+  <h2>Nom de l'alerte</h2>
 
-<h2>Nom de l'alerte</h2>
+  <div class="main">
+    <form [formGroup]="alertForm">
 
-<div class="main">
 
-  <form [formGroup]="alertForm">
+    <div class="CommentariesPlusBothDivs">
+      <div class="textAndInputDivs">
 
-    <div class="allLines">
-
-        <div class="lineOne">
+        <div class="textDiv">
           <div>
             <span>Nom de l'alerte</span>
           </div>
-
           <div>
-           <input formControlName="alertName" class="dialogInput" placeholder="mon_budget">
+            <span>Seuil à ne pas dépasser</span>
+          </div>
+          <div>  <span style="  white-space: nowrap;
+        ">Pour tout les </span>
           </div>
         </div>
 
 
+        <div class="inputDiv">
 
-        <div class="lineTwo">
           <div>
-            <span>Seuil à ne pas dépasser</span>
+            <input formControlName="alertName" class="dialogInput" placeholder="mon_budget">
           </div>
 
           <div>
             <input formControlName="seuilAmount" class="dialogInput" placeholder="45€">
           </div>
-        </div>
 
 
+          <div class="thirdLineTwoInputs">
+
+            <div class="twoButtonSideBySide">
+              <div>
+                <input formControlName="periodInput" class="periodButtonSmall" placeholder="6">
+              </div>
 
 
-        <div class="lineThree">
-
-          <div>  <span style="  white-space: nowrap;
-        ">Pour tout les </span>
-          </div>
-
-        <div class="twoButtonSideBySide">
-          <div>
-            <input formControlName="periodInput" class="periodButtonSmall" placeholder="6">
-          </div>
+                <div class="customDropdown">
+                  <select formControlName="periodDropdown">
+                    <option value="jours">jours</option>
+                    <option value="semaines">semaines</option>
+                    <option value="mois">mois</option>
+                  </select>
+                </div>
 
 
-          <div>
-
-            <div class="customDropdown">
-              <select formControlName="periodDropdown">
-                <option value="jours">jours</option>
-                <option value="semaines">semaines</option>
-                <option value="mois">mois</option>
-              </select>
             </div>
-          </div>
+
 
           </div>
+
 
         </div>
-
-
-
-
-
-
-
-          <div>
+      </div>
+        <div>
           <mat-form-field class="example-full-width">
             <mat-label>Commentaire</mat-label>
             <textarea formControlName="commentaries" matInput placeholder="Ex. cela à pour but ..."></textarea>
           </mat-form-field>
-          </div>
+        </div>
+
     </div>
-
-  </form>
-
-
-</div>
+    </form>
+  </div>
 
 
+  <div mat-dialog-actions [align]="'center'">
+    <button mat-basic-button color="warn" mat-dialog-close>Annuler</button>
+    <button style="margin-left: 15px;" mat-raised-button color="warn" (click)="addAlertAction()">{{actionBtn}}</button>
+  </div>
 
-<div  mat-dialog-actions [align]="'center'">
-
-  <button mat-basic-button color="warn" mat-dialog-close>Annuler</button>
-  <button style="margin-left: 15px;"  mat-raised-button color="warn" (click)="addAlertAction()" >{{actionBtn}}</button>
-
-</div>
 </div>
