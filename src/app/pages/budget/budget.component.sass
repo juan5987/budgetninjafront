@@ -1,64 +1,69 @@
 .budget
-  width: 100vw
-  height: 100vh
-  display: flex
-  flex-direction: column
-
-  &__indicators
-    width: 100%
-    padding: 1rem
-
-    &__header
-      display: flex
-      justify-content: space-between
-      align-items: center
-      padding: 0 1rem
-      margin-bottom: 1rem
-
-      &__title
-        font-size: 1.5rem
-        font-weight: 700
-
-      &__link
-        font-size: 1rem
-        font-weight: 700
-        text-decoration: underline
+    display: flex
 
     &__content
-      display: flex
-      flex-direction: column
-      align-items: flex-start
-      width: 100%
-      padding: 2rem
-
-      &__item
-        width: 100%
+        flex-grow: 1
+        min-height: 100vh
+        height: 100vh
         display: flex
-        justify-content: space-between
+        flex-direction: column
+        width: 100%
 
-        &__value
-          font-size: 1.5rem
-          font-weight: 700
+        &__indicators
+            width: 100%
+            padding: 1rem
 
-        &__label
-          font-size: 1rem
-          font-weight: 700
+            &__header
+                display: flex
+                justify-content: space-between
+                align-items: center
+                padding: 0 1rem
+                margin-bottom: 1rem
 
-  &__transactions
-    padding: 1rem
+                &__title
+                    font-size: 1.5rem
+                    font-weight: 700
 
-    &__header
-      display: flex
-      justify-content: space-between
-      align-items: center
-      padding: 0 1rem
-      margin-bottom: 1rem
+                &__link
+                    font-size: 1rem
+                    font-weight: 700
+                    text-decoration: underline
 
-      &__title
-        font-size: 1.5rem
-        font-weight: 700
+            &__content
+                display: flex
+                flex-direction: column
+                align-items: flex-start
+                width: 100%
+                padding: 2rem
 
-      &__link
-        font-size: 1rem
-        font-weight: 700
-        text-decoration: underline
+                &__item
+                    width: 100%
+                    display: flex
+                    justify-content: space-between
+
+                    &__value
+                        font-size: 1.5rem
+                        font-weight: 700
+
+                    &__label
+                        font-size: 1rem
+                        font-weight: 700
+
+        &__transactions
+            padding: 1rem
+
+            &__header
+                display: flex
+                justify-content: space-between
+                align-items: center
+                padding: 0 1rem
+                margin-bottom: 1rem
+
+                &__title
+                    font-size: 1.5rem
+                    font-weight: 700
+
+                &__link
+                    font-size: 1rem
+                    font-weight: 700
+                    text-decoration: underline
