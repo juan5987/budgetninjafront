@@ -8,6 +8,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 // Composants
 import { AppComponent } from './app.component';
@@ -19,7 +21,7 @@ import { CategoriesComponent } from './pages/categories/categories.component';
 import { AccountComponent } from './pages/account/account.component';
 import { SidebarComponent } from './commons/sidebar/sidebar.component';
 import { LinkToAccountComponent } from './commons/link-to-account/link-to-account.component';
-import { HomeComponent } from './pages/home/home.component';
+import { HomeComponent } from './pages/home/pages/home.component';
 import { AccountUpdateUsernameComponent } from './pages/account/account-update-username/account-update-username.component';
 import { AccountUpdateEmailComponent } from './pages/account/account-update-email/account-update-email.component';
 import { AccountUpdatePasswordComponent } from './pages/account/account-update-password/account-update-password.component';
@@ -39,9 +41,9 @@ import { AddProjectModalComponent } from './pages/saving/add-project-modal/add-p
 import { SavingProjectComponent } from './pages/saving/saving-project/saving-project.component';
 import { DeleteProgramedSavingModalComponent } from './pages/saving/delete-programed-saving-modal/delete-programed-saving-modal.component';
 import { DeleteSavingProjectModalComponent } from './pages/saving/delete-saving-project-modal/delete-saving-project-modal.component';
-import { HomeheaderComponent } from './pages/home/homeheader/homeheader.component';
-import { LoginModalComponent } from './pages/home/login-modal/login-modal.component';
-import { SignupModalComponent } from './pages/home/signup-modal/signup-modal.component';
+import { HomeheaderComponent } from './pages/home/components/homeheader/homeheader.component';
+import { LoginModalComponent } from './pages/home/components/login-modal/login-modal.component';
+import { SignupModalComponent } from './pages/home/components/signup-modal/signup-modal.component';
 
 
 @NgModule({
@@ -88,7 +90,10 @@ import { SignupModalComponent } from './pages/home/signup-modal/signup-modal.com
     MatSidenavModule,
     MatButtonModule,
     MatIconModule,
-    MatDividerModule
+    MatDividerModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

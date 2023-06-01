@@ -1,16 +1,30 @@
-<div id="sidebar">
-    <div class="logo">
-        <a href=""><img src="assets/images/logo.png" alt="Logo"></a>
+<div class="sidebar">
+    <div class="sidebar__top">
+        <a routerLink="/">
+            <img src="assets/images/logo.png" alt="un ninja" class="sidebar__top__logo">
+        </a>
+        <div class="sidebar__top__title">
+            <div class="sidebar__top__title__top">budget</div>
+            <div class="sidebar__top__title__bottom">ninja</div>
+        </div>
     </div>
-    <nav>
-        <ul id="maListe">
-            <li><a routerLink="/">Tableau de bord</a></li>
-            <li><a routerLink="/">Budget</a></li>
-            <li><a routerLink="/">Epargne</a></li>
-            <li><a routerLink="/">Alerte</a></li>
+    <nav class="sidebar__nav">
+        <ul id="sidebar__nav__list">
+            <li class="sidebar__nav__list__element">
+                <a class="sidebar__nav__list__element__link" routerLink="/dashboard">Tableau de bord</a>
+            </li>
+            <li class="sidebar__nav__list__element">
+                <a class="sidebar__nav__list__element__link" routerLink="/budget">Budget</a>
+            </li>
+            <li class="sidebar__nav__list__element">
+                <a class="sidebar__nav__list__element__link" routerLink="/saving">Epargne</a>
+            </li>
+            <li class="sidebar__nav__list__element">
+                <a class="sidebar__nav__list__element__link" routerLink="/alert">Alerte</a>
+            </li>
         </ul>
     </nav>
-    <div class="about-link">
-        <a routerLink="/about">À propos</a>
+    <div class="sidebar__about">
+        <a class="sidebar__about__link" routerLink="/about">À propos</a>
     </div>
 </div>

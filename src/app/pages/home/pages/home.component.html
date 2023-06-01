@@ -1,10 +1,10 @@
 <div class="home">
-  <app-homeheader 
-  (onToggleMenu)="toggleMenu($event)" 
-  [isMenuOpened]="isMenuOpened" 
-  (onOpenLoginModal)="openLoginModal()"></app-homeheader>
-  
-  <app-login-modal *ngIf="isLoginModalOpened" (onCloseLoginModal)="closeLoginModal()"></app-login-modal>
+  <app-homeheader
+  class="header"
+  [isMenuOpened]="isMenuOpened"
+  ></app-homeheader>
+
+  <app-login-modal *ngIf="isLoginModalOpened"></app-login-modal>
   <app-signup-modal *ngIf="isSignupModalOpened" (onCloseSignupModal)="closeSignupModal()"></app-signup-modal>
 
   <!-- contenu du menu mobile (bouton connexion) -->
@@ -92,6 +92,4 @@
       <button class="home__signup" (click)="openSignupModal()">Créer mon compte</button>
     </section>
   </main>
-
-  <footer></footer>
 </div>

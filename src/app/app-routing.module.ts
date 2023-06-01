@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
+import { HomeComponent } from './pages/home/pages/home.component';
 import { AccountComponent } from './pages/account/account.component';
 import { AlertComponent } from './pages/alert/alert.component';
 import { BudgetComponent } from './pages/budget/budget.component';
