@@ -42,10 +42,14 @@ table {
 
 h1{
   margin-bottom: 5%;
+  font-family: "Shojumaru";
+
 }
 
 h2{
   margin-top: 3%;
+  font-family: "Shojumaru";
+
 
 }
 
@@ -108,4 +112,9 @@ align-items: center;
 .twoButtonSideBySide{
   display: flex;
   flex-direction: row;
+}
+
+.mat-elevation-z0{
+  display: flex;
+  flex-direction: column;
 }
