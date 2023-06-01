@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidebar.component.sass']
 })
 export class SidebarComponent {
+  isMenuOpened: boolean = false;
 
+  handleToggleMenu(): void {
+    this.isMenuOpened = !this.isMenuOpened;
   }
+}

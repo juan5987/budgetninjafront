@@ -3,4 +3,127 @@
 
     &__content
         flex-grow: 1
+<<<<<<< Updated upstream
         min-height: 100vh
+=======
+        min-height: 100vh
+        height: 100vh
+        display: flex
+        flex-direction: column
+        width: 100%
+        padding: 2rem
+
+        &__indicators
+            width: 100%
+            padding: 1rem
+
+            &__header
+                display: flex
+                justify-content: space-between
+                align-items: center
+                padding: 0 1rem
+                margin-bottom: 1rem
+
+                &__title
+                    font-size: 2rem
+                    font-weight: 700
+                    font-family: 'Shojumaru', 'Roboto', cursive
+                    color: rgb(24,24,24)
+                    width: 100%
+                    text-align: center
+
+                &__link
+                    font-size: 1.5rem
+                    font-weight: 700
+                    text-decoration: underline
+
+            &__content
+                display: flex
+                flex-direction: column
+                align-items: flex-start
+                width: 100%
+                padding: 2rem
+
+                &__item
+                    width: 100%
+                    display: flex
+                    justify-content: space-between
+                    margin-bottom: 1rem
+
+                    &__value
+                        font-size: 1.5rem
+                        font-weight: 700
+
+                    &__label
+                        font-size: 1.5rem
+                        font-weight: 700
+
+        &__transactions
+            padding: 1rem
+
+            &__header
+                display: flex
+                justify-content: space-between
+                align-items: center
+                padding: 0 1rem
+                margin-bottom: 1rem
+
+                &__title
+                    font-size: 2rem
+                    font-weight: 700
+                    font-family: 'Shojumaru', 'Roboto', cursive
+                    color: rgb(24,24,24)
+                    width: 100%
+                    text-align: center
+
+            &__add
+                background-color: orange
+                color: white
+                font-size: 1rem
+                text-transform: uppercase
+                padding: .5em 1em
+                border-radius: 1em
+                font-family: 'Shojumaru', 'Roboto', cursive
+                cursor: pointer
+                margin-bottom: 2rem
+                display: block
+                margin: 0 auto
+
+                &:hover
+                    background-color: white
+                    background-color: rgb(24,24,24)
+
+            &__table
+                display: flex
+                flex-direction: column
+                align-items: center
+                justify-content: center
+                margin-top: 2rem
+                width: 100%
+
+thead, tbody
+    width: 100%
+    text-align: center
+
+tr
+    display: flex
+    justify-content: space-between
+    flex: 1
+
+td, th
+    flex: 1
+    border: 1px solid black
+    text-align: center
+
+td:nth-child(2), td:nth-child(3), th:nth-child(2), th:nth-child(3)
+    flex: 2
+    text-align: center
+
+td:nth-child(5), td:nth-child(6), th:nth-child(5), th:nth-child(6)
+    flex: .5
+    text-align: center
+                    
+@media all and (max-width: 800px)
+    .budget
+        flex-direction: column
+>>>>>>> Stashed changes
