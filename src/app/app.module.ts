@@ -1,19 +1,23 @@
 // Modules
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {MatDividerModule} from '@angular/material/divider';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
-import {HttpClientModule} from "@angular/common/http";
 import {MatPaginatorModule} from "@angular/material/paginator";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSortModule} from '@angular/material/sort';
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 // Composants
 import { AppComponent } from './app.component';
@@ -45,7 +49,6 @@ import { AddProjectModalComponent } from './pages/saving/add-project-modal/add-p
 import { SavingProjectComponent } from './pages/saving/saving-project/saving-project.component';
 import { DeleteProgramedSavingModalComponent } from './pages/saving/delete-programed-saving-modal/delete-programed-saving-modal.component';
 import { DeleteSavingProjectModalComponent } from './pages/saving/delete-saving-project-modal/delete-saving-project-modal.component';
-import {MatIconModule} from "@angular/material/icon";
 import { HomeheaderComponent } from './pages/home/components/homeheader/homeheader.component';
 import { LoginModalComponent } from './pages/home/components/login-modal/login-modal.component';
 import { SignupModalComponent } from './pages/home/components/signup-modal/signup-modal.component';
@@ -103,6 +106,11 @@ import { SignupModalComponent } from './pages/home/components/signup-modal/signu
     MatPaginatorModule,
     MatSortModule,
     MatIconModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDividerModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -110,4 +118,5 @@ import { SignupModalComponent } from './pages/home/components/signup-modal/signu
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
