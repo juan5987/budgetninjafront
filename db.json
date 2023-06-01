@@ -1,14 +1,6 @@
 {
   "alertList": [
     {
-      "alertName": "money",
-      "seuilAmount": "15",
-      "periodInput": "2",
-      "periodDropdown": "mois",
-      "commentaries": "c'est le montant à ne pas dépasser !",
-      "id": 4
-    },
-    {
       "alertName": "sfwdf",
       "seuilAmount": "45",
       "periodInput": "6",

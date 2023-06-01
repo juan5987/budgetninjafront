@@ -51,6 +51,8 @@ h2{
 .autresNotif{
   display: flex;
   flex-direction: column;
+  gap: 25px;
+
 
 }
 
@@ -71,4 +73,26 @@ align-items: center;
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 2%;
+}
+
+.periodButtonSmall{
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  width: 40%;
+}
+
+.customDropdown{
+
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 32%;
+  font-size: 16px;
+}
+
+.twoButtonSideBySide{
+  display: flex;
+  flex-direction: row;
 }

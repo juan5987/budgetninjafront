@@ -1,11 +1,6 @@
 <div class="containerAlertPage">
 <h1>Les alertes du ninja</h1>
 
-
-
-
-
-
   <div class="containerList">
 
     <div class="test">
@@ -17,7 +12,7 @@
     <div>
 
     <input (keyup)="applyFilter($event)" class="filterBar" placeholder="Filtre" #input>
-  </div>
+      </div>
 
     </div>
 
@@ -132,18 +127,34 @@
 
 
   <div class="checkTwo">
-    <h4>Recevoir un mail, récapitulant ma situation budgétaire tout les</h4>
+    <h4> Être averti lorseque mes dépensent empechent le versement de l'épargne programmée</h4>
     <section class="example-section">
       <mat-checkbox class="example-margin"></mat-checkbox>
     </section>
   </div>
 
-
   <div class="checkThree">
-    <h4> Être averti lorseque mes dépensent empechent le versement de l'épargne programmée</h4>
-    <section class="example-section">
-      <mat-checkbox class="example-margin"></mat-checkbox>
-    </section>
+    <h4>Recevoir un mail, récapitulant ma situation budgétaire tout les</h4>
+
+
+
+    <div class="twoButtonSideBySide">
+      <div>
+        <input class="periodButtonSmall" placeholder="6">
+      </div>
+
+
+      <div class="customDropdown">
+        <select formControlName="periodDropdown">
+          <option value="jours">jours</option>
+          <option value="semaines">semaines</option>
+          <option value="mois">mois</option>
+        </select>
+      </div>
+
+
+    </div>
+
   </div>
 
 
