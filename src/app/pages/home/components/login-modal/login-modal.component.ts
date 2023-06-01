@@ -36,6 +36,12 @@ export class LoginModalComponent  implements OnInit{
     }
   }
 
+  openSignupModal() {
+    this.closeModal();
+    this.service.isSignupModalOpenedSetter = true;
+    this.service.isMenuOpenedSetter = false;
+  }
+
   stopPropagation(e: Event) {
     e.stopPropagation();
   }
