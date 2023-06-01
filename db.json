@@ -2,19 +2,11 @@
   "alertList": [
     {
       "alertName": "sfwdf",
-      "seuilAmount": "45",
+      "seuilAmount": "500",
       "periodInput": "6",
       "periodDropdown": "semaines",
       "commentaries": "fdxfdwf",
       "id": 5
-    },
-    {
-      "alertName": "dfg",
-      "seuilAmount": "45",
-      "periodInput": "4",
-      "periodDropdown": "jours",
-      "commentaries": "hjkhjkh",
-      "id": 6
     }
   ],
   "comments": [

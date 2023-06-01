@@ -12,7 +12,7 @@ import { SavingComponent } from './pages/saving/saving.component';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'account', component: AccountComponent},
-  {path: 'alerts', component: AlertComponent},
+  {path: 'alert', component: AlertComponent},
   {path: 'budget', component: BudgetComponent},
   {path: 'categories', component: CategoriesComponent},
   {path: 'dashboard', component: DashboardComponent},
