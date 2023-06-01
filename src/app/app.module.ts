@@ -1,5 +1,7 @@
+// Modules
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+<<<<<<< HEAD
 import {MatDividerModule} from '@angular/material/divider';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatButtonModule} from '@angular/material/button';
@@ -14,7 +16,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSortModule} from '@angular/material/sort';
 
 
+=======
+>>>>>>> 05ed6ca004bbb50d4c236738d5ca0ec3a466d1e4
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+// Composants
 import { AppComponent } from './app.component';
 import { SavingComponent } from './pages/saving/saving.component';
 import { AlertComponent } from './pages/alert/alert.component';
@@ -24,7 +32,7 @@ import { CategoriesComponent } from './pages/categories/categories.component';
 import { AccountComponent } from './pages/account/account.component';
 import { SidebarComponent } from './commons/sidebar/sidebar.component';
 import { LinkToAccountComponent } from './commons/link-to-account/link-to-account.component';
-import { HomeComponent } from './pages/home/home.component';
+import { HomeComponent } from './pages/home/pages/home.component';
 import { AccountUpdateUsernameComponent } from './pages/account/account-update-username/account-update-username.component';
 import { AccountUpdateEmailComponent } from './pages/account/account-update-email/account-update-email.component';
 import { AccountUpdatePasswordComponent } from './pages/account/account-update-password/account-update-password.component';
@@ -44,7 +52,13 @@ import { AddProjectModalComponent } from './pages/saving/add-project-modal/add-p
 import { SavingProjectComponent } from './pages/saving/saving-project/saving-project.component';
 import { DeleteProgramedSavingModalComponent } from './pages/saving/delete-programed-saving-modal/delete-programed-saving-modal.component';
 import { DeleteSavingProjectModalComponent } from './pages/saving/delete-saving-project-modal/delete-saving-project-modal.component';
+<<<<<<< HEAD
 import {MatIconModule} from "@angular/material/icon";
+=======
+import { HomeheaderComponent } from './pages/home/components/homeheader/homeheader.component';
+import { LoginModalComponent } from './pages/home/components/login-modal/login-modal.component';
+import { SignupModalComponent } from './pages/home/components/signup-modal/signup-modal.component';
+>>>>>>> 05ed6ca004bbb50d4c236738d5ca0ec3a466d1e4
 
 
 @NgModule({
@@ -78,10 +92,15 @@ import {MatIconModule} from "@angular/material/icon";
     SavingProjectComponent,
     DeleteProgramedSavingModalComponent,
     DeleteSavingProjectModalComponent,
+    HomeheaderComponent,
+    LoginModalComponent,
+    SignupModalComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+<<<<<<< HEAD
     BrowserAnimationsModule,
     MatDividerModule,
     MatCheckboxModule,
@@ -96,6 +115,11 @@ import {MatIconModule} from "@angular/material/icon";
     MatPaginatorModule,
     MatSortModule,
     MatIconModule
+=======
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+>>>>>>> 05ed6ca004bbb50d4c236738d5ca0ec3a466d1e4
   ],
   providers: [],
   bootstrap: [AppComponent]

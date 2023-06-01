@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+/* import des polices */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;0,900;1,400&family=Shojumaru&display=swap');
 /* reset CSS */
 *{
     padding: 0;
@@ -11,8 +13,5 @@
     color: inherit;
     background-color: inherit;
     vertical-align: baseline;
+    font-family: "Roboto", sans-serif;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-

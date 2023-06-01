@@ -1,0 +1,167 @@
+.modal
+    display: flex
+    justify-content: center
+    align-items: center
+    position: fixed
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background-color: rgba(0,0,0, .75)
+    z-index: 1
+    font-family: 'Shojumaru', 'Roboto', cursive
+
+    &__container
+        display: flex
+        flex-direction: column
+        align-items: center
+        background-color: rgb(24,24,24)
+        padding: 2rem
+        border-radius: 1rem
+        border: 5px solid orange
+        position: relative
+
+        &__logo
+            height: 100px
+            margin-bottom: 2rem
+
+        &__title
+            color: orange
+            text-transform: uppercase
+            font-size: 2rem
+            font-weight: bold
+            margin-bottom: 2rem
+            font-family: 'Shojumaru', 'Roboto', cursive
+
+        &__form
+            display: flex
+            flex-direction: column
+            align-items: center
+
+            &__element
+                display: flex
+                flex-direction: column
+                
+                &:nth-child(1)
+                    margin-bottom: 2rem
+
+                &:nth-child(2)
+                    margin-bottom: .5rem
+
+                &__label
+                    color: orange
+                    margin-bottom: .25em
+                    font-size: 1.2rem
+                    font-weight: bold
+
+                &__input
+                    font-size: 1.2rem
+                    padding: .5em
+                    outline: none
+                    background-color: #fff
+                    width: 350px
+
+                    &__error
+                        color: red
+                        font-family: 'Roboto', cursive
+                        text-align: center
+                        margin-top: .25rem
+                        font-weight: bold
+                        font-size: 1.2rem
+                    
+            &__stayConnected
+                color: white
+                font-family: 'Roboto', cursive
+                text-align: left
+                font-size: 1.2rem
+                font-weight: bold
+                width: 100%
+
+                &__label
+                    margin-right: 1rem
+
+            &__forgot
+                color: white
+                text-align: left
+                font-size: 1.2rem
+                font-weight: bold
+                text-decoration: underline
+                background-color: transparent
+                font-family: 'Roboto', cursive
+                margin: 1rem 0
+                width: 100%
+
+            &__submit
+                background-color: orange
+                color: white
+                margin-top: 1rem
+                font-size: 1.5rem
+                font-weight: bold
+                border-radius: 1.5rem
+                cursor: pointer
+                padding: .5em 2em
+
+                &:hover
+                    background-color: rgb(255, 198, 73)
+
+            &__signup
+                background-color: transparent
+                color: white
+                margin-top: 2rem
+                font-family: 'Roboto', cursive
+                text-align: left
+                font-size: 1.2rem
+                font-weight: bold
+                text-decoration: underline
+                cursor: pointer
+
+                &:hover
+                    color: orange
+
+.cross
+    position: absolute
+    top: 1rem
+    right: 1rem
+    cursor: pointer
+    width: 30px
+    height: 30px
+    z-index: 2
+    
+    &:hover &__line
+        background-color: orange
+
+    &__line
+        display: block
+        z-index: 2
+        width: 100%
+        height: 5px
+        background-color: #fff
+        transform: rotate(45deg)
+        margin-bottom: .5rem
+
+        &__one
+            transform: rotate(-45deg)
+            position: relative
+            top: 45%
+
+        &__two
+            transform: rotate(45deg)
+
+@media all and (max-width: 650px)
+    .modal
+        padding: 0 .5rem
+
+        &__container
+            width: 100%
+            border-radius: 0
+            border: 2px solid orange
+            padding: .75rem
+
+            &__logo
+                height: 70px
+
+            &__title
+                font-size: 1.5rem
+
+            &__form
+                width: 100%

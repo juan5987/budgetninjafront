@@ -1,0 +1,17 @@
+<header class="header">
+  <div class="header__title">
+    <img src="assets/images/logo.png" alt="logo représentant un ninja" class="header__title__logo">
+    <div class="header__title__text">
+      <div class="header__title__text__top">budget</div>
+      <div class="header__title__text__bottom">ninja</div>
+    </div>
+  </div>
+  <div class="header__connexion">
+    <button class="header__connexion__button" (click)="openLoginModal()">connexion</button>
+    <button class="header__connexion__burger" (click)="handleToggleMenu()">
+      <div [ngClass]="!isMenuOpened ? 'header__connexion__burger__line' : 'header__connexion__burger__line--opened'"></div>
+      <div [ngClass]="!isMenuOpened ? 'header__connexion__burger__line': 'header__connexion__burger__line--opened'"></div>
+      <div [ngClass]="!isMenuOpened ? 'header__connexion__burger__line': 'header__connexion__burger__line--opened'"></div>
+    </button>
+  </div>
+</header>
