@@ -1,5 +1,89 @@
 <div class="budget">
     <app-sidebar></app-sidebar>
-<div class="budget__content">
-</div>
+    <div class="budget__content">
+        <section class="budget__content__indicators">
+          <header class="budget__content__indicators__header">
+            <h2 class="budget__content__indicators__header__title">Mon budget</h2>
+            <a class="budget__content__indicators__header__link" routerLink="/categories">Gérer mes catégories</a>
+          </header>
+          <div class="budget__content__indicators__content">
+            <div class="budget__content__indicators__content__item">
+              <div class="budget__content__indicators__content__item__label">Solde</div>
+              <div class="budget__content__indicators__content__item__value">1500€</div>
+            </div>
+            <div class="budget__content__indicators__content__item">
+              <div class="budget__content__indicators__content__item__label">Revenues</div>
+              <div class="budget__content__indicators__content__item__value">700€</div>
+            </div>
+            <div class="budget__content__indicators__content__item">
+              <div class="budget__content__indicators__content__item__label">Dépenses</div>
+              <div class="budget__content__indicators__content__item__value">500€</div>
+            </div>
+            <div class="budget__content__indicators__content__item">
+              <div class="budget__content__indicators__content__item__label">Reste à vivre</div>
+              <div class="budget__content__indicators__content__item__value">1000€</div>
+            </div>
+          </div>
+        </section>
+        <section class="budget__content__transactions">
+          <header class="budget__content__transactions__header">
+            <h2 class="budget__content__transactions__header__title">Dernières transactions</h2>
+            <button class="budget__content__transactions__header__link">Ajouter une transaction</button>
+          </header>
+          <table class="budget__content__transactions__table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Libellé</th>
+                <th>Catégorie</th>
+                <th>Montant</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01/01/2020</td>
+                <td>Carburant</td>
+                <td>Transport</td>
+                <td>50€</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>01/01/2020</td>
+                <td>Carburant</td>
+                <td>Transport</td>
+                <td>50€</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>01/01/2020</td>
+                <td>Carburant</td>
+                <td>Transport</td>
+                <td>50€</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>01/01/2020</td>
+                <td>Carburant</td>
+                <td>Transport</td>
+                <td>50€</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>01/01/2020</td>
+                <td>Carburant</td>
+                <td>Transport</td>
+                <td>50€</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
 </div>
