@@ -26,11 +26,11 @@
             <div class="inputDiv">
 
               <div>
-                <input formControlName="alertName" class="dialogInput" placeholder="mon_budget">
+                <input formControlName="alertName" maxlength="20"  type="text" class="dialogInput" placeholder="mon_budget">
               </div>
 
               <div>
-                <input formControlName="seuilAmount" class="dialogInput" placeholder="45€">
+                <input formControlName="seuilAmount" type="number" min="1" class="dialogInput" placeholder="45€">
               </div>
 
 
@@ -38,7 +38,7 @@
 
                 <div class="twoButtonSideBySide">
                   <div>
-                    <input formControlName="periodInput" class="periodButtonSmall" placeholder="6">
+                    <input formControlName="periodInput" type="number" min="1"  class="periodButtonSmall" placeholder="6">
                   </div>
 
 
@@ -61,7 +61,7 @@
           </div>
             <div>
               <mat-form-field class="example-full-width">
-                <mat-label>Commentaire</mat-label>
+                <mat-label >Commentaire</mat-label>
                 <textarea formControlName="commentaries" matInput placeholder="Ex. cela à pour but ..."></textarea>
               </mat-form-field>
             </div>
