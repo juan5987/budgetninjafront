@@ -13,11 +13,10 @@
         <div class="test">
 
           <div>
-            <button mat-raised-button color="warn" (click)="openDialog()">Ajouter</button>
+            <button class="boutonAjouter"  (click)="openDialog()">Ajouter</button>
           </div>
 
           <div>
-
             <input (keyup)="applyFilter($event)" class="filterBar" placeholder="Filtre" #input>
           </div>
 
@@ -109,17 +108,19 @@
 
           <div class="checkOne">
             <h4>Recevoir un mail, si mes objectifs d'épargne sont atteints</h4>
-            <section class="example-section">
-              <mat-checkbox class="example-margin"></mat-checkbox>
-            </section>
+
+            <input class="checkboxNinja" type="checkbox">
+
           </div>
 
 
           <div class="checkTwo">
             <h4> Être averti lorseque mes dépensent empechent le versement de l'épargne programmée</h4>
-            <section class="example-section">
-              <mat-checkbox class="example-margin"></mat-checkbox>
-            </section>
+
+            <input class="checkboxNinja" type="checkbox">
+
+
+
           </div>
 
           <div class="checkThree">
@@ -127,10 +128,7 @@
 
 
             <div class="twoButtonSideBySide">
-              <div>
-                <input class="periodButtonSmall" placeholder="6">
-              </div>
-
+                <input class="periodButtonSmall" type="number" placeholder="6">
 
               <div class="customDropdown">
                 <select formControlName="periodDropdown">

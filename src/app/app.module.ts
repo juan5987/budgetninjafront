@@ -88,8 +88,6 @@ import { SignupModalComponent } from './pages/home/components/signup-modal/signu
     LoginModalComponent,
     SignupModalComponent,
 
-
-
   ],
   imports: [
     BrowserModule,
