@@ -1,77 +1,80 @@
 <div class="content">
-  <h2>Nom de l'alerte</h2>
+  <div class="contentWithNoButtons">
 
-  <div class="main">
-    <form [formGroup]="alertForm">
+      <h1>Nom de l'alerte</h1>
 
-
-    <div class="CommentariesPlusBothDivs">
-      <div class="textAndInputDivs">
-
-        <div class="textDiv">
-          <div>
-            <span>Nom de l'alerte</span>
-          </div>
-          <div>
-            <span>Seuil à ne pas dépasser</span>
-          </div>
-          <div>  <span style="  white-space: nowrap;
-        ">Pour tout les </span>
-          </div>
-        </div>
+      <div class="main">
+        <form [formGroup]="alertForm">
 
 
-        <div class="inputDiv">
+        <div class="CommentariesPlusBothDivs">
+          <div class="textAndInputDivs">
 
-          <div>
-            <input formControlName="alertName" class="dialogInput" placeholder="mon_budget">
-          </div>
-
-          <div>
-            <input formControlName="seuilAmount" class="dialogInput" placeholder="45€">
-          </div>
-
-
-          <div class="thirdLineTwoInputs">
-
-            <div class="twoButtonSideBySide">
+            <div class="textDiv">
               <div>
-                <input formControlName="periodInput" class="periodButtonSmall" placeholder="6">
+                <span>Nom de l'alerte</span>
               </div>
-
-
-                <div class="customDropdown">
-                  <select formControlName="periodDropdown">
-                    <option value="jours">jours</option>
-                    <option value="semaines">semaines</option>
-                    <option value="mois">mois</option>
-                  </select>
-                </div>
-
-
+              <div>
+                <span>Seuil à ne pas dépasser</span>
+              </div>
+              <div>  <span style="  white-space: nowrap;
+            ">Pour tout les </span>
+              </div>
             </div>
 
 
+            <div class="inputDiv">
+
+              <div>
+                <input formControlName="alertName" class="dialogInput" placeholder="mon_budget">
+              </div>
+
+              <div>
+                <input formControlName="seuilAmount" class="dialogInput" placeholder="45€">
+              </div>
+
+
+              <div class="thirdLineTwoInputs">
+
+                <div class="twoButtonSideBySide">
+                  <div>
+                    <input formControlName="periodInput" class="periodButtonSmall" placeholder="6">
+                  </div>
+
+
+                    <div class="customDropdown">
+                      <select formControlName="periodDropdown">
+                        <option value="jours">jours</option>
+                        <option value="semaines">semaines</option>
+                        <option value="mois">mois</option>
+                      </select>
+                    </div>
+
+
+                </div>
+
+
+              </div>
+
+
+            </div>
           </div>
-
+            <div>
+              <mat-form-field class="example-full-width">
+                <mat-label>Commentaire</mat-label>
+                <textarea formControlName="commentaries" matInput placeholder="Ex. cela à pour but ..."></textarea>
+              </mat-form-field>
+            </div>
 
         </div>
-      </div>
-        <div>
-          <mat-form-field class="example-full-width">
-            <mat-label>Commentaire</mat-label>
-            <textarea formControlName="commentaries" matInput placeholder="Ex. cela à pour but ..."></textarea>
-          </mat-form-field>
-        </div>
-
-    </div>
-    </form>
+        </form>
   </div>
 
+  </div>
 
-  <div mat-dialog-actions [align]="'center'">
-    <button mat-basic-button color="warn" mat-dialog-close>Annuler</button>
-    <button style="margin-left: 15px;" mat-raised-button color="warn" (click)="addAlertAction()">{{actionBtn}}</button>
+  <div mat-dialog-actions [align]="'center'" >
+    <button class="boutonAnnuler" mat-dialog-close>Annuler</button>
+    <button class="boutonAjouter" style="margin-left: 15px"  (click)="addAlertAction()">{{actionBtn}}</button>
   </div>
 
 </div>

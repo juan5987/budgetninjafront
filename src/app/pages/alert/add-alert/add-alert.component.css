@@ -1,12 +1,25 @@
-.content{
-  margin-left: 10%;
-  margin-top: 35px;
+span{
+  color: white;
 }
 
 
-h2{
+.content{
+  position: relative;
+  background-color: rgb(24, 24, 24);
+  border: 5px solid orange;
+}
+
+.contentWithNoButtons{
+  margin-top: 35px;
+
+  margin-left: 6rem;
+}
+
+h1{
   margin-bottom: 60px;
-  margin-left: 34%;
+  margin-left: 18%;
+  color: orange;
+  font-family: "Shojumaru";
 }
 
 .dialogInput{
@@ -14,10 +27,11 @@ h2{
   border-radius: 5px;
   padding: 10px;
   font-size: 16px;
+  border-color: white;
 }
 
 .periodButtonSmall{
-  border: 2px solid black;
+  border: 2px solid white;
   border-radius: 5px;
   padding: 10px;
   font-size: 16px;
@@ -83,8 +97,9 @@ h2{
 
 
 .content{
-  margin-left: 10%;
-  margin-top: 35px;
+display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 
@@ -94,15 +109,13 @@ h2{
 }
 
 .dialogInput{
-  border: 2px solid black;
-  border-radius: 5px;
   padding: 10px;
   font-size: 16px;
+  background-color: white;
 }
 
 .periodButtonSmall{
-  border: 2px solid black;
-  border-radius: 5px;
+  background-color: white;
   padding: 10px;
   font-size: 16px;
   width: 30%;
@@ -122,9 +135,8 @@ h2{
 
 
 .customDropdown{
+background-color: white;
 
-  border: 2px solid black;
-  border-radius: 5px;
   padding: 10px;
 
   font-size: 16px;
@@ -178,6 +190,10 @@ gap: 50px;
 
 
 
+
+
+
+
 .boutonAjouter{
   background-color: orange;
   color: white;
@@ -189,8 +205,31 @@ gap: 50px;
   cursor: pointer;
   margin-bottom: 2rem;
 
+
 }
 .boutonAjouter:hover {
   background-color: white;
   color: orange;
+}
+
+
+.boutonAnnuler{
+
+  background-color: white;
+  color: rgb(24,24,24);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  padding: .5em 1em;
+  border-radius: 1em;
+  font-family: 'Shojumaru', 'Roboto', cursive;
+  cursor: pointer;
+  margin-bottom: 2rem;
+
+
+
+}
+
+.boutonAnnuler:hover {
+  background-color: rgb(24,24,24);
+  color: white;
 }

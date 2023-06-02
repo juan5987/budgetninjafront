@@ -1,10 +1,14 @@
 .alert{
   display: flex;
+
 }
 
 .componant{
   flex-grow: 1;
   min-height: 100vh;
+  background-color: #fefefe;
+  color:rgb(24,24,24);
+
 }
 
 
@@ -89,7 +93,7 @@ align-items: center;
 }
 
 .periodButtonSmall{
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 5px;
   padding: 10px;
   font-size: 1rem;
@@ -99,7 +103,7 @@ align-items: center;
 
 .customDropdown{
 
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 5px;
   padding: 10px;
   font-size: 1rem;
@@ -132,11 +136,13 @@ justify-content: flex-start;
   font-family: 'Shojumaru', 'Roboto', cursive;
   cursor: pointer;
   margin-bottom: 2rem;
+  border: 3px solid orange;
 
 }
 .boutonAjouter:hover {
 background-color: white;
 color: orange;
+  border: 3px solid orange;
 }
 
 
