@@ -241,7 +241,15 @@ gap: 50px;
 }
 
 
+.commentBox{
+  background-color: white;
+  width: 90%;
+  height: 102px;
+  margin-bottom: 20px;
+  overflow-y: scroll;
+  resize: none;
 
+}
 
 
 
