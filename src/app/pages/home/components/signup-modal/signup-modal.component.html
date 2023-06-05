@@ -1,0 +1,118 @@
+<div class="modal" (click)="closeModal()">
+  <div class="modal__container" (click)="stopPropagation($event)">
+    <span class="cross" (click)="closeModal()">
+      <span class="cross__line cross__line__one">&nbsp;</span>
+      <span class="cross__line cross__line__two">&nbsp;</span>
+    </span>
+    <img class="modal__container__logo" src="../../assets/images/logo.png" alt="logo représentant un ninja">
+    <h2 class="modal__container__title">inscription</h2>
+    <form action="" class="modal__container__form" [formGroup]="formValues" (ngSubmit)="handleSubmit($event)">
+      <div class="modal__container__form__element">
+        <label for="username" class="modal__container__form__element__label">
+          Nom d'utilisateur
+        </label>
+        <input type="text" class="modal__container__form__element__input form-control" id="username" name="username"
+          placeholder="saisir un nom d'utilisateur" formControlName="username" />
+        <span *ngIf="submitted && form['username'].hasError('required')"
+          class="modal__container__form__element__input__error">
+          Veuillez saisir un pseudo
+        </span>
+        <span *ngIf="submitted && (form['username'].hasError('minlength') ||form['username'].hasError('maxlength'))"
+          class="modal__container__form__element__input__error">
+          Le pseudo doit contenir entre 3 et 20 caractères
+        </span>
+        <span *ngIf="submitted && form['username'].hasError('pattern')"
+          class="modal__container__form__element__input__error">
+          Le pseudo ne doit contenir que des lettres ou des chiffres
+        </span>
+      </div>
+      <div class="modal__container__form__element">
+        <label for="signup_email" class="modal__container__form__element__label">
+          Email
+        </label>
+        <input type="email" class="modal__container__form__element__input form-control" id="email" name="email"
+          placeholder="saisir une adresse email valide" formControlName="email" autocomplete="email" />
+        <span *ngIf="submitted && form['email'].hasError('required')"
+          class="modal__container__form__element__input__error">
+          Veuillez saisir une adresse email
+        </span>
+        <span *ngIf="submitted && form['email'].hasError('pattern')"
+          class="modal__container__form__element__input__error">
+          L'email n'est pas au bon format
+        </span>
+      </div>
+      <div class="modal__container__form__element">
+        <label for="connexion_emailConfirm" class="modal__container__form__element__label">
+          Confirmation de l'email
+        </label>
+        <input type="email" class="modal__container__form__element__input form-control" id="emailConfirm"
+          name="emailConfirm" placeholder="confirmer l'adresse email" formControlName="emailConfirm"
+          autocomplete="email" />
+        <span *ngIf="submitted && form['emailConfirm'].hasError('required')"
+          class="modal__container__form__element__input__error">
+          Veuillez confirmer l'email
+        </span>
+        <span *ngIf="submitted && form['emailConfirm'].hasError('pattern')"
+          class="modal__container__form__element__input__error">
+          L'email n'est pas au bon format
+        </span>
+        <span *ngIf="submitted && formValues.hasError('emailNotConfirmed')"
+          class="modal__container__form__element__input__error">
+          Les emails doivent être identiques
+        </span>
+      </div>
+      <div class="modal__container__form__element">
+        <label for="signup_password" class="modal__container__form__element__label">
+          Mot de passe
+        </label>
+        <input [type]="showPassword ? 'text' : 'password'" class="modal__container__form__element__input" id="password" name="password"
+          placeholder="saisir un mot de passe" formControlName="password" autocomplete="new-password" />
+        <span class="modal__container__form__element__eye">
+          <img class="modal__container__form__element__eye__img" [src]="!showPassword ? 'assets/images/icons/eye.svg' : 'assets/images/icons/eyec.svg '" alt="oeil" (click)="handleToggleShowPassword()">
+        </span>
+        <span *ngIf="submitted && form['password'].hasError('required')"
+          class="modal__container__form__element__input__error">
+          Veuillez saisir un mot de passe
+        </span>
+        <span *ngIf="submitted && form['password'].hasError('minlength')"
+          class="modal__container__form__element__input__error">
+          Le mot de passe doit contenir au moins 8 caractères
+        </span>
+        <span *ngIf="submitted && form['password'].hasError('pattern')"
+          class="modal__container__form__element__input__error">
+          Le mot de passe doit contenir une majuscule, une minuscule et un chiffre
+        </span>
+        <p class="modal__container__form__element__error"></p>
+      </div>
+      <div class="modal__container__form__element">
+        <label for="signup_passwordConfirm" class="modal__container__form__element__label">
+          Confirmation du mot de passe
+        </label>
+        <input [type]="showPassword ? 'text' : 'password'" class="modal__container__form__element__input" id="passwordConfirm"
+          name="passwordConfirm" placeholder="confirmer le mot de passe" formControlName="passwordConfirm"
+          autocomplete="new-password" />
+        <span class="modal__container__form__element__eye">
+          <img class="modal__container__form__element__eye__img" [src]="!showPassword ? 'assets/images/icons/eye.svg' : 'assets/images/icons/eyec.svg '" alt="oeil" (click)="handleToggleShowPassword()">
+        </span>
+        <span *ngIf="submitted && form['passwordConfirm'].hasError('required')"
+          class="modal__container__form__element__input__error">
+          Veuillez confirmer le mot de passe
+        </span>
+        <span *ngIf="submitted && formValues.hasError('passwordNotConfirmed')"
+          class="modal__container__form__element__input__error">
+          Les mots de passe doivent être identiques
+        </span>
+        <span *ngIf="submitted && form['passwordConfirm'].hasError('minlength')"
+          class="modal__container__form__element__input__error">
+          Le mot de passe doit contenir au moins 8 caractères
+        </span>
+        <span *ngIf="submitted && form['passwordConfirm'].hasError('pattern')"
+          class="modal__container__form__element__input__error">
+          Le mot de passe doit contenir une majuscule, une minuscule et un chiffre
+        </span>
+        <p class="modal__container__form__element__error"></p>
+      </div>
+      <button class="main_button modal__container__form__submit" type="submit">valider</button>
+    </form>
+  </div>
+</div>

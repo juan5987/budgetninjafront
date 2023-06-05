@@ -1,1 +1,67 @@
-<p>sidebar works!</p>
+<div class="sidebar">
+    <div class="sidebar__top">
+        <a routerLink="/">
+            <img src="assets/images/logo.png" alt="un ninja" class="sidebar__top__logo">
+        </a>
+        <div class="sidebar__top__title">
+            <div class="sidebar__top__title__top">budget</div>
+            <div class="sidebar__top__title__bottom">ninja</div>
+        </div>
+    </div>
+    <nav class="sidebar__nav">
+        <ul id="sidebar__nav__list">
+            <li class="sidebar__nav__list__element">
+                <a class="sidebar__nav__list__element__link" routerLink="/dashboard">Tableau de bord</a>
+            </li>
+            <li class="sidebar__nav__list__element">
+                <a class="sidebar__nav__list__element__link" routerLink="/budget">Budget</a>
+            </li>
+            <li class="sidebar__nav__list__element">
+                <a class="sidebar__nav__list__element__link" routerLink="/saving">Epargne</a>
+            </li>
+            <li class="sidebar__nav__list__element">
+                <a class="sidebar__nav__list__element__link" routerLink="/alert">Alerte</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="sidebar__about">
+        <a class="sidebar__about__link" routerLink="/about">À propos</a>
+    </div>
+</div>
+<header class="sidebar--mobile">
+    <div class="sidebar--mobile__title">
+      <img src="assets/images/logo.png" alt="logo représentant un ninja" class="sidebar--mobile__title__logo">
+      <div class="sidebar--mobile__title__text">
+        <div class="sidebar--mobile__title__text__top">budget</div>
+        <div class="sidebar--mobile__title__text__bottom">ninja</div>
+      </div>
+    </div>
+    <div class="sidebar--mobile__connexion">
+      <button class="sidebar--mobile__connexion__burger" (click)="handleToggleMenu()">
+        <div [ngClass]="!isMenuOpened ? 'sidebar--mobile__connexion__burger__line' : 'sidebar--mobile__connexion__burger__line--opened'"></div>
+        <div [ngClass]="!isMenuOpened ? 'sidebar--mobile__connexion__burger__line': 'sidebar--mobile__connexion__burger__line--opened'"></div>
+        <div [ngClass]="!isMenuOpened ? 'sidebar--mobile__connexion__burger__line': 'sidebar--mobile__connexion__burger__line--opened'"></div>
+      </button>
+    </div>
+  </header>
+  <div class="menu--mobile">
+    <nav class="menu--mobile__nav" [ngClass]="!isMenuOpened ? 'menu--mobile__nav--closed': 'menu--mobile__nav'">
+      <ul id="menu--mobile__nav__list">
+        <li class="menu--mobile__nav__list__element">
+          <a class="menu--mobile__nav__list__element__link" routerLink="/dashboard">Tableau de bord</a>
+        </li>
+        <li class="menu--mobile__nav__list__element">
+          <a class="menu--mobile__nav__list__element__link" routerLink="/budget">Budget</a>
+        </li>
+        <li class="menu--mobile__nav__list__element">
+          <a class="menu--mobile__nav__list__element__link" routerLink="/saving">Epargne</a>
+        </li>
+        <li class="menu--mobile__nav__list__element">
+          <a class="menu--mobile__nav__list__element__link" routerLink="/alert">Alerte</a>
+        </li>
+        <li class="menu--mobile__nav__list__element">
+            <a class="menu--mobile__nav__list__element__link" routerLink="/about">À propos</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
