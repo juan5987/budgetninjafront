@@ -89,6 +89,11 @@ h1{
 
 }
 
+.thirdLineTwoInputs{
+  display: flex;
+  flex-direction: column;
+}
+
 .twoButtonSideBySide{
   display: flex;
   justify-content: flex-start;
@@ -233,4 +238,21 @@ gap: 50px;
 .boutonAnnuler:hover {
   background-color: rgb(24,24,24);
   color: white;
+}
+
+
+
+
+
+
+
+
+.error-message {
+  font-size: smaller;
+  display: none;
+  color: red;
+}
+
+.error-message.show-message {
+  display: block;
 }

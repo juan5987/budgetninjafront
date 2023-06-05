@@ -26,12 +26,24 @@
             <div class="inputDiv">
 
               <div>
-                <input formControlName="alertName" maxlength="20"  type="text" class="dialogInput" placeholder="mon_budget">
+                <input formControlName="alertName" maxlength="20"  type="text" class="dialogInput" placeholder="mon_budget" required>
+
+                <div *ngIf="isSubmitClicked && alertForm.get('alertName')?.invalid ">
+                  <span class="error-message" [class.show-message]="isSubmitClicked">Veuillez entrer un nom d'alerte</span>
+                </div>
               </div>
 
               <div>
                 <input formControlName="seuilAmount" type="number" min="1" class="dialogInput" placeholder="45€">
+
+                <div *ngIf="alertForm.get('seuilAmount')?.invalid ">
+                  <span class="error-message" [class.show-message]="isSubmitClicked">Veuillez entrer un seuil</span>
+                </div>
+
+
               </div>
+
+
 
 
               <div class="thirdLineTwoInputs">
@@ -51,7 +63,16 @@
                     </div>
 
 
+
                 </div>
+
+                <div>
+                  <div *ngIf="alertForm.get('periodInput')?.invalid || alertForm.get('periodDropdown')?.invalid  ">
+                    <span class="error-message" [class.show-message]="isSubmitClicked">Veuillez entrer une périodicité</span>
+                  </div>
+                </div>
+
+
 
 
               </div>

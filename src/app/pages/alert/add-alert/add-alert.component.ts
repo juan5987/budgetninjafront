@@ -10,6 +10,7 @@ import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 })
 export class AddAlertComponent implements OnInit{
 
+  isSubmitClicked: boolean = false;
 
   alertForm ! : FormGroup;
   actionBtn : string = "Valider";
@@ -26,7 +27,7 @@ export class AddAlertComponent implements OnInit{
      seuilAmount: ['', Validators.required],
      periodInput : ['', Validators.required],
      periodDropdown: ['', Validators.required],
-     commentaries : ['', Validators.required]
+     commentaries : ['']
    });
 
    if(this.editData){
@@ -41,7 +42,9 @@ export class AddAlertComponent implements OnInit{
 
  }
   addAlertAction(){
-if(!this.editData){
+    this.isSubmitClicked = true;
+
+    if(!this.editData){
   if(this.alertForm.valid){
     this.api.postAlert(this.alertForm.value)
       .subscribe({
@@ -73,6 +76,8 @@ if(!this.editData){
     }
    })
   }
+
+
 
 
 
