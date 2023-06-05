@@ -39,7 +39,7 @@ export class AlertComponent implements OnInit{
   openDialog() {
     this.dialog.open(AddAlertComponent, {
       width:'50%',
-      height:'81%'
+      height:'84.2%'
     }).afterClosed().subscribe(val=>{
       if(val==='save'){
         this.getAllAlert();
@@ -55,7 +55,7 @@ export class AlertComponent implements OnInit{
         this.dataSource.sort = this.sort;
     },
         error:()=>{
-          alert("Erreur pour aller récupérer les données !")
+          console.log("Erreur concernant la récupération des données !")
         }
       })
   }
@@ -63,7 +63,7 @@ export class AlertComponent implements OnInit{
 editAlert(row : any){
   this.dialog.open(AddAlertComponent, {
     width:'50%',
-    height:'81%',
+    height:'84.2%',
     data : row }).afterClosed().subscribe(val=>{
       if(val === 'mettre à jour'){
         this.getAllAlert();
@@ -77,11 +77,11 @@ deleteAlert(id : number){
     this.api.deleteAlert(id)
       .subscribe({
         next:(res)=>{
-          alert("L'alerte à été supprimée avec succès !");
+          console.log("L'alerte à été supprimée avec succès !");
           this.getAllAlert();
         },
         error:()=>{
-          alert("La suppression de l'alerte n'a pas pu se valider")
+          console.log("La suppression de l'alerte n'a pas pu se valider")
         }
       })
 }

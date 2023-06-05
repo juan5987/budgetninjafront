@@ -17,36 +17,12 @@
       "id": 6
     },
     {
-      "alertName": "sff",
-      "seuilAmount": 5,
+      "alertName": "dfdfd",
+      "seuilAmount": 78,
       "periodInput": 5,
-      "periodDropdown": "mois",
-      "commentaries": "sdfsdf",
-      "id": 7
-    },
-    {
-      "alertName": "dsds",
-      "seuilAmount": 56,
-      "periodInput": 1,
-      "periodDropdown": "jours",
-      "commentaries": "",
-      "id": 8
-    },
-    {
-      "alertName": "sdqsdqsd",
-      "seuilAmount": 52,
-      "periodInput": 7,
       "periodDropdown": "semaines",
-      "commentaries": "qsdqsdqsdqsdqs",
-      "id": 9
-    },
-    {
-      "alertName": "sfss",
-      "seuilAmount": 45,
-      "periodInput": 5,
-      "periodDropdown": "mois",
-      "commentaries": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
-      "id": 10
+      "commentaries": "",
+      "id": 7
     }
   ],
   "comments": [

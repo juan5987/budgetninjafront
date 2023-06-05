@@ -49,12 +49,12 @@ export class AddAlertComponent implements OnInit{
     this.api.postAlert(this.alertForm.value)
       .subscribe({
         next:(res)=>{
-          alert("L'alerte a été produite avec succès !");
+          console.log("L'alerte a été produite avec succès !");
           this.alertForm.reset();
           this.dialogRef.close('save');
         },
         error:()=>{
-          alert("Erreur lors de la production de l'alerte")
+          console.log("Erreur lors de la production de l'alerte")
         }
       })
   }
@@ -67,12 +67,12 @@ export class AddAlertComponent implements OnInit{
    this.api.putAlert(this.alertForm.value,this.editData.id)
    .subscribe({
      next:(res)=>{
-       alert("L'alerte a été mis à jour avec succès ! ");
+       console.log("L'alerte a été mis à jour avec succès ! ");
        this.alertForm.reset();
        this.dialogRef.close('mettre à jour');
      },
      error:()=>{
-       alert("Erreur lors de la mise à jour de l'alerte !")
+       console.log("Erreur lors de la mise à jour de l'alerte !")
     }
    })
   }
