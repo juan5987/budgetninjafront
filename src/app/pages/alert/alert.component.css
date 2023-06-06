@@ -1,5 +1,7 @@
 .alert{
   display: flex;
+  justify-content: center;
+
 
 }
 
@@ -8,6 +10,8 @@
   min-height: 100vh;
   background-color: #fefefe;
   color:rgb(24,24,24);
+
+
 
 }
 
@@ -27,11 +31,11 @@
 table {
   width: 100%;
 }
-
 .mat-mdc-form-field {
   font-size: 14px;
   width: 100%;
 }
+
 
 .containerList{
   width: 100%;
@@ -115,16 +119,9 @@ align-items: center;
 justify-content: flex-start;
 }
 
-.mat-elevation-z0{
-  display: flex;
-  flex-direction: column;
-}
 
-@media all and (max-width: 800px){
-  .alert{
-    flex-direction: column;
-  }
-}
+
+
 
 .boutonAjouter{
   background-color: orange;
@@ -151,4 +148,62 @@ color: orange;
   height: 25px;
   accent-color: #ff8100;
 }
+
+
+
+/** Les medias queries */
+
+
+@media all and (max-width: 800px){
+  .alert{
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 665px)  {
+  .checkOne,
+  .checkTwo,
+  .checkThree {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .periodButtonSmall {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .customDropdown {
+    margin-bottom: 1rem;
+  }
+
+  h4 {
+    margin-bottom: 1rem;
+  }
+
+  .twoButtonSideBySide {
+    gap: 1rem;
+  }
+
+
+  .test {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
 

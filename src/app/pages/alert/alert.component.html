@@ -24,36 +24,37 @@
 
 
         <div class="mat-elevation-z0">
-          <table mat-table [dataSource]="dataSource" matSort>
+          <table mat-table  [dataSource]="dataSource" matSort >
 
-            <!-- ID Column -->
             <ng-container matColumnDef="alertName">
               <th mat-header-cell *matHeaderCellDef mat-sort-header> Noms d'alertes</th>
               <td mat-cell *matCellDef="let row"> {{row.alertName}} </td>
             </ng-container>
 
-            <!-- Progress Column -->
             <ng-container matColumnDef="seuilAmount">
               <th mat-header-cell *matHeaderCellDef mat-sort-header> Seuils</th>
-              <td mat-cell *matCellDef="let row"> {{row.seuilAmount |  currency :'EUR':''}}€</td>
+              <td mat-cell *matCellDef="let row">
+                {{row.seuilAmount |  currency :'EUR':''}}€
+              </td>
             </ng-container>
 
-            <!-- Name Column -->
             <ng-container matColumnDef="periodInput">
               <th mat-header-cell *matHeaderCellDef mat-sort-header> Cycles</th>
-              <td mat-cell *matCellDef="let row"> {{row.periodInput}} </td>
+              <td mat-cell *matCellDef="let row">
+                {{row.periodInput}}</td>
             </ng-container>
 
-            <!-- Fruit Column -->
             <ng-container matColumnDef="periodDropdown">
               <th mat-header-cell *matHeaderCellDef mat-sort-header> Périodicité</th>
-              <td mat-cell *matCellDef="let row"> {{row.periodDropdown}} </td>
+              <td mat-cell *matCellDef="let row">
+                {{row.periodDropdown}}</td>
             </ng-container>
 
 
             <ng-container matColumnDef="commentaries">
               <th mat-header-cell *matHeaderCellDef mat-sort-header> Commentaires</th>
-              <td mat-cell *matCellDef="let row"> {{row.commentaries.substring(0, 15) + (" ...")}} </td>
+              <td mat-cell *matCellDef="let row">
+                {{row.commentaries.substring(0, 15) + (" ...")}}</td>
             </ng-container>
 
 
