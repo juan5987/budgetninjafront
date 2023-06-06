@@ -39,7 +39,7 @@ export class AlertComponent implements OnInit{
   openDialog() {
     this.dialog.open(AddAlertComponent, {
       width:'50%',
-      height:'84.2%'
+      height:'86%'
     }).afterClosed().subscribe(val=>{
       if(val==='save'){
         this.getAllAlert();
