@@ -16,6 +16,7 @@
 .containerSavingsPage{
   display: flex;
   flex-direction: column;
+  margin-left: 2rem;
 }
 .saving_content {
   flex-grow: 1;
@@ -24,3 +25,50 @@
   color: rgb(24, 24, 24);
 }
 
+.savingAmount{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+}
+
+.programmedSaving{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: center;
+  width: 90%;
+  margin-right: 2rem;
+  margin-top: 5rem;
+}
+
+.savingsObjectives{
+  margin-top: 6rem;
+}
+
+
+
+
+
+
+
+
+
+.boutonAjouter{
+  background-color: orange;
+  color: white;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  padding: .5em 1em;
+  border-radius: 1em;
+  font-family: 'Shojumaru', 'Roboto', cursive;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  border: 3px solid orange;
+
+}
+.boutonAjouter:hover {
+  background-color: white;
+  color: orange;
+  border: 3px solid orange;
+}

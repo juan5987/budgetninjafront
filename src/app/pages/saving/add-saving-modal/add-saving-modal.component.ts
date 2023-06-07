@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
+
 
 @Component({
   selector: 'app-add-saving-modal',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-saving-modal.component.css']
 })
 export class AddSavingModalComponent {
+
+
+  constructor() {}
+
+
+
 
 }
