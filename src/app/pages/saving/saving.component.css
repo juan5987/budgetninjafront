@@ -1,0 +1,26 @@
+.budget{
+  display: flex;
+}
+
+.budget__content{
+  flex-grow: 1;
+  min-height: 100vh;
+}
+
+.saving {
+  display: flex;
+  justify-content: center;
+}
+
+
+.containerSavingsPage{
+  display: flex;
+  flex-direction: column;
+}
+.saving_content {
+  flex-grow: 1;
+  min-height: 100vh;
+  background-color: #fefefe;
+  color: rgb(24, 24, 24);
+}
+
