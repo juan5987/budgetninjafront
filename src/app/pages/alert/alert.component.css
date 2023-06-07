@@ -1,0 +1,209 @@
+.alert{
+  display: flex;
+  justify-content: center;
+
+
+}
+
+.componant{
+  flex-grow: 1;
+  min-height: 100vh;
+  background-color: #fefefe;
+  color:rgb(24,24,24);
+
+
+
+}
+
+
+
+.filterBar{
+  border-bottom: 2px solid black;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 2%;
+  color: black;
+}
+::placeholder{
+  color: black;
+}
+
+table {
+  width: 100%;
+}
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+
+.containerList{
+  width: 100%;
+  margin: 0 auto;
+  padding-right: 4%;
+}
+
+
+h1{
+  margin-bottom: 5%;
+  font-family: "Shojumaru";
+
+}
+
+h2{
+  margin-top: 3%;
+  font-family: "Shojumaru";
+
+
+}
+
+.containerAlertPage{
+  margin-left: 3%;
+  margin-top: 3%;
+}
+
+.fromDividertoThirdCheckbox{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+
+.autresNotif{
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+
+}
+
+.checkOne, .checkTwo,.checkThree{
+  display: flex;
+  flex-direction: row;
+align-items: center;
+  gap: 2%;
+
+}
+
+.AjouterEtFilter{
+  gap: 5%;
+}
+
+.test{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 2%;
+}
+
+.periodButtonSmall{
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  width: 4rem;
+  margin-right: 1rem;
+}
+
+.customDropdown{
+
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+
+}
+
+.twoButtonSideBySide{
+  display: flex;
+justify-content: flex-start;
+}
+
+
+
+
+
+.boutonAjouter{
+  background-color: orange;
+  color: white;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  padding: .5em 1em;
+  border-radius: 1em;
+  font-family: 'Shojumaru', 'Roboto', cursive;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  border: 3px solid orange;
+
+}
+.boutonAjouter:hover {
+background-color: white;
+color: orange;
+  border: 3px solid orange;
+}
+
+
+.checkboxNinja{
+  width: 25px;
+  height: 25px;
+  accent-color: #ff8100;
+}
+
+
+
+/** Les medias queries */
+
+
+@media all and (max-width: 800px){
+  .alert{
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 995px)  {
+  .checkOne,
+  .checkTwo,
+  .checkThree {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .periodButtonSmall {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .customDropdown {
+    margin-bottom: 1rem;
+  }
+
+  h4 {
+    margin-bottom: 1rem;
+  }
+
+  .twoButtonSideBySide {
+    gap: 1rem;
+  }
+
+
+  .test {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
