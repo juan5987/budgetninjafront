@@ -114,6 +114,7 @@ import { SignupModalComponent } from './pages/home/components/signup-modal/signu
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

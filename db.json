@@ -15,14 +15,6 @@
       "periodDropdown": "mois",
       "commentaries": "c'est juste un test parce que voilà ...",
       "id": 6
-    },
-    {
-      "alertName": "dfdfd",
-      "seuilAmount": 78,
-      "periodInput": 5,
-      "periodDropdown": "semaines",
-      "commentaries": "",
-      "id": 7
     }
   ],
   "comments": [
