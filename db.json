@@ -2,27 +2,38 @@
   "alertList": [
     {
       "alertName": "sfwdf",
-      "seuilAmount": "500",
+      "seuilAmount": 653,
       "periodInput": "6",
       "periodDropdown": "semaines",
       "commentaries": "fdxfdwf",
       "id": 5
     },
     {
-      "alertName": "testBudget",
-      "seuilAmount": 265,
-      "periodInput": 8,
-      "periodDropdown": "mois",
-      "commentaries": "c'est juste un test parce que voilà ...",
+      "alertName": "cswdsw",
+      "seuilAmount": 45,
+      "categorie": "revenus",
+      "periodInput": 1,
+      "periodDropdown": "semaines",
+      "commentaries": "",
       "id": 6
     },
     {
-      "alertName": "dfdfd",
-      "seuilAmount": 78,
-      "periodInput": 5,
-      "periodDropdown": "semaines",
+      "alertName": "dswdsd",
+      "seuilAmount": 45,
+      "categorie": "solde",
+      "periodInput": 1,
+      "periodDropdown": "mois",
       "commentaries": "",
       "id": 7
+    },
+    {
+      "alertName": "erer",
+      "seuilAmount": 45,
+      "categorie": "solde",
+      "periodInput": 2,
+      "periodDropdown": "semaines",
+      "commentaries": "",
+      "id": 8
     }
   ],
   "comments": [

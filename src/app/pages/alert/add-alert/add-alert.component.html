@@ -34,21 +34,38 @@
               <div class="divSeuilAmount">
 
 
-                <span>Seuil à ne pas dépasser</span>
+                <span>Montant à ne pas dépasser</span>
 
 
                 <input formControlName="seuilAmount" type="number" min="1" class="dialogInput" placeholder="45€">
 
                 <div *ngIf="alertForm.get('seuilAmount')?.invalid ">
-                  <span class="error-message" [class.show-message]="isSubmitClicked">Veuillez entrer un seuil</span>
+                  <span class="error-message" [class.show-message]="isSubmitClicked">Veuillez entrer un montant à ne pas dépasser</span>
                 </div>
 
 
 
               </div>
 
+              <div class="divCategorie">
+
+              <span>Catégorie</span>
 
 
+                <div class="categorieDropdown">
+                  <select formControlName="categorie">
+                    <option value="depenses">dépenses</option>
+                    <option value="revenus">revenus</option>
+                    <option value="solde">solde</option>
+                    <option value="epargne">épargne</option>
+
+                  </select>
+                </div>
+              <div *ngIf="isSubmitClicked && alertForm.get('categorie')?.invalid ">
+                <span class="error-message" [class.show-message]="isSubmitClicked">Veuillez entrer une catégorie</span>
+              </div>
+
+            </div>
 
               <div class="thirdLineTwoInputs">
 

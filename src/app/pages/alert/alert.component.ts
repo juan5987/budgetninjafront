@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild,  HostListener} from '@angular/core';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogModule} from '@angular/material/dialog';
 
 import {AddAlertComponent} from "./add-alert/add-alert.component";
@@ -19,27 +19,35 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 })
 export class AlertComponent implements OnInit{
 
+
   title = 'Angular13Crud';
 
-  displayedColumns: string[] = ['alertName', 'seuilAmount', 'periodInput', 'periodDropdown', 'commentaries', 'actions'];
+  displayedColumns: string[] = ['alertName', 'seuilAmount', 'categorie', 'periodInput', 'periodDropdown', 'commentaries', 'actions'];
   dataSource! : MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+
+  isScreenLessThan985px: boolean = false;
+
 
   constructor(public dialog: MatDialog, private api : ApiService) {
   }
 
   ngOnInit(): void {
         this.getAllAlert();
+    this.isScreenLessThan985px = window.innerWidth < 985;
     }
 
-
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.isScreenLessThan985px = window.innerWidth < 985;
+  }
 
   openDialog() {
     this.dialog.open(AddAlertComponent, {
       width:'50%',
-      height:'86%'
+      height:'88.32%'
     }).afterClosed().subscribe(val=>{
       if(val==='save'){
         this.getAllAlert();
@@ -63,7 +71,7 @@ export class AlertComponent implements OnInit{
 editAlert(row : any){
   this.dialog.open(AddAlertComponent, {
     width:'50%',
-    height:'86%',
+    height:'87.8%',
     data : row }).afterClosed().subscribe(val=>{
       if(val === 'mettre à jour'){
         this.getAllAlert();

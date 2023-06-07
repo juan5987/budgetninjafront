@@ -23,7 +23,7 @@ span{
 }
 
 h1{
-  margin-bottom: 31px;
+  margin-bottom: 25px;
   color: orange;
   font-family: "Shojumaru";
   text-align: center;
@@ -55,7 +55,15 @@ h1{
 
 
 
+.categorieDropdown{
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: white;
+  padding: 10px;
+  font-size: 16px;
+  width: 50%;
 
+}
 
 
 
@@ -74,7 +82,7 @@ h1{
 .inputDiv{
   display: flex;
   flex-direction: column;
-  gap: 45px;
+  gap: 50px;
 }
 
 .textAndInputDivs{
@@ -88,7 +96,7 @@ h1{
 .divAlertName, .divSeuilAmount, .thirdLineTwoInputs{
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.3rem;
 }
 
 .main {
@@ -160,7 +168,7 @@ display: flex;
 .inputDiv{
   display: flex;
   flex-direction: column;
-  gap: 45px;
+  gap: 21px;
 }
 
 .textAndInputDivs{
@@ -181,7 +189,7 @@ display: flex;
 .CommentariesPlusBothDivs{
   display: flex;
   flex-direction: column;
-  gap: 21.3px;
+  gap: 22px;
   width: 100%;
 }
 

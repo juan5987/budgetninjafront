@@ -32,9 +32,16 @@
             </ng-container>
 
             <ng-container matColumnDef="seuilAmount">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header> Seuils</th>
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Montant</th>
               <td mat-cell *matCellDef="let row">
                 {{row.seuilAmount |  currency :'EUR':''}}€
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="categorie">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Catégorie </th>
+              <td mat-cell *matCellDef="let row">
+                {{row.categorie}}
               </td>
             </ng-container>
 
@@ -111,7 +118,7 @@
 
 
           <div class="checkTwo">
-            <h4 style="  white-space: nowrap; "> Être averti lorseque mes dépensent empechent le versement de l'épargne programmée</h4>
+            <h4> Être averti lorseque mes dépensent empechent le versement de l'épargne programmée</h4>
 
             <input class="checkboxNinja" type="checkbox">
 

@@ -25,6 +25,7 @@ export class AddAlertComponent implements OnInit{
    this.alertForm = this.formBuilder.group({
      alertName : ['', Validators.required],
      seuilAmount: ['', Validators.required],
+     categorie: ['',Validators.required],
      periodInput : ['', Validators.required],
      periodDropdown: ['', Validators.required],
      commentaries : ['']
@@ -34,6 +35,7 @@ export class AddAlertComponent implements OnInit{
      this.actionBtn = "Mettre à jour"
      this.alertForm.controls['alertName'].setValue(this.editData.alertName);
      this.alertForm.controls['seuilAmount'].setValue(this.editData.seuilAmount);
+     this.alertForm.controls['categorie'].setValue(this.editData.categorie);
      this.alertForm.controls['periodInput'].setValue(this.editData.periodInput);
      this.alertForm.controls['periodDropdown'].setValue(this.editData.periodDropdown);
      this.alertForm.controls['commentaries'].setValue(this.editData.commentaries);
