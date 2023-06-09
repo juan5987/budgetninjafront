@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import {AddProjectModalComponent} from "./add-project-modal/add-project-modal.component";
 
 
 @Component({
@@ -8,10 +10,18 @@ import { Component } from '@angular/core';
 })
 export class SavingComponent {
 
+  selectedDate?: Date;
 
-  constructor() {}
+  constructor(private dialog: MatDialog) {
 
 
+  }
 
+  openDialog() {
+    this.dialog.open(AddProjectModalComponent, {
+      width: '50%',
+      height: '88.32%'
+    });
 
+  }
 }

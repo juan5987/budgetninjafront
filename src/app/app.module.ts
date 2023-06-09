@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {MatDialogModule} from '@angular/material/dialog';
 
 // Composants
 import { AppComponent } from './app.component';
@@ -93,6 +94,7 @@ import { SignupModalComponent } from './pages/home/components/signup-modal/signu
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
