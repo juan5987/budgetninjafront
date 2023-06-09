@@ -11,6 +11,9 @@ import { MatDividerModule } from '@angular/material/divider';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatInputModule} from "@angular/material/input";
 
 // Composants
 import { AppComponent } from './app.component';
@@ -94,7 +97,11 @@ import { SignupModalComponent } from './pages/home/components/signup-modal/signu
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatNativeDateModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
