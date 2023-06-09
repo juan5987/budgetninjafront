@@ -1,6 +1,8 @@
 .modalContent{
   display: flex;
   flex-direction: column;
+justify-content: center;
+
 
   position: relative;
   background-color: rgb(24, 24, 24);
@@ -10,12 +12,26 @@
 .nomObjectifEpargne, .montantAAtteindre, .prioriteListe, .dateEcheance, .modalButtons{
   display: flex;
   flex-direction: column;
-  align-self: center;
+  align-items: center;
 }
 
+.savingForm{
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+h1{
+  margin-bottom: 25px;
+  color: orange;
+  font-family: "Shojumaru";
+  text-align: center;
+}
 
 span{
   color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .dialogInput{
@@ -32,7 +48,7 @@ span{
   background-color: white;
   padding: 10px;
   font-size: 16px;
-  width: 50%;
+  width:  20%;
 
 }
 

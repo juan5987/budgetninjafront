@@ -1,11 +1,16 @@
 <div class="modalContent">
 
 
+  <h1>Épargne du ninja</h1>
+
+
+  <form class="savingForm" [formGroup]="savingForm">
+
   <div class="nomObjectifEpargne">
 
     <span>Nom de l'objectif d'épargne</span>
 
-    <input class="dialogInput" type="text" >
+    <input formControlName="objEpargne" class="dialogInput" type="text" >
 
 
   </div>
@@ -15,7 +20,7 @@
 
     <span>Montant à atteindre</span>
 
-    <input type="number" min="1" class="dialogInput" placeholder="1600€">
+    <input formControlName="amountToGet" type="number" min="1" class="dialogInput" placeholder="1600€">
   </div>
 
 
@@ -23,7 +28,7 @@
     <span>Priorité dans la liste</span>
 
     <div class="categorieDropdown">
-      <select>
+      <select formControlName="yesOrNo">
         <option value="oui">oui</option>
         <option value="non">non</option>
       </select>
@@ -39,8 +44,7 @@
 
 
 
-    <label for="dateOfEnd">Date Of Birth</label>
-    <input type="date" name="dateOfEnd" id="dateOfEnd">
+    <input formControlName="endDate" type="date" name="dateOfEnd" id="dateOfEnd">
 
 
 
@@ -68,6 +72,6 @@
 
 
 
-
+  </form>
 
 </div>
