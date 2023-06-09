@@ -20,7 +20,7 @@ export class SavingComponent {
   openDialog() {
     this.dialog.open(AddProjectModalComponent, {
       width: '50%',
-      height: '88.32%'
+      height: '88.5%'
     });
 
   }
