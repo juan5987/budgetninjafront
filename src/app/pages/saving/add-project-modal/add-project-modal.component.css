@@ -16,6 +16,12 @@ justify-content: center;
   gap: 1rem;
 }
 
+.datePlusNoDate{
+  display: flex;
+  flex-direction: row;
+
+}
+
 .modalButtons{
   display: flex;
   flex-direction: row;
@@ -41,6 +47,28 @@ span{
   font-size: 1.2rem;
   font-weight: bold;
 }
+
+.datePlusNoDate{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.noDate{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3rem;
+  align-self: flex-end;
+}
+
+.dateEcheance > span{
+  margin-left: 100%;
+  white-space: nowrap;
+}
+
+
 
 .dialogInput{
   border: 2px solid black;
@@ -100,6 +128,14 @@ span{
   background-color: rgb(24,24,24);
   color: white;
 }
+
+
+.checkboxNinja{
+  width: 25px;
+  height: 25px;
+  accent-color: #ff8100;
+}
+
 
 
 /**

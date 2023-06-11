@@ -37,14 +37,14 @@
 
   </div>
 
-
+<div class="datePlusNoDate">
   <div class="dateEcheance">
     <span>Date d'échéance</span>
 
 
 
 
-    <input formControlName="endDate" type="date" name="dateOfEnd" id="dateOfEnd">
+    <input formControlName="endDate" type="date"  name="dateOfEnd" id="dateOfEnd" [min]="minEndDate">
 
 
 
@@ -54,7 +54,15 @@
 
   </div>
 
+  <div class="noDate">
 
+    <span>aucune</span>
+
+    <input class="checkboxNinja" type="checkbox" >
+
+  </div>
+
+</div>
   <div mat-dialog-actions [align]="'center'" class="modalButtons">
 
 
