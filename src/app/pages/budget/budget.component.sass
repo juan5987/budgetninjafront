@@ -165,7 +165,7 @@
                         display: grid            
                         grid-template-columns: 1fr 1fr 2fr 2fr .5fr .5fr
                         width: 100%
-                        padding: .25rem
+                        padding: .75rem
                         margin-bottom: 1rem
                         background-color: rgb(24,24,24)
 
@@ -175,12 +175,39 @@
                 &__row
                     display: grid            
                     grid-template-columns: 1fr 1fr 2fr 2fr .5fr .5fr
+                    align-items: center
                     width: 100%
+                    border-collapse: collapse
+                    padding: .75rem
+                    margin-bottom: .25rem
+
+                    &--revenu
+                        background-color: rgb(222, 255, 222)
+
+                    &--depense
+                        background-color: rgb(255, 238, 238)
+
+                    &--previsionnel
+                        background-color: rgb(241, 241, 241)
+
+                    &__delete
+                        width: 1.5rem
 
                     &__data, &__head
                         text-align: center
 
                     &__data
+                        font-size: 1.5rem
+
+                        &--revenu
+                            color: green
+
+                        &--depense
+                            color: red
+
+                        &--previsionnel
+                            color: purple
+
                         &__delete
                             width: 1.5rem
 
