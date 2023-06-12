@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ElementRef,Renderer2 } from '@angular/core';
 import { FormGroup, FormBuilder, Validator, Validators, AbstractControl } from "@angular/forms";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 
@@ -9,19 +9,18 @@ import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 })
 export class AddProjectModalComponent implements OnInit {
   savingForm!: FormGroup;
-  minEndDate!: string; // Stocke la valeur minimale pour la date de fin
+  minEndDate!: string;
+
+
 
   constructor(
     private formBuilder: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public editData: any,
+    private renderer : Renderer2,
+    private elementRef : ElementRef
   ) {}
 
   ngOnInit() {
-
-    //DATE
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    this.minEndDate = this.formatDate(tomorrow); // Définit la valeur minimale comme étant la date de demain
 
 
     //FORMGROUP
@@ -31,6 +30,15 @@ export class AddProjectModalComponent implements OnInit {
       yesOrNo: ['', Validators.required],
       endDate: ['', Validators.required]
     });
+
+
+    //DATE
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    this.minEndDate = this.formatDate(tomorrow); // Définit la valeur minimale comme étant la date de demain
+
+
+
   }
 
   formatDate(date: Date): string {
@@ -39,4 +47,26 @@ export class AddProjectModalComponent implements OnInit {
     const day = date.getDate().toString().padStart(2, '0');
     return `${year}-${month}-${day}`;
   }
+
+
+
+  // pour date => si used alors checkbox disabled
+  handleDateClick() {
+    const checkbox = this.elementRef.nativeElement.querySelector('.checkboxNinja') as HTMLInputElement;
+    this.renderer.setStyle(checkbox, 'pointer-events', 'none');
+
+
+
+
+  }
+
+  handleCheckoutClick() {
+    const datePicker = this.elementRef.nativeElement.querySelector('#dateOfEndId') as HTMLInputElement;
+    this.renderer.setStyle(datePicker, 'pointer-events', 'none');
+  }
+
+
+
+
+
 }

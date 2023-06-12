@@ -41,16 +41,7 @@
   <div class="dateEcheance">
     <span>Date d'échéance</span>
 
-
-
-
-    <input formControlName="endDate" type="date"  name="dateOfEnd" id="dateOfEnd" [min]="minEndDate">
-
-
-
-
-
-
+    <input formControlName="endDate"  type="date"  name="dateOfEnd" id="dateOfEndId" [min]="minEndDate" (click)="handleDateClick()"  >
 
   </div>
 
@@ -58,7 +49,7 @@
 
     <span>aucune</span>
 
-    <input class="checkboxNinja" type="checkbox" >
+    <input formControlName="endDate"  class="checkboxNinja" type="checkbox" (click)="handleCheckoutClick()"  >
 
   </div>
 
