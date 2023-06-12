@@ -1,0 +1,14 @@
+.category{
+    display: flex;
+}
+
+.category__content{
+    flex-grow: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 2rem;
+    margin-left: 300px;
+}
