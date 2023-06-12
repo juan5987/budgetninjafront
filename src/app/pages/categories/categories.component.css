@@ -1,5 +1,7 @@
 .category{
     display: flex;
+    width: 100% ;
+    background-color: aqua;
 }
 
 .category__content{
@@ -12,3 +14,29 @@
     padding: 2rem;
     margin-left: 300px;
 }
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  table {
+    width: 150%;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+ .container{
+  max-width: 2400px;
+  margin: 0 auto;
+ }
+ #containCategorie{
+  /* background-color: lightcoral; */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-left: 300px;
+  
+ }

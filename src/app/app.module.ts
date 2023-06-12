@@ -44,7 +44,13 @@ import { DeleteSavingProjectModalComponent } from './pages/saving/delete-saving-
 import { HomeheaderComponent } from './pages/home/components/homeheader/homeheader.component';
 import { LoginModalComponent } from './pages/home/components/login-modal/login-modal.component';
 import { SignupModalComponent } from './pages/home/components/signup-modal/signup-modal.component';
-
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogComponent } from './pages/categories/dialog/dialog.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -80,6 +86,8 @@ import { SignupModalComponent } from './pages/home/components/signup-modal/signu
     HomeheaderComponent,
     LoginModalComponent,
     SignupModalComponent,
+    DialogComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -93,6 +101,11 @@ import { SignupModalComponent } from './pages/home/components/signup-modal/signu
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

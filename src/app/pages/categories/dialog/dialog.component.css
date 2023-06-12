@@ -1,0 +1,9 @@
+.content{
+    position: relative;
+    /* background-color: ;rgb(24, 24, 24) */
+    border: 5px solid orange;
+    color: white;  
+}
+mat-form-field{
+    width: 100%;
+}
