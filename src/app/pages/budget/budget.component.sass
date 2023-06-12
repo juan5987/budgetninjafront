@@ -10,6 +10,7 @@
         align-items: center
         width: 100%
         padding: 2rem
+        margin-left: 300px
 
         &__indicators
             width: 100%
@@ -20,6 +21,7 @@
                 justify-content: space-between
                 align-items: center
                 padding: 0 1rem
+                margin-bottom: 1rem
                 margin-bottom: 1rem
 
                 &__title
@@ -41,8 +43,8 @@
                 flex-wrap: wrap
                 align-items: flex-start
                 width: 100%
-                padding: 2rem
                 padding-top: 0
+                margin-bottom: 1rem
 
                 &__item
                     width: 40%
@@ -61,9 +63,9 @@
                         color: orange
 
                     &--dark
-                        background-color: rgb(241, 241, 241)
-                        border: 5px solid rgb(24,24,24)
-                        color: rgb(24,24,24)
+                        background-color: rgb(255, 229, 255)
+                        border: 5px solid purple
+                        color: purple
 
                     &--red
                         background-color: rgb(255, 238, 238)
@@ -83,6 +85,25 @@
                     &__label
                         font-size: 2rem
                         font-weight: bold
+
+        &__recurrent
+            &__button
+                background-color: orange
+                color: white
+                font-size: 1.2rem
+                text-transform: uppercase
+                padding: .5em 1em
+                border-radius: 1em
+                font-family: 'Shojumaru', 'Roboto', cursive
+                cursor: pointer
+                margin-bottom: 2rem
+                display: block
+                margin: 0 auto
+                margin-bottom: 1rem
+
+                &:hover
+                    background-color: white
+                    background-color: rgb(24,24,24)
 
         &__transactions
             width: 100%
@@ -188,10 +209,10 @@
                         background-color: rgb(255, 238, 238)
 
                     &--previsionnel
-                        background-color: rgb(241, 241, 241)
-
-                    &__delete
-                        width: 1.5rem
+                        background-color: rgb(255, 213, 255)
+                        border: 3px solid purple
+                        border-radius: 1rem
+                        font-weight: bold
 
                     &__data, &__head
                         text-align: center
@@ -210,6 +231,11 @@
 
                         &__delete
                             width: 1.5rem
+                            cursor: pointer
+
+                        &__edit
+                            width: 1.9rem
+                            cursor: pointer
 
                     &__head
                         font-size: 1.2rem
@@ -222,3 +248,6 @@
 @media all and (max-width: 800px)
     .budget
         flex-direction: column
+
+        &__content
+            margin-left: auto
