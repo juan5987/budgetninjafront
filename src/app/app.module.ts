@@ -53,6 +53,7 @@ import { HomeheaderComponent } from './pages/home/components/homeheader/homehead
 import { LoginModalComponent } from './pages/home/components/login-modal/login-modal.component';
 import { SignupModalComponent } from './pages/home/components/signup-modal/signup-modal.component';
 import { AddTransactionModalComponent } from './pages/budget/add-transaction-modal/add-transaction-modal.component';
+import { UpdateTransactionComponent } from './pages/budget/update-transaction/update-transaction.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import { AddTransactionModalComponent } from './pages/budget/add-transaction-mod
     LoginModalComponent,
     SignupModalComponent,
     AddTransactionModalComponent,
+    UpdateTransactionComponent,
 
   ],
   imports: [

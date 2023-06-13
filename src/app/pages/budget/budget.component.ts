@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs';
 export class BudgetComponent implements OnInit, OnDestroy {
 
   isAddTransactionModalOpened: boolean = false;
+  isUpdateTransactionModalOpened: boolean = false;
   isDeleteTransactionModalOpened: boolean = false;
   transactions: Transaction[] = [];
   subscription!: Subscription;
@@ -26,6 +27,10 @@ export class BudgetComponent implements OnInit, OnDestroy {
     this.subscription = this.budgetService.isDeleteTransactionModalOpenedSubject.subscribe(
       (bool: boolean) => {
         this.isDeleteTransactionModalOpened = bool;
+      });
+    this.subscription = this.budgetService.isUpdateTransactionModalOpenedSubject.subscribe(
+      (bool: boolean) => {
+        this.isUpdateTransactionModalOpened = bool;
       });
     this.subscription = this.transactionsService.transactionsSubject.subscribe(
       (transactions: Transaction[]) => {
@@ -48,6 +53,10 @@ export class BudgetComponent implements OnInit, OnDestroy {
 
   handleShowModal = () => {
     this.budgetService.isAddTransactionModalOpenedSetter = true;
+  }
+
+  handleShowUpdateModal = () => {
+    this.budgetService.isUpdateTransactionModalOpened = true;
   }
 
   handleShowDeleteModal = () => {

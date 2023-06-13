@@ -1,0 +1,37 @@
+<div class="modal" (click)="handleCloseModal()">
+  <div class="modal__container" (click)="stopPropagation($event)">
+      <span class="cross" (click)="handleCloseModal()">
+          <span class="cross__line cross__line__one">&nbsp;</span>
+          <span class="cross__line cross__line__two">&nbsp;</span>
+      </span>
+      <img class="modal__container__logo" src="assets/images/logo.png" alt="logo représentant un ninja">
+      <h2 class="modal__container__title">Modifier une transaction</h2>
+      <form class="modal__container__form" (ngSubmit)="handleSubmit($event)">
+          <div class="modal__container__form__element">
+              <label for="date" class="modal__container__form__element__label" >Date</label>
+              <input type="date" class="modal__container__form__element__input" name="date" id="date">
+          </div>
+          <div class="modal__container__form__element">
+              <label for="amount" class="modal__container__form__element__label">Montant</label>
+              <input type="number" class="modal__container__form__element__input" id="amount" name="amount" min="0" step=".01">
+          </div>
+          <div class="modal__container__form__element">
+              <label for="type" class="modal__container__form__element__label">Type</label>
+              <select name="type" class="modal__container__form__element__input" id="type">
+                  <option class="modal__container__form__element__input" value="">Revenu</option>
+                  <option class="modal__container__form__element__input" value="">Depense</option>
+                  <option class="modal__container__form__element__input" value="">Epargne</option>
+              </select>
+          </div>
+          <div class="modal__container__form__element">
+              <label for="category" class="modal__container__form__element__label">Catégorie</label>
+              <select name="category" class="modal__container__form__element__input" id="category">
+                  <option class="modal__container__form__element__input" value="">Carburant</option>
+                  <option class="modal__container__form__element__input" value="">Alimentation</option>
+                  <option class="modal__container__form__element__input" value="">Salaire</option>
+              </select>
+          </div>
+          <button class="main_button modal__container__form__submit" type="submit">valider</button>
+      </form>
+  </div>
+</div>

@@ -12,7 +12,7 @@
         [ngClass]="(transaction.type === 'revenu') ? 'transaction__row__data transaction__row__data--revenu' : 'transaction__row__data transaction__row__data--depense'">
         {{transaction.amount}}€</td>
     <td
-        [ngClass]="(transaction.type === 'revenu') ? 'transaction__row__data transaction__row__data--revenu' : 'transaction__row__data transaction__row__data--depense'">
+        [ngClass]="(transaction.type === 'revenu') ? 'transaction__row__data transaction__row__data--revenu' : 'transaction__row__data transaction__row__data--depense'" (click)="handleOpenUpdateModal()">
         <img class="transaction__row__data__edit" src="../../../assets/images/edit.png" alt="edition">
     </td>
     <td class="transaction__row__data" (click)="handleOpenDeleteModal()">

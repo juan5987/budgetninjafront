@@ -11,6 +11,9 @@ export class BudgetService {
   isDeleteTransactionModalOpened:boolean = false;
   isDeleteTransactionModalOpenedSubject = new Subject<boolean>();
 
+  isUpdateTransactionModalOpened:boolean = false;
+  isUpdateTransactionModalOpenedSubject = new Subject<boolean>();
+
   constructor() { }
 
   get isAddTransactionModalOpenedGetter():boolean {
@@ -20,6 +23,15 @@ export class BudgetService {
   set isAddTransactionModalOpenedSetter(bool:boolean) {
     this.isAddTransactionModalOpened = bool;
     this.isAddTransactionModalOpenedSubject.next(bool);
+  }
+
+  get isUpdateTransactionModalOpenedGetter():boolean {
+    return this.isUpdateTransactionModalOpened;
+  }
+
+  set isUpdateTransactionModalOpenedSetter(bool:boolean) {
+    this.isUpdateTransactionModalOpened = bool;
+    this.isUpdateTransactionModalOpenedSubject.next(bool);
   }
 
   get isDeleteTransactionModalOpenedGetter():boolean {

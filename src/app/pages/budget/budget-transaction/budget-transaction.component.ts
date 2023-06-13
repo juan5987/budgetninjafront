@@ -13,6 +13,7 @@ export class BudgetTransactionComponent implements OnInit, OnDestroy {
   @Input() transaction!: Transaction;
 
   isDeleteTransactionModalOpened: boolean = false;
+  isUpdateTransactionModalOpened: boolean = false;
   subscription!: Subscription;
 
   constructor(private budgetService: BudgetService) { }
@@ -22,6 +23,10 @@ export class BudgetTransactionComponent implements OnInit, OnDestroy {
       (bool: boolean) => {
         this.isDeleteTransactionModalOpened = bool;
       });
+    this.subscription = this.budgetService.isUpdateTransactionModalOpenedSubject.subscribe(
+      (bool: boolean) => {
+        this.isUpdateTransactionModalOpened = bool;
+      });
   }
 
   ngOnDestroy() {
@@ -30,5 +35,9 @@ export class BudgetTransactionComponent implements OnInit, OnDestroy {
 
   handleOpenDeleteModal = () => {
     this.budgetService.isDeleteTransactionModalOpenedSetter = true;
+  }
+
+  handleOpenUpdateModal = () => {
+    this.budgetService.isUpdateTransactionModalOpenedSetter = true;
   }
 }
