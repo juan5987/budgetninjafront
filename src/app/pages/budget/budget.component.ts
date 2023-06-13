@@ -32,6 +32,13 @@ export class BudgetComponent implements OnInit, OnDestroy {
         this.transactions = transactions;
       }
     );
+    //TODO: a décommenter quand le back sera prêt
+    // this.transactionsService.getAllTransactions().subscribe(
+    //   (transactions: Transaction[]) => {
+    //     this.transactions = transactions;
+    //   }
+    // );
+    //TODO: a supprimer quand le back sera prêt
     this.transactions = this.transactionsService.getTransactions;
   }
 

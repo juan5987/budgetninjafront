@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Transaction} from '../models/transaction';
-import { Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable, throwError, Subject } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +13,9 @@ export class TransactionsService {
     {
       id: 1,
       date: '2021-01-01',
-      description: 'Salary',
+      description: 'salaire juin',
       amount: 1350,
-      category: 'Salary',
+      category: 'salaire',
       type: 'revenu'
     },
     {
@@ -21,7 +23,7 @@ export class TransactionsService {
       date: '2021-01-01',
       description: 'diesel',
       amount: 50,
-      category: 'Carburant',
+      category: 'carburant',
       type: 'dépense'
     },
     {
@@ -29,7 +31,7 @@ export class TransactionsService {
       date: '2021-01-01',
       description: 'epargne',
       amount: 100,
-      category: 'Epargne',
+      category: 'epargne',
       type: 'épargne'
     },
     {
@@ -51,6 +53,11 @@ export class TransactionsService {
     this.transactions = transactions;
   }
 
+  getAllTransactions= () => {
+    // http request
+    return this.http.get<Transaction[]>('http://localhost:8080/transactions');
+  }
+
   addTransaction = (transaction: Transaction) => {
     this.transactions.push(transaction);
   }
@@ -68,5 +75,5 @@ export class TransactionsService {
     this.transactions = this.transactions.filter((t: Transaction) => t.id !== transaction.id);
   }
 
-  constructor() { }
+  constructor( private http: HttpClient) { }
 }
