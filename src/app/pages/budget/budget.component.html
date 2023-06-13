@@ -1,6 +1,15 @@
 <div class="budget">
   <app-sidebar></app-sidebar>
   <div class="budget__content">
+    <div class="addTransactionModal" *ngIf="showModal" (click)="handleCloseModal()">
+      <form class="addTransactionModal__content" (click)="handleClick($event)">
+        <h2 class="addTransactionModal__content__title">Ajouter une transaction</h2>
+        <div class="addTransactionModal__content__element">
+          <label for="" class="addTransactionModal__content__element__label">Montant</label>
+          <input type="number" class="addTransactionModal__content__element__input">
+        </div>
+      </form>
+    </div>
     <section class="budget__content__indicators">
       <header class="budget__content__indicators__header">
         <h2 class="budget__content__indicators__header__title">Mon budget</h2>
@@ -32,7 +41,7 @@
         <h2 class="budget__content__transactions__header__title">Dernières transactions</h2>
       </header>
       <div class="budget__content__transactions__buttons">
-        <button class="budget__content__transactions__buttons__add">Ajouter une transaction</button>
+        <button class="budget__content__transactions__buttons__add" (click) = "handleShowModal()">Ajouter une transaction</button>
         <a class="budget__content__transactions__buttons__category" routerLink="/categories">Gérer mes catégories</a>
       </div>
       <table class="budget__content__transactions__grid">

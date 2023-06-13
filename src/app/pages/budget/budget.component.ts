@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./budget.component.sass']
 })
 export class BudgetComponent {
+  showModal = false;
 
+  handleShowModal = () => {
+    this.showModal = true;
+  }
+  handleCloseModal = () => {
+    this.showModal = false;
+  }
+
+  handleClick = (event:Event) => {
+    event.stopPropagation();
+  }
 }
