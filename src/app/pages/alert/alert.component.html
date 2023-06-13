@@ -1,1 +1,160 @@
-<p>alert works!</p>
+<div class="alert">
+
+  <app-sidebar></app-sidebar>
+
+  <div class="componant">
+
+
+    <div class="containerAlertPage">
+      <h1>Les alertes du ninja</h1>
+
+      <div class="containerList">
+
+        <div class="test">
+
+          <div>
+            <button class="boutonAjouter"  (click)="openDialog()">Ajouter</button>
+          </div>
+
+          <div>
+            <input (keyup)="applyFilter($event)" class="filterBar" placeholder="Filtre" #input>
+          </div>
+
+        </div>
+
+
+        <div class="mat-elevation-z0" style="width:100%;overflow-x:scroll;">
+          <table mat-table  [dataSource]="dataSource" matSort >
+
+            <ng-container matColumnDef="alertName">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Noms d'alertes</th>
+              <td mat-cell *matCellDef="let row"> {{row.alertName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="seuilAmount">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Montant</th>
+              <td mat-cell *matCellDef="let row">
+                {{row.seuilAmount |  currency :'EUR':''}}€
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="categorie">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Catégorie </th>
+              <td mat-cell *matCellDef="let row">
+                {{row.categorie}}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="periodInput">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Cycles</th>
+              <td mat-cell *matCellDef="let row">
+                {{row.periodInput}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="periodDropdown">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Périodicité</th>
+              <td mat-cell *matCellDef="let row">
+                {{row.periodDropdown}}</td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="commentaries">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Commentaires</th>
+              <td mat-cell *matCellDef="let row">
+                {{row.commentaries.substring(0, 15) + (" ...")}}</td>
+            </ng-container>
+
+
+
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+              <td mat-cell *matCellDef="let row">
+
+                <button mat-icon-button (click)="editAlert(row)" >
+                  <mat-icon>edit</mat-icon>
+                </button>
+
+                <button mat-icon-button (click)="deleteAlert(row.id)" color="warn">
+                  <mat-icon>delete</mat-icon>
+                </button>
+
+              </td>
+            </ng-container>
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <!-- Row shown when there is no matching data. -->
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="4">Aucune alerte "{{input.value}}"</td>
+            </tr>
+          </table>
+
+
+        </div>
+
+
+      </div>
+
+
+      <!--BOTTOM PART-->
+
+      <h2>Autres notifications</h2>
+
+      <div class="fromDividertoThirdCheckbox">
+        <mat-divider></mat-divider>
+
+
+        <div class="autresNotif">
+
+
+          <div class="checkOne">
+            <h4>Recevoir un mail, si mes objectifs d'épargne sont atteints</h4>
+
+            <input class="checkboxNinja" type="checkbox">
+
+          </div>
+
+
+          <div class="checkTwo">
+            <h4> Être averti lorseque mes dépensent empechent le versement de l'épargne programmée</h4>
+
+            <input class="checkboxNinja" type="checkbox">
+
+
+
+          </div>
+
+          <div class="checkThree">
+            <h4>Recevoir un mail, récapitulant ma situation budgétaire tout les</h4>
+
+
+            <div class="twoButtonSideBySide">
+                <input class="periodButtonSmall" type="number" placeholder="6">
+
+              <div class="customDropdown">
+                <select formControlName="periodDropdown">
+                  <option value="jours">jours</option>
+                  <option value="semaines">semaines</option>
+                  <option value="mois">mois</option>
+                </select>
+              </div>
+
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+    </div>
+
+
+  </div>
+
+
+</div>

@@ -1,0 +1,13 @@
+
+
+.autresNotif{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.checkOne, .checkTwo, .checkThree {
+  display: flex;
+  flex-direction: row;
+
+}
