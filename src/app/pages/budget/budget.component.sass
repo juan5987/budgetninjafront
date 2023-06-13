@@ -247,6 +247,83 @@
                         color: #fefefe
                         text-align: center
 
+.deleteModal
+    display: flex
+    justify-content: center
+    align-items: center
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    background-color: rgba(0,0,0, .75)
+    z-index: 1
+    font-family: 'Shojumaru', 'Roboto', cursive
+    min-height: 100vh
+    color: #fefefe
+
+    &__container
+        display: flex
+        flex-direction: column
+        align-items: center
+        background-color: rgb(24,24,24)
+        padding: 2rem
+        padding-top: 3rem
+        border-radius: 1rem
+        border: 5px solid orange
+        position: relative
+        overflow-y: scroll
+        max-height: 100vh
+
+        &::-webkit-scrollbar
+          display: none
+
+        &__logo
+            height: 80px
+            margin-bottom: 2rem
+
+        &__title
+            color: orange
+            text-transform: uppercase
+            font-size: 1.8rem
+            font-weight: bold
+            margin-bottom: 2rem
+            font-family: 'Shojumaru', 'Roboto', cursive
+            width: 350px
+            text-align: center
+
+        &__content
+            font-size: 1.5rem
+            font-weight: bold
+            color: #fefefe
+            margin-bottom: 1rem
+
+        &__buttons
+            display: flex
+            justify-content: space-between
+            width: 100%
+
+            &__button
+                color: white
+                margin: 0 auto
+                margin-top: 1rem
+                font-size: 1.5rem
+                font-weight: bold
+                border-radius: 1.5rem
+                cursor: pointer
+                padding: .5em 2em
+
+                &--delete
+                    background-color: red
+
+                    &:hover
+                        background-color: rgb(255, 73, 73)
+
+                &--cancel
+                    background-color: orange
+
+                    &:hover
+                        background-color: rgb(255, 198, 73)
+
 @media all and (max-width: 800px)
     .budget
         flex-direction: column

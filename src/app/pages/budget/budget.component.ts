@@ -9,9 +9,10 @@ import { Subscription } from 'rxjs';
   templateUrl: './budget.component.html',
   styleUrls: ['./budget.component.sass']
 })
-export class BudgetComponent implements OnInit, OnDestroy{
+export class BudgetComponent implements OnInit, OnDestroy {
 
-  isAddTransactionModalOpened:boolean = false;
+  isAddTransactionModalOpened: boolean = false;
+  isDeleteTransactionModalOpened: boolean = false;
   transactions: Transaction[] = [];
   subscription!: Subscription;
 
@@ -19,8 +20,12 @@ export class BudgetComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     this.subscription = this.budgetService.isAddTransactionModalOpenedSubject.subscribe(
-      (bool:boolean) => {
+      (bool: boolean) => {
         this.isAddTransactionModalOpened = bool;
+      });
+    this.subscription = this.budgetService.isDeleteTransactionModalOpenedSubject.subscribe(
+      (bool: boolean) => {
+        this.isDeleteTransactionModalOpened = bool;
       });
     this.subscription = this.transactionsService.transactionsSubject.subscribe(
       (transactions: Transaction[]) => {
@@ -36,5 +41,17 @@ export class BudgetComponent implements OnInit, OnDestroy{
 
   handleShowModal = () => {
     this.budgetService.isAddTransactionModalOpenedSetter = true;
+  }
+
+  handleShowDeleteModal = () => {
+    this.budgetService.isDeleteTransactionModalOpenedSetter = true;
+  }
+
+  handleCloseDeleteModal = () => {
+    this.budgetService.isDeleteTransactionModalOpenedSetter = false;
+  }
+
+  stopPropagation = (event: Event) => {
+    event.stopPropagation();
   }
 }
