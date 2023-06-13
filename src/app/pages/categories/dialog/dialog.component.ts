@@ -36,7 +36,6 @@ export class DialogComponent implements OnInit {
       if (this.categorieForm.valid) {
         this.api.postCategorie(this.categorieForm.value).subscribe({
           next: (res) => {
-            alert('Categorie Added');
             this.categorieForm.reset();
             this.dialogRef.close('Enregistrer');
           },
@@ -53,7 +52,6 @@ export class DialogComponent implements OnInit {
     this.api.putCategorie(this.categorieForm.value, this.editData.id)
     .subscribe({
       next:(res)=>{
-        alert("Categorie update successfully");
         this.categorieForm.reset();
         this.dialogRef.close('update');
       },

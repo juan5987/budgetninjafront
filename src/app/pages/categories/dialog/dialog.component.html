@@ -1,16 +1,21 @@
-<div class="content">
-  <div mat-dialog-title>Ajouter une nouvelle catégorie</div>
+<div class="container" style="color: white;">
+    <h1>Ajouter une nouvelle catégorie</h1>
+    <div class="main">
+        <div class="inputName">
+      <form [formGroup]="categorieForm">
+        <input formControlName="categorieName" maxlength="40"  type="text" class="dialogInput" placeholder="Nom_de_categorie" required>
+      </form>
+    </div>
+      <div mat-dialog-action [align]="'center'">
+        <button class="boutonAnnuler" mat-dialog-close>Annuler</button>
+        <button class="boutonAjouter"  style="margin-left: 15px" (click)="ajouterCategorie()">{{actionBtn}}</button>
+      </div>
 
-  <div mat-dialog-content>
-    <form [formGroup]="categorieForm">
-    <mat-form-field>
-      <mat-label>Nom de catégorie</mat-label>
-      <input formControlName="categorieName" matInput>
-    </mat-form-field>
-  </form>
-    <div mat-dialog-action [align]="'end'">
-      <button mat-raised-button color="warn" mat-dialog-close>Fermer</button>
-      <button style="margin-left: 8px" mat-raised-button color="primary" (click)="ajouterCategorie()">{{actionBtn}}</button>
+
+
+
+
+
+
     </div>
   </div>
-</div>
