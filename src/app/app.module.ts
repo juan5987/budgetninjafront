@@ -44,7 +44,7 @@ import { DeleteSavingProjectModalComponent } from './pages/saving/delete-saving-
 import { HomeheaderComponent } from './pages/home/components/homeheader/homeheader.component';
 import { LoginModalComponent } from './pages/home/components/login-modal/login-modal.component';
 import { SignupModalComponent } from './pages/home/components/signup-modal/signup-modal.component';
-
+import { AddTransactionModalComponent } from './pages/budget/add-transaction-modal/add-transaction-modal.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +80,7 @@ import { SignupModalComponent } from './pages/home/components/signup-modal/signu
     HomeheaderComponent,
     LoginModalComponent,
     SignupModalComponent,
+    AddTransactionModalComponent,
   ],
   imports: [
     BrowserModule,

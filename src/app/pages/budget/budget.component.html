@@ -1,15 +1,7 @@
 <div class="budget">
   <app-sidebar></app-sidebar>
   <div class="budget__content">
-    <div class="addTransactionModal" *ngIf="showModal" (click)="handleCloseModal()">
-      <form class="addTransactionModal__content" (click)="handleClick($event)">
-        <h2 class="addTransactionModal__content__title">Ajouter une transaction</h2>
-        <div class="addTransactionModal__content__element">
-          <label for="" class="addTransactionModal__content__element__label">Montant</label>
-          <input type="number" class="addTransactionModal__content__element__input">
-        </div>
-      </form>
-    </div>
+  <app-add-transaction-modal *ngIf="isAddTransactionModalOpened"></app-add-transaction-modal>
     <section class="budget__content__indicators">
       <header class="budget__content__indicators__header">
         <h2 class="budget__content__indicators__header__title">Mon budget</h2>
