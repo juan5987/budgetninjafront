@@ -20,6 +20,13 @@
       "yesOrNo": "non",
       "endDate": true,
       "id": 3
+    },
+    {
+      "objEpargne": "ds<dqz",
+      "amountToGet": 252,
+      "yesOrNo": "oui",
+      "endDate": true,
+      "id": 4
     }
   ],
   "comments": [
