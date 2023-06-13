@@ -1,1 +1,128 @@
-<p>add-alert works!</p>
+<div class="content">
+  <div class="contentWithNoButtons">
+
+      <h1>Nom de l'alerte</h1>
+
+      <div class="main">
+        <form [formGroup]="alertForm">
+
+
+        <div class="CommentariesPlusBothDivs">
+          <div class="textAndInputDivs">
+
+
+
+            <div class="inputDiv">
+
+              <div class="divAlertName">
+
+                <span>Nom de l'alerte</span>
+
+
+                <input formControlName="alertName" maxlength="20"  type="text" class="dialogInput" placeholder="mon_budget" required>
+
+                <div *ngIf="isSubmitClicked && alertForm.get('alertName')?.invalid ">
+                  <span class="error-message" [class.show-message]="isSubmitClicked">Veuillez entrer un nom d'alerte</span>
+                </div>
+
+
+              </div>
+
+
+
+
+              <div class="divSeuilAmount">
+
+
+                <span>Montant à ne pas dépasser</span>
+
+
+                <input formControlName="seuilAmount" type="number" min="1" class="dialogInput" placeholder="45€">
+
+                <div *ngIf="alertForm.get('seuilAmount')?.invalid ">
+                  <span class="error-message" [class.show-message]="isSubmitClicked">Veuillez entrer un montant à ne pas dépasser</span>
+                </div>
+
+
+
+              </div>
+
+              <div class="divCategorie">
+
+              <span>Catégorie</span>
+
+
+                <div class="categorieDropdown">
+                  <select formControlName="categorie">
+                    <option value="depenses">dépenses</option>
+                    <option value="revenus">revenus</option>
+                    <option value="solde">solde</option>
+                    <option value="epargne">épargne</option>
+
+                  </select>
+                </div>
+              <div *ngIf="isSubmitClicked && alertForm.get('categorie')?.invalid ">
+                <span class="error-message" [class.show-message]="isSubmitClicked">Veuillez entrer une catégorie</span>
+              </div>
+
+            </div>
+
+              <div class="thirdLineTwoInputs">
+
+
+                <span style="  white-space: nowrap;
+            ">Pour tout les </span>
+
+                <div class="twoButtonSideBySide">
+                  <div>
+                    <input formControlName="periodInput" type="number" min="1"  class="periodButtonSmall" placeholder="6">
+                  </div>
+
+
+                    <div class="customDropdown">
+                      <select formControlName="periodDropdown">
+                        <option value="jours">jours</option>
+                        <option value="semaines">semaines</option>
+                        <option value="mois">mois</option>
+                      </select>
+                    </div>
+
+
+
+                </div>
+
+                <div>
+                  <div *ngIf="alertForm.get('periodInput')?.invalid || alertForm.get('periodDropdown')?.invalid  ">
+                    <span class="error-message" [class.show-message]="isSubmitClicked">Veuillez entrer une périodicité</span>
+                  </div>
+                </div>
+
+
+
+
+              </div>
+
+
+            </div>
+          </div>
+            <div>
+
+
+              <textarea formControlName="commentaries" type="text" class="commentBox" placeholder="Commentaires ..."> Commentaires ...</textarea>
+
+
+
+            </div>
+
+        </div>
+        </form>
+  </div>
+
+  </div>
+
+  <div mat-dialog-actions [align]="'center'" >
+    <button class="boutonAnnuler" mat-dialog-close>Annuler</button>
+    <button class="boutonAjouter" style="margin-left: 15px"  (click)="addAlertAction()">{{actionBtn}}</button>
+  </div>
+
+</div>
