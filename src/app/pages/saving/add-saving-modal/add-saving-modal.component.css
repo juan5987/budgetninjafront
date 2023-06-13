@@ -4,12 +4,22 @@
   justify-content: center;
 
 
+
+
   position: relative;
   background-color: rgb(24, 24, 24);
   border: 5px solid orange;
 }
 
-.montantAEpargner, .frequence{
+
+
+.savingFormular{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.montantAEpargner, .frequence, .dateFin, .dateDebut{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,6 +59,9 @@ span{
   width: 200px;
 
 
+}
+.checkboxAndDatePicker{
+  display: flex;
 }
 
 
@@ -110,6 +123,17 @@ span{
   accent-color: #ff8100;
 }
 
+.periodButtonSmall{
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  width: 40%;
+}
+
+.frequencyByTwo{
+  display: flex;
+}
 
 
 /**

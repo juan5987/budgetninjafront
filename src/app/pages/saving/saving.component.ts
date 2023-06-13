@@ -21,14 +21,12 @@ export class SavingComponent {
   openDialog() {
     this.dialog.open(AddProjectModalComponent, {
       width: '50%',
-      height: '88.5%'
     });
   }
 
   openSecondDialog(){
     this.dialog.open(AddSavingModalComponent, {
       width: '50%',
-      height: '88.5%'
     })
   }
 

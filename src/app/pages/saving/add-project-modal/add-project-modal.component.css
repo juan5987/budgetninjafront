@@ -9,6 +9,9 @@ justify-content: center;
   border: 5px solid orange;
 }
 
+
+
+
 .nomObjectifEpargne, .montantAAtteindre, .prioriteListe, .dateEcheance{
   display: flex;
   flex-direction: column;
