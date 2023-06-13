@@ -1,1 +1,18 @@
-<p>budget-transaction works!</p>
+<tr class="transaction__row transaction__row--depense">
+    <td [ngClass]="(transaction.type === 'revenu') ? 'transaction__row__data transaction__row__data--revenu' : 'transaction__row__data transaction__row__data--depense'">
+        {{transaction.date}}</td>
+    <td [ngClass]="(transaction.type === 'revenu') ? 'transaction__row__data transaction__row__data--revenu' : 'transaction__row__data transaction__row__data--depense'">
+        {{transaction.description}}</td>
+    <td [ngClass]="(transaction.type === 'revenu') ? 'transaction__row__data transaction__row__data--revenu' : 'transaction__row__data transaction__row__data--depense'">
+        {{transaction.category}}</td>
+    <td [ngClass]="(transaction.type === 'revenu') ? 'transaction__row__data transaction__row__data--revenu' : 'transaction__row__data transaction__row__data--depense'">
+        {{transaction.amount}}€</td>
+    <td [ngClass]="(transaction.type === 'revenu') ? 'transaction__row__data transaction__row__data--revenu' : 'transaction__row__data transaction__row__data--depense'">
+        <img class="transaction__row__data__edit" src="../../../assets/images/edit.png"
+            alt="edition">
+    </td>
+    <td class="transaction__row__data">
+        <img class="transaction__row__data__delete" src="../../../assets/images/corbeille.png"
+            alt="corbeille">
+    </td>
+</tr>
