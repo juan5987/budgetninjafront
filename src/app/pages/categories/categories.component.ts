@@ -14,7 +14,8 @@ import { MatTableDataSource} from '@angular/material/table';
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent {
-  displayedColumns: string[] = ['id', 'categorieName', 'action'];
+   
+  displayedColumns: string[] = ['categorieName', 'ajouter'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -75,4 +76,5 @@ export class CategoriesComponent {
       this.dataSource.paginator.firstPage();
     }
   }
+  
 }

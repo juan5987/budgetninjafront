@@ -1,42 +1,24 @@
-.category{
-    display: flex;
-    width: 100% ;
-    background-color: aqua;
-}
 
-.category__content{
-    flex-grow: 1;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 2rem;
-    margin-left: 300px;
-}
-.example-spacer {
-    flex: 1 1 auto;
-  }
-  table {
-    width: 150%;
-  }
-  
-  .mat-mdc-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
-  
- .container{
-  max-width: 2400px;
-  margin: 0 auto;
- }
- #containCategorie{
-  /* background-color: lightcoral; */
+.category__content {
+  flex-grow: 1;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  align-content: center;
+  padding: 2rem;
   margin-left: 300px;
-  
- }
+}
+
+.container {
+  flex-grow: 1;
+  width: 80%;
+  overflow-x: auto;
+  margin-top: 40px; /* Điều chỉnh giá trị margin-top ở đây */
+}
+.mat-elevation-z8{
+  padding: 1rem;
+  background-color: white; /* Màu nền bảng */
+  border: 1px solid black; /* Đường viền bảng */
+  border-radius: 4px;
+}
+
