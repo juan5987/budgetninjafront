@@ -47,7 +47,6 @@ export class AlertComponent implements OnInit{
   openDialog() {
     this.dialog.open(AddAlertComponent, {
       width:'50%',
-      height:'88.32%'
     }).afterClosed().subscribe(val=>{
       if(val==='save'){
         this.getAllAlert();
@@ -71,7 +70,6 @@ export class AlertComponent implements OnInit{
 editAlert(row : any){
   this.dialog.open(AddAlertComponent, {
     width:'50%',
-    height:'87.8%',
     data : row }).afterClosed().subscribe(val=>{
       if(val === 'mettre à jour'){
         this.getAllAlert();
