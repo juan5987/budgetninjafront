@@ -28,7 +28,7 @@ justify-content: center;
   margin-top: 2rem;
 }
 
-.savingForm{
+.savingFormular{
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -122,6 +122,17 @@ span{
 
 
 
+}
+
+
+.error-message {
+  font-size: 16px;
+  display: none;
+  color: red;
+}
+
+.error-message.show-message {
+  display: block;
 }
 
 .boutonAnnuler:hover {

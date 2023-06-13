@@ -4,44 +4,54 @@
   <h1>Épargne du ninja</h1>
 
 
-  <form class="savingForm" [formGroup]="savingForm">
+  <form class="savingFormular" [formGroup]="savingForm">
 
-  <div class="nomObjectifEpargne">
+    <div class="nomObjectifEpargne">
 
-    <span>Nom de l'objectif d'épargne</span>
+      <span>Nom de l'objectif d'épargne</span>
 
-    <input formControlName="objEpargne" class="dialogInput" type="text" >
+      <input formControlName="objEpargne" class="dialogInput" type="text" required>
+      <div *ngIf="isSubmitClicked && savingForm.get('objEpargne')?.invalid ">
+        <span class="error-message" [class.show-message]="isSubmitClicked">Veuillez entrer un nom d'épargne</span>
+      </div>
 
-
-  </div>
-
-
-  <div class="montantAAtteindre">
-
-    <span>Montant à atteindre</span>
-
-    <input formControlName="amountToGet" type="number" min="1" class="dialogInput" placeholder="1600€">
-  </div>
-
-
-  <div class="prioriteListe">
-    <span>Priorité dans la liste</span>
-
-    <div class="categorieDropdown">
-      <select formControlName="yesOrNo">
-        <option value="oui">oui</option>
-        <option value="non">non</option>
-      </select>
     </div>
 
 
-  </div>
+    <div class="montantAAtteindre">
+
+      <span>Montant à atteindre</span>
+
+      <input formControlName="amountToGet" type="number" min="1" class="dialogInput" placeholder="1600€" required>
+      <div *ngIf="isSubmitClicked && savingForm.get('amountToGet')?.invalid ">
+        <span class="error-message" [class.show-message]="isSubmitClicked">Veuillez entrer un montant</span>
+      </div>
+    </div>
+
+
+    <div class="prioriteListe">
+      <span>Priorité dans la liste</span>
+
+      <div class="categorieDropdown">
+        <select formControlName="yesOrNo" required>
+          <option value="oui">oui</option>
+          <option value="non">non</option>
+        </select>
+      </div>
+      <div *ngIf="isSubmitClicked && savingForm.get('yesOrNo')?.invalid ">
+        <span class="error-message" [class.show-message]="isSubmitClicked">Veuillez indiquer si cet épargne est prioritaire</span>
+      </div>
+    </div>
+
+
+
 
 <div class="datePlusNoDate">
   <div class="dateEcheance">
     <span>Date d'échéance</span>
 
-    <input formControlName="endDate"  type="date"  name="dateOfEnd" id="dateOfEndId" [min]="minEndDate" (click)="handleDateClick()"  >
+    <input formControlName="endDate" type="date" name="dateOfEnd" id="dateOfEndId" [min]="minEndDate"
+           (click)="handleDateClick()">
 
   </div>
 
@@ -49,38 +59,20 @@
 
     <span>aucune</span>
 
-    <input formControlName="endDate"  class="checkboxNinja" type="checkbox" (click)="handleCheckoutClick()"  >
+    <input formControlName="endDate" class="checkboxNinja" type="checkbox" (click)="handleCheckoutClick()">
 
   </div>
 
 </div>
-  <div mat-dialog-actions [align]="'center'" class="modalButtons">
+<div mat-dialog-actions [align]="'center'" class="modalButtons">
 
 
-      <button class="boutonAnnuler" mat-dialog-close>Annuler</button>
-      <button class="boutonAjouter" style="margin-left: 15px" >Valider</button>
+  <button class="boutonAnnuler" mat-dialog-close>Annuler</button>
+  <button class="boutonAjouter" style="margin-left: 15px" (click)="addSavingGoal()">{{actionBtn}}</button>
 
 
+</div>
 
-
-
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  </form>
+</form>
 
 </div>

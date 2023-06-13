@@ -1,0 +1,28 @@
+{
+  "savingList": [
+    {
+      "objEpargne": "test",
+      "amountToGet": 1500,
+      "yesOrNo": "non",
+      "endDate": "2023-06-22",
+      "id": 1
+    },
+    {
+      "objEpargne": "dsds",
+      "amountToGet": 1500,
+      "yesOrNo": "non",
+      "endDate": true,
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

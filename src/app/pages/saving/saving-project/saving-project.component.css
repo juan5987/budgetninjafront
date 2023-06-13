@@ -1,6 +1,11 @@
-.savingProjectContainer{
+.contentProject{
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
-
+}
+.graph, .indicators{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: large;
+  gap: 1rem;
 }
