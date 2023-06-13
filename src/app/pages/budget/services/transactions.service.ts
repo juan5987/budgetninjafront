@@ -24,7 +24,7 @@ export class TransactionsService {
       description: 'diesel',
       amount: 50,
       category: 'carburant',
-      type: 'dépense'
+      type: 'depense'
     },
     {
       id: 3,
@@ -32,7 +32,7 @@ export class TransactionsService {
       description: 'epargne',
       amount: 100,
       category: 'epargne',
-      type: 'épargne'
+      type: 'epargne'
     },
     {
       id: 4,

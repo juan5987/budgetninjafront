@@ -14,7 +14,18 @@ export class BudgetService {
   isUpdateTransactionModalOpened:boolean = false;
   isUpdateTransactionModalOpenedSubject = new Subject<boolean>();
 
+  UpdatingTransactionId:number = 0;
+  UpdatingTransactionIdSubject = new Subject<number>();
+
   constructor() { }
+
+  get UpdatingTransactionIdGetter():number {
+    return this.UpdatingTransactionId;
+  }
+
+  set UpdatingTransactionIdSetter(id:number) {
+    this.UpdatingTransactionId = id;
+  }
 
   get isAddTransactionModalOpenedGetter():boolean {
     return this.isAddTransactionModalOpened;

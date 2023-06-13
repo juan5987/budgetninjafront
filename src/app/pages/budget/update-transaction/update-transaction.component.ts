@@ -1,5 +1,7 @@
+import { Transaction } from './../models/transaction';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BudgetService } from '../services/budget.service';
+import { TransactionsService } from '../services/transactions.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -7,17 +9,20 @@ import { Subscription } from 'rxjs';
   templateUrl: './update-transaction.component.html',
   styleUrls: ['./update-transaction.component.sass']
 })
-export class UpdateTransactionComponent implements OnInit, OnDestroy{
-  isAddTransactionModalOpened:boolean = true;
+export class UpdateTransactionComponent implements OnInit, OnDestroy {
+  isUpdateTransactionModalOpened: boolean = true;
+  UpdatingTransactionId: number = 0;
+  transaction!: Transaction;
   subscription!: Subscription;
 
-  constructor(private budgetService: BudgetService) { }
+  constructor(private budgetService: BudgetService, private transactionsService: TransactionsService) { }
 
   ngOnInit(): void {
-    this.subscription = this.budgetService.isAddTransactionModalOpenedSubject.subscribe(
-      (bool:boolean) => {
-        this.isAddTransactionModalOpened = bool;
+    this.subscription = this.budgetService.isUpdateTransactionModalOpenedSubject.subscribe(
+      (bool: boolean) => {
+        this.isUpdateTransactionModalOpened = bool;
       });
+      this.transaction = this.transactionsService.transactions.find(transaction => transaction.id === this.budgetService.UpdatingTransactionIdGetter)!;
   }
 
   ngOnDestroy() {
@@ -25,7 +30,7 @@ export class UpdateTransactionComponent implements OnInit, OnDestroy{
   }
 
   handleCloseModal = () => {
-    this.budgetService.isAddTransactionModalOpenedSetter = false;
+    this.budgetService.isUpdateTransactionModalOpenedSetter = false;
   }
 
   stopPropagation = (event: Event) => {

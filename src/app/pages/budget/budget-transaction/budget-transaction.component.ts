@@ -39,5 +39,6 @@ export class BudgetTransactionComponent implements OnInit, OnDestroy {
 
   handleOpenUpdateModal = () => {
     this.budgetService.isUpdateTransactionModalOpenedSetter = true;
+    this.budgetService.UpdatingTransactionIdSetter = this.transaction.id;
   }
 }
