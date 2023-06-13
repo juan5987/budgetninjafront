@@ -1,5 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MatDialog} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {ApiServiceService} from "../saving-service/api-service.service";
 
 
 @Component({
@@ -11,17 +13,17 @@ export class AddSavingModalComponent {
 
   isSubmitClicked: boolean = false;
 
-  alertForm ! : FormGroup;
+  programmedSavingForm ! : FormGroup;
   actionBtn : string = "Valider";
 
   constructor(private formBuilder : FormBuilder,
-              private api : ApiService,
+              private api : ApiServiceService,
               @Inject(MAT_DIALOG_DATA) public editData : any,
-              private dialogRef : MatDialogRef<AddAlertComponent>) {
+              private dialogRef : MatDialogRef <AddSavingModalComponent>) {
   }
 
   ngOnInit() {
-    this.alertForm = this.formBuilder.group({
+    this.programmedSavingForm = this.formBuilder.group({
       alertName : ['', Validators.required],
       seuilAmount: ['', Validators.required],
       categorie: ['',Validators.required],
@@ -32,48 +34,48 @@ export class AddSavingModalComponent {
 
     if(this.editData){
       this.actionBtn = "Mettre à jour"
-      this.alertForm.controls['alertName'].setValue(this.editData.alertName);
-      this.alertForm.controls['seuilAmount'].setValue(this.editData.seuilAmount);
-      this.alertForm.controls['categorie'].setValue(this.editData.categorie);
-      this.alertForm.controls['periodInput'].setValue(this.editData.periodInput);
-      this.alertForm.controls['periodDropdown'].setValue(this.editData.periodDropdown);
-      this.alertForm.controls['commentaries'].setValue(this.editData.commentaries);
+      this.programmedSavingForm.controls['alertName'].setValue(this.editData.alertName);
+      this.programmedSavingForm.controls['seuilAmount'].setValue(this.editData.seuilAmount);
+      this.programmedSavingForm.controls['categorie'].setValue(this.editData.categorie);
+      this.programmedSavingForm.controls['periodInput'].setValue(this.editData.periodInput);
+      this.programmedSavingForm.controls['periodDropdown'].setValue(this.editData.periodDropdown);
+      this.programmedSavingForm.controls['commentaries'].setValue(this.editData.commentaries);
 
     }
 
   }
-  addAlertAction(){
+  addProgrammedSaving(){
     this.isSubmitClicked = true;
 
     if(!this.editData){
-      if(this.alertForm.valid){
-        this.api.postAlert(this.alertForm.value)
+      if(this.programmedSavingForm.valid){
+        this.api.postProgrammedSaving(this.programmedSavingForm.value)
           .subscribe({
             next:(res)=>{
-              console.log("L'alerte a été produite avec succès !");
-              this.alertForm.reset();
+              console.log("L'épargne programmée été produite avec succès !");
+              this.programmedSavingForm.reset();
               this.dialogRef.close('save');
             },
             error:()=>{
-              console.log("Erreur lors de la production de l'alerte")
+              console.log("Erreur lors de la production de l'épargne programmée")
             }
           })
       }
     } else{
-      this.updateAlert()
+      this.updateProgrammedSaving()
     }
   }
 
-  updateAlert(){
-    this.api.putAlert(this.alertForm.value,this.editData.id)
+  updateProgrammedSaving(){
+    this.api.putProgrammedSaving(this.programmedSavingForm.value,this.editData.id)
       .subscribe({
         next:(res)=>{
-          console.log("L'alerte a été mis à jour avec succès ! ");
-          this.alertForm.reset();
+          console.log("L'épargne programmée a été mis à jour avec succès ! ");
+          this.programmedSavingForm.reset();
           this.dialogRef.close('mettre à jour');
         },
         error:()=>{
-          console.log("Erreur lors de la mise à jour de l'alerte !")
+          console.log("Erreur lors de la mise à jour de l'épargne programmée' !")
         }
       })
   }

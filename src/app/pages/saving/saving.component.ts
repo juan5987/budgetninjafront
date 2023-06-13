@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {AddProjectModalComponent} from "./add-project-modal/add-project-modal.component";
+import {AddSavingModalComponent} from "./add-saving-modal/add-saving-modal.component";
 
 
 @Component({
@@ -22,6 +23,17 @@ export class SavingComponent {
       width: '50%',
       height: '88.5%'
     });
-
   }
+
+  openSecondDialog(){
+    this.dialog.open(AddSavingModalComponent, {
+      width: '50%',
+      height: '88.5%'
+    })
+  }
+
+
+
+
+
 }

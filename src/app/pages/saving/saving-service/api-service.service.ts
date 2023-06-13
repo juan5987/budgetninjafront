@@ -10,22 +10,37 @@ export class ApiServiceService {
 
 
   postSavingGoal(data : any){
-    return this.http.post<any>("http://localhost:3000/savingList/",data);
+    return this.http.post<any>("http://localhost:3000/programmedSavingList/",data);
   }
 
   getSavingGoal(){
-    return this.http.get<any>("http://localhost:3000/savingList/");
+    return this.http.get<any>("http://localhost:3000/programmedSavingList/");
   }
 
   putSavingGoal(data:any, id : number){
-    return this.http.put<any>("http://localhost:3000/savingList/" + id, data);
+    return this.http.put<any>("http://localhost:3000/programmedSavingList/" + id, data);
   }
 
   deleteSavingGoal(id : number){
-    return this.http.delete<any>("http://localhost:3000/savingList/" + id);
+    return this.http.delete<any>("http://localhost:3000/programmedSavingList/" + id);
   }
 
 
+  postProgrammedSaving(data : any){
+    return this.http.post<any>("http://localhost:3000/programmedSavingList/",data);
+  }
+
+  getProgrammedSaving(){
+    return this.http.get<any>("http://localhost:3000/programmedSavingList/");
+  }
+
+  putProgrammedSaving(data:any, id : number){
+    return this.http.put<any>("http://localhost:3000/programmedSavingList/" + id, data);
+  }
+
+  deleteProgrammedSaving(id : number){
+    return this.http.delete<any>("http://localhost:3000/programmedSavingList/" + id);
+  }
 
 
 
