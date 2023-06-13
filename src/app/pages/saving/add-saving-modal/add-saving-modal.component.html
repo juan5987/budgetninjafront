@@ -1,1 +1,70 @@
-<p>add-saving-modal works!</p>
+<div class="modalContent">
+
+
+  <h1>Mon épargne programmée</h1>
+
+
+  <form class="savingFormular" >
+
+
+    <div class="nomObjectifEpargne">
+
+      <span>Nom de l'objectif d'épargne</span>
+
+      <input  class="dialogInput" type="text" required>
+
+
+    </div>
+
+
+    <div class="montantAAtteindre">
+
+      <span>Montant à atteindre</span>
+
+      <input  type="number" min="1" class="dialogInput" placeholder="1600€" required>
+
+    </div>
+
+
+    <div class="prioriteListe">
+      <span>Priorité dans la liste</span>
+
+      <select class="categorieDropdown"  required>
+        <option value="oui">oui</option>
+        <option value="non">non</option>
+      </select>
+
+    </div>
+
+
+
+
+    <div class="datePlusNoDate">
+      <div class="dateEcheance">
+        <span>Date d'échéance</span>
+
+        <input  type="date" name="dateOfEnd" id="dateOfEndId">
+
+      </div>
+
+      <div class="noDate">
+
+        <span>aucune</span>
+
+        <input class="checkboxNinja" type="checkbox" >
+
+      </div>
+
+    </div>
+    <div mat-dialog-actions [align]="'center'" class="modalButtons">
+
+
+      <button class="boutonAnnuler" mat-dialog-close>Annuler</button>
+      <button class="boutonAjouter" style="margin-left: 15px" >valider</button>
+
+
+    </div>
+
+  </form>
+
+</div>
