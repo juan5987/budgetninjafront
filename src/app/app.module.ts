@@ -1,6 +1,10 @@
 // Modules
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatSortModule} from '@angular/material/sort';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -14,6 +18,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatInputModule} from "@angular/material/input";
+
 
 
 // Composants
@@ -50,7 +55,6 @@ import { HomeheaderComponent } from './pages/home/components/homeheader/homehead
 import { LoginModalComponent } from './pages/home/components/login-modal/login-modal.component';
 import { SignupModalComponent } from './pages/home/components/signup-modal/signup-modal.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,11 +89,25 @@ import { SignupModalComponent } from './pages/home/components/signup-modal/signu
     HomeheaderComponent,
     LoginModalComponent,
     SignupModalComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatDividerModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatInputModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatIconModule,
     MatToolbarModule,
     MatSidenavModule,
     MatButtonModule,
