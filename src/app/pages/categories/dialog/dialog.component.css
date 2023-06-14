@@ -1,12 +1,4 @@
-/* .content{
-    position: relative;
-    /* background-color: ;rgb(24, 24, 24) */
-    /* border: 5px solid orange;
-    color: white;  
-} */ */
-mat-form-field{
-    width: 100%;
-}
+
 h1{
   margin-bottom: 25px;
   color: orange;
@@ -71,9 +63,6 @@ position: relative;
     font-family: 'Shojumaru', 'Roboto', cursive;
     cursor: pointer;
     margin-bottom: 2rem;
-  
-  
-  
   }
   
   .boutonAnnuler:hover {
@@ -90,8 +79,10 @@ position: relative;
     background-color: white;
     color: black;
   }
-  .divAlertName, .divSeuilAmount, .thirdLineTwoInputs{
-    display: flex;
+
+@media only screen and (max-width: 600px) {
+  .inputName {
     flex-direction: column;
-    gap: 0.3rem;
+    gap: 10px;
   }
+}

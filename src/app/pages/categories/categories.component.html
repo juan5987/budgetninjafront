@@ -2,18 +2,19 @@
   <app-sidebar></app-sidebar>
   <div class="category__content">
     <div class="container">
+      <h1>Mes Catégories</h1>
       <div style="margin-top: 10px;">
         <div class="mat-elevation-z8">
           <table mat-table [dataSource]="dataSource" matSort>
             <ng-container matColumnDef="categorieName">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header> <strong>Catégorie</strong>  </th>
-              <td mat-cell *matCellDef="let row"> {{row.categorieName}} </td>
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> <strong class="text-categorie">Catégorie</strong>  </th>
+              <td mat-cell *matCellDef="let row" class="text-categorie"> {{row.categorieName}} </td>
             </ng-container>
             <!-- Name Column -->
             <ng-container matColumnDef="ajouter">
               <th mat-header-cell *matHeaderCellDef mat-sort-header>
                 <button mat-button color="" (click)="openDialog()">
-                  <img src="../../../assets/images/pluss.png" alt="ajouter"> Ajouter  
+                  <img src="../../../assets/images/pluss.png" alt="ajouter" > Ajouter  
                 </button>
               </th>
               <td mat-cell *matCellDef="let row">
