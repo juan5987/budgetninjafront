@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Transaction} from '../models/transaction';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError, BehaviorSubject } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

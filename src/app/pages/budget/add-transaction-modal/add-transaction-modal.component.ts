@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BudgetService } from '../services/budget.service';
-import { Subscription, catchError, tap } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { FormService } from './services/form.service';
+import { TransactionsService } from '../services/transactions.service';
 
 
 @Component({
@@ -15,14 +16,14 @@ export class AddTransactionModalComponent implements OnInit, OnDestroy {
   subscription!: Subscription;
   submitted: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private budgetService: BudgetService, private FormService: FormService) { }
+  constructor(private formBuilder: FormBuilder, private budgetService: BudgetService, private FormService: FormService, private transactionsService: TransactionsService) { }
 
   formValues: FormGroup = this.formBuilder.group({
     date: ['', Validators.required],
-    amount: ['50', Validators.required],
-    description: ['test'],
-    type: ['depense', Validators.required],
-    category: ['alimentation', Validators.required],
+    amount: [, Validators.required],
+    description: [''],
+    type: ['', Validators.required],
+    category: ['', Validators.required],
   })
 
   ngOnInit(): void {
@@ -51,9 +52,17 @@ export class AddTransactionModalComponent implements OnInit, OnDestroy {
     event.preventDefault();
     this.submitted = true;
     if (this.formValues.valid) {
+
+      // TODO: a supprimer quand on aura le back
+      this.transactionsService.addTransaction(this.formValues.value);
+      this.budgetService.isAddTransactionModalOpenedSetter = false;
+      this.budgetService.updateAllIndicators();
+
       this.FormService.addTransaction(this.formValues.value).subscribe(
         (response:any) => {
-          console.log(response);
+          this.transactionsService.addTransaction(this.formValues.value);
+          this.budgetService.isAddTransactionModalOpenedSetter = false;
+          this.budgetService.updateAllIndicators();
         }
       )
     }
