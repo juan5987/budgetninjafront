@@ -2,6 +2,7 @@
   <app-sidebar></app-sidebar>
   <div class="budget__content">
     <app-add-transaction-modal *ngIf="isAddTransactionModalOpened"></app-add-transaction-modal>
+    <app-update-transaction *ngIf="isUpdateTransactionModalOpened"></app-update-transaction>
     <div class="deleteModal" *ngIf="isDeleteTransactionModalOpened" (click)="handleCloseDeleteModal()"  >
       <div class="deleteModal__container" (click)="stopPropagation($event)">
         <h2 class="deleteModal__container__title">Supprimer une transaction</h2>
