@@ -1,39 +1,47 @@
-<div class="modal" (click)="handleCloseModal()">
-  <div class="modal__container" (click)="stopPropagation($event)">
-      <span class="cross" (click)="handleCloseModal()">
-          <span class="cross__line cross__line__one">&nbsp;</span>
-          <span class="cross__line cross__line__two">&nbsp;</span>
-      </span>
-      <img class="modal__container__logo" src="assets/images/logo.png" alt="logo représentant un ninja">
-      <h2 class="modal__container__title">Modifier une transaction</h2>
-      <form class="modal__container__form" (ngSubmit)="handleSubmit($event)">
-          <div class="modal__container__form__element">
-              <label for="date" class="modal__container__form__element__label" >Date</label>
-              <input type="date" class="modal__container__form__element__input" name="date" id="date" value={{transaction.date}}>
-          </div>
-          <div class="modal__container__form__element">
-              <label for="amount" class="modal__container__form__element__label">Montant</label>
-              <input type="number" class="modal__container__form__element__input" id="amount" name="amount" min="0" step=".01" value={{transaction.amount}}>
-          </div>
-          <div class="modal__container__form__element">
-              <label for="type" class="modal__container__form__element__label">Type</label>
-              <select name="type" class="modal__container__form__element__input" id="type" value={{transaction.type}}>
-                  <option class="modal__container__form__element__input" value="revenu">Revenu</option>
-                  <option class="modal__container__form__element__input" value="depense">Depense</option>
-                  <option class="modal__container__form__element__input" value="epargne">Epargne</option>
-              </select>
-          </div>
-          <div class="modal__container__form__element">
-              <label for="category" class="modal__container__form__element__label">Catégorie</label>
-              <select name="category" class="modal__container__form__element__input" id="category" value={{transaction.category}}>
-                <!-- TODO: boucler sur les categories quand le service gérera l'appel à l'API -->
-                  <option class="modal__container__form__element__input" value="carburant">Carburant</option>
-                  <option class="modal__container__form__element__input" value="epargne">Épargne</option>
-                  <option class="modal__container__form__element__input" value="salaire">Salaire</option>
-                  <option class="modal__container__form__element__input" value="santé">Santé</option>
-              </select>
-          </div>
-          <button class="main_button modal__container__form__submit" type="submit">valider</button>
-      </form>
-  </div>
+<div class="modal" (click)="handleCloseModal()" *ngIf="transaction">
+    <div class="modal__container" (click)="stopPropagation($event)">
+        <span class="cross" (click)="handleCloseModal()">
+            <span class="cross__line cross__line__one">&nbsp;</span>
+            <span class="cross__line cross__line__two">&nbsp;</span>
+        </span>
+        <img class="modal__container__logo" src="assets/images/logo.png" alt="logo représentant un ninja">
+        <h2 class="modal__container__title">Modifier une transaction</h2>
+        <form class="modal__container__form" (ngSubmit)="handleSubmit($event)">
+            <div class="modal__container__form__element">
+                <label for="date" class="modal__container__form__element__label">Date</label>
+                <input type="date" class="modal__container__form__element__input" name="date" id="date"
+                    value={{transaction.date}}>
+            </div>
+            <div class="modal__container__form__element">
+                <label for="amount" class="modal__container__form__element__label">Montant</label>
+                <input type="number" class="modal__container__form__element__input" id="amount" name="amount" min="0"
+                    step=".01" value={{transaction.amount}}>
+            </div>
+            <div class="modal__container__form__element">
+                <label for="description" class="modal__container__form__element__label">Libellé</label>
+                <input type="text" class="modal__container__form__element__input" id="description" name="description"
+                    value={{transaction.description}}>
+            </div>
+            <div class="modal__container__form__element">
+                <label for="type" class="modal__container__form__element__label">Type</label>
+                <select name="type" class="modal__container__form__element__input" id="type" value={{transaction.type}}>
+                    <option class="modal__container__form__element__input" value="revenu">Revenu</option>
+                    <option class="modal__container__form__element__input" value="depense">Depense</option>
+                    <option class="modal__container__form__element__input" value="epargne">Epargne</option>
+                </select>
+            </div>
+            <div class="modal__container__form__element">
+                <label for="category" class="modal__container__form__element__label">Catégorie</label>
+                <select name="category" class="modal__container__form__element__input" id="category"
+                    value={{transaction.category}}>
+                    <!-- TODO: boucler sur les categories quand le service gérera l'appel à l'API -->
+                    <option class="modal__container__form__element__input" value="carburant">Carburant</option>
+                    <option class="modal__container__form__element__input" value="epargne">Épargne</option>
+                    <option class="modal__container__form__element__input" value="salaire">Salaire</option>
+                    <option class="modal__container__form__element__input" value="santé">Santé</option>
+                </select>
+            </div>
+            <button class="main_button modal__container__form__submit" type="submit">valider</button>
+        </form>
+    </div>
 </div>

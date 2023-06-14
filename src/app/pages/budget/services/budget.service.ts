@@ -1,56 +1,100 @@
+import { TransactionsService } from './transactions.service';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BudgetService {
-  isAddTransactionModalOpened:boolean = false;
-  isAddTransactionModalOpenedSubject = new Subject<boolean>();
+  isAddTransactionModalOpenedSubject = new BehaviorSubject<boolean>(false);
+  isDeleteTransactionModalOpenedSubject = new BehaviorSubject<boolean>(false);
+  isUpdateTransactionModalOpenedSubject = new BehaviorSubject<boolean>(false);
+  updatingTransactionIdSubject = new BehaviorSubject<number>(0);
 
-  isDeleteTransactionModalOpened:boolean = false;
-  isDeleteTransactionModalOpenedSubject = new Subject<boolean>();
+  revenuTotal = new BehaviorSubject<number>(0);
+  depenseTotal = new BehaviorSubject<number>(0);
+  solde = new BehaviorSubject<number>(0);
+  resteAVivre = new BehaviorSubject<number>(0);
 
-  isUpdateTransactionModalOpened:boolean = false;
-  isUpdateTransactionModalOpenedSubject = new Subject<boolean>();
+  constructor(private transactionsService: TransactionsService) { }
 
-  UpdatingTransactionId:number = 0;
-  UpdatingTransactionIdSubject = new Subject<number>();
 
-  constructor() { }
+  updateAllIndicators = () => {
+    this.revenuTotalSetter = 0;
+    this.depenseTotalSetter = 0;
+    this.resteAVivreSetter = 0;
 
-  get UpdatingTransactionIdGetter():number {
-    return this.UpdatingTransactionId;
+    for(let transaction of this.transactionsService.getTransactions.getValue()){
+      if(transaction.type === "revenu"){
+        this.revenuTotalSetter = this.revenuTotalGetter.getValue() + transaction.amount;
+      } else if (transaction.type === "depense" || transaction.type === "epargne"){
+        this.depenseTotalSetter = this.depenseTotalGetter.getValue() + transaction.amount;
+      }
+    }
+    this.resteAVivreSetter = this.solde.getValue() + this.revenuTotalGetter.getValue() - this.depenseTotal.getValue();
   }
 
-  set UpdatingTransactionIdSetter(id:number) {
-    this.UpdatingTransactionId = id;
+  get revenuTotalGetter():BehaviorSubject<number> {
+    return this.revenuTotal;
   }
 
-  get isAddTransactionModalOpenedGetter():boolean {
-    return this.isAddTransactionModalOpened;
+  set revenuTotalSetter(value:number) {
+    this.revenuTotal.next(value)
+  }
+
+  get depenseTotalGetter():BehaviorSubject<number> {
+    return this.depenseTotal;
+  }
+
+  set depenseTotalSetter(value:number) {
+    this.depenseTotal.next(value)
+  }
+
+  get soldeGetter():BehaviorSubject<number> {
+    return this.solde;
+  }
+
+  set soldeSetter(value:number) {
+    this.solde.next(value)
+  }
+
+  get resteAVivreGetter():BehaviorSubject<number> {
+    return this.resteAVivre;
+  }
+
+  set resteAVivreSetter(value:number) {
+    this.resteAVivre.next(value)
+  }
+
+  get updatingTransactionIdGetter():BehaviorSubject<number> {
+    return this.updatingTransactionIdSubject;
+  }
+
+  set updatingTransactionIdSetter(value:number) {
+    this.updatingTransactionIdSubject.next(value)
+  }
+
+  get isAddTransactionModalOpenedGetter():BehaviorSubject<boolean> {
+    return this.isAddTransactionModalOpenedSubject;
   }
 
   set isAddTransactionModalOpenedSetter(bool:boolean) {
-    this.isAddTransactionModalOpened = bool;
     this.isAddTransactionModalOpenedSubject.next(bool);
   }
 
-  get isUpdateTransactionModalOpenedGetter():boolean {
-    return this.isUpdateTransactionModalOpened;
+  get isUpdateTransactionModalOpenedGetter():BehaviorSubject<boolean> {
+    return this.isUpdateTransactionModalOpenedSubject;
   }
 
   set isUpdateTransactionModalOpenedSetter(bool:boolean) {
-    this.isUpdateTransactionModalOpened = bool;
     this.isUpdateTransactionModalOpenedSubject.next(bool);
   }
 
-  get isDeleteTransactionModalOpenedGetter():boolean {
-    return this.isDeleteTransactionModalOpened;
+  get isDeleteTransactionModalOpenedGetter():BehaviorSubject<boolean> {
+    return this.isDeleteTransactionModalOpenedSubject;
   }
 
   set isDeleteTransactionModalOpenedSetter(bool:boolean) {
-    this.isDeleteTransactionModalOpened = bool;
     this.isDeleteTransactionModalOpenedSubject.next(bool);
   }
 

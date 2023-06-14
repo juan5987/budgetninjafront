@@ -16,6 +16,11 @@ export class BudgetComponent implements OnInit, OnDestroy {
   isDeleteTransactionModalOpened: boolean = false;
   transactions: Transaction[] = [];
   subscription!: Subscription;
+  revenuTotal: number = 0;
+  depenseTotal: number = 0;
+  solde: number = 0;
+  resteAVivre: number = 0;
+
 
   constructor(private budgetService: BudgetService, private transactionsService: TransactionsService) { }
 
@@ -32,11 +37,27 @@ export class BudgetComponent implements OnInit, OnDestroy {
       (bool: boolean) => {
         this.isUpdateTransactionModalOpened = bool;
       });
-    this.subscription = this.transactionsService.transactionsSubject.subscribe(
+    this.subscription = this.transactionsService.getTransactions.subscribe(
       (transactions: Transaction[]) => {
         this.transactions = transactions;
-      }
-    );
+      });
+    this.subscription = this.budgetService.soldeGetter.subscribe(
+      (solde: number) => {
+        this.solde = solde;
+      });
+    this.subscription = this.budgetService.revenuTotalGetter.subscribe(
+      (revenuTotal: number) => {
+        this.revenuTotal = revenuTotal;
+      });
+    this.subscription = this.budgetService.depenseTotalGetter.subscribe(
+      (depenseTotal: number) => {
+        this.depenseTotal = depenseTotal;
+      });
+    this.subscription = this.budgetService.resteAVivreGetter.subscribe(
+      (resteAVivre: number) => {
+        this.resteAVivre = resteAVivre;
+      });
+
     //TODO: a décommenter quand le back sera prêt
     // this.transactionsService.getAllTransactions().subscribe(
     //   (transactions: Transaction[]) => {
@@ -44,7 +65,15 @@ export class BudgetComponent implements OnInit, OnDestroy {
     //   }
     // );
     //TODO: a supprimer quand le back sera prêt
-    this.transactions = this.transactionsService.getTransactions;
+    this.transactions = this.transactionsService.getTransactions.getValue();
+    for (let transaction of this.transactions) {
+      if (transaction.type === "revenu") {
+        this.revenuTotal += transaction.amount;
+      } else if (transaction.type === "depense" || transaction.type === "epargne") {
+        this.depenseTotal += transaction.amount;
+      }
+    }
+    this.resteAVivre = this.solde + this.revenuTotal - this.depenseTotal;
   }
 
   ngOnDestroy() {
@@ -56,7 +85,7 @@ export class BudgetComponent implements OnInit, OnDestroy {
   }
 
   handleShowUpdateModal = () => {
-    this.budgetService.isUpdateTransactionModalOpened = true;
+    this.budgetService.isUpdateTransactionModalOpenedSetter = true;
   }
 
   handleShowDeleteModal = () => {
@@ -65,6 +94,16 @@ export class BudgetComponent implements OnInit, OnDestroy {
 
   handleCloseDeleteModal = () => {
     this.budgetService.isDeleteTransactionModalOpenedSetter = false;
+  }
+
+  handleDeleteTransaction = () => {
+    //TODO : a décommenter quand le back sera prêt
+    // this.transactionsService.deleteTransactionById(transactionId);
+
+    //TODO: a supprimer quand le back sera prêt
+    this.transactionsService.removeTransaction(this.budgetService.updatingTransactionIdGetter.getValue());
+    this.budgetService.isDeleteTransactionModalOpenedSetter = false;
+    this.budgetService.updateAllIndicators();
   }
 
   stopPropagation = (event: Event) => {

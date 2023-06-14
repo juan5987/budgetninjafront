@@ -8,7 +8,7 @@
         <h2 class="deleteModal__container__title">Supprimer une transaction</h2>
         <p class="deleteModal__container__content">Êtes-vous sûr de vouloir supprimer cette transaction ?</p>
         <div class="deleteModal__container__buttons">
-          <button class="deleteModal__container__buttons__button deleteModal__container__buttons__button--delete">Supprimer</button>
+          <button class="deleteModal__container__buttons__button deleteModal__container__buttons__button--delete" (click)="handleDeleteTransaction()">Supprimer</button>
           <button class="deleteModal__container__buttons__button deleteModal__container__buttons__button--cancel" (click)="handleCloseDeleteModal()">Annuler</button>
         </div>
       </div>
@@ -20,19 +20,19 @@
       <div class="budget__content__indicators__content">
         <div class="budget__content__indicators__content__item budget__content__indicators__content__item--orange">
           <div class="budget__content__indicators__content__item__label">Solde</div>
-          <div class="budget__content__indicators__content__item__value">1500€</div>
+          <div class="budget__content__indicators__content__item__value">{{solde}}€</div>
         </div>
         <div class="budget__content__indicators__content__item budget__content__indicators__content__item--dark">
           <div class="budget__content__indicators__content__item__label">Reste à vivre</div>
-          <div class="budget__content__indicators__content__item__value">1000€</div>
+          <div class="budget__content__indicators__content__item__value">{{resteAVivre}}€</div>
         </div>
         <div class="budget__content__indicators__content__item budget__content__indicators__content__item--green">
           <div class="budget__content__indicators__content__item__label">Revenus</div>
-          <div class="budget__content__indicators__content__item__value">700€</div>
+          <div class="budget__content__indicators__content__item__value">{{revenuTotal}}€</div>
         </div>
         <div class="budget__content__indicators__content__item budget__content__indicators__content__item--red">
           <div class="budget__content__indicators__content__item__label">Dépenses</div>
-          <div class="budget__content__indicators__content__item__value">500€</div>
+          <div class="budget__content__indicators__content__item__value">{{depenseTotal}}€</div>
         </div>
       </div>
     </section>

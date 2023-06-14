@@ -34,11 +34,12 @@ export class BudgetTransactionComponent implements OnInit, OnDestroy {
   }
 
   handleOpenDeleteModal = () => {
+    this.budgetService.updatingTransactionIdSetter = this.transaction.id;
     this.budgetService.isDeleteTransactionModalOpenedSetter = true;
   }
 
   handleOpenUpdateModal = () => {
     this.budgetService.isUpdateTransactionModalOpenedSetter = true;
-    this.budgetService.UpdatingTransactionIdSetter = this.transaction.id;
+    this.budgetService.updatingTransactionIdSetter = this.transaction.id;
   }
 }

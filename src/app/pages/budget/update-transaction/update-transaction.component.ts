@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
 export class UpdateTransactionComponent implements OnInit, OnDestroy {
   isUpdateTransactionModalOpened: boolean = true;
   UpdatingTransactionId: number = 0;
-  transaction!: Transaction;
+  transaction!: any;
   subscription!: Subscription;
 
   constructor(private budgetService: BudgetService, private transactionsService: TransactionsService) { }
@@ -22,7 +22,7 @@ export class UpdateTransactionComponent implements OnInit, OnDestroy {
       (bool: boolean) => {
         this.isUpdateTransactionModalOpened = bool;
       });
-      this.transaction = this.transactionsService.transactions.find(transaction => transaction.id === this.budgetService.UpdatingTransactionIdGetter)!;
+      this.transaction = this.transactionsService.getTransactions.getValue().find(transaction => transaction.id === this.budgetService.updatingTransactionIdGetter.getValue());
   }
 
   ngOnDestroy() {
