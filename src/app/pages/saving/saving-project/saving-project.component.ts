@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {ApiServiceService} from "../saving-service/api-service.service";
 import {AddProjectModalComponent} from "../add-project-modal/add-project-modal.component";
 import {MatDialog, MAT_DIALOG_DATA, MatDialogModule} from '@angular/material/dialog';
@@ -11,6 +11,9 @@ import {MatDialog, MAT_DIALOG_DATA, MatDialogModule} from '@angular/material/dia
 export class SavingProjectComponent implements OnInit{
 
 @Input() project! : any;
+
+
+
   constructor(private api : ApiServiceService, public dialog: MatDialog) {
   }
 
@@ -34,7 +37,6 @@ ngOnInit() {
   editSavingGoal(row : any){
     this.dialog.open(AddProjectModalComponent, {
       width:'50%',
-      height:'87.8%',
       data : row }).afterClosed().subscribe(val=>{
       if(val === 'mettre à jour'){
         this.getAllSavingGoal();

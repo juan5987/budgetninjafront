@@ -1,45 +1,11 @@
 {
   "savingList": [
     {
-      "objEpargne": "test",
-      "amountToGet": 1500,
-      "yesOrNo": "non",
-      "endDate": "2023-06-22",
-      "id": 1
-    },
-    {
-      "objEpargne": "dsds",
-      "amountToGet": 1500,
-      "yesOrNo": "non",
-      "endDate": true,
-      "id": 2
-    },
-    {
-      "objEpargne": "dswdwsd",
-      "amountToGet": 1,
-      "yesOrNo": "non",
-      "endDate": true,
-      "id": 3
-    },
-    {
-      "objEpargne": "ds<dqz",
-      "amountToGet": 252,
+      "objEpargne": "faedqsd",
+      "amountToGet": 9,
       "yesOrNo": "oui",
-      "endDate": true,
-      "id": 4
-    },
-    {
-      "objEpargne": "testtest",
-      "amountToGet": 20,
-      "yesOrNo": "non",
-      "endDate": "2023-06-25",
-      "id": 5
-    },
-    {
-      "objEpargne": "fesfsdf",
-      "amountToGet": 4,
-      "yesOrNo": "non",
       "endDate": "2023-06-24",
-      "id": 6
+      "id": 1
     }
-  ]}
+  ]
+}

@@ -33,6 +33,14 @@ export class SavingComponent implements OnInit{
   openDialog() {
     this.dialog.open(AddProjectModalComponent, {
       width: '50%',
+
+    }).afterClosed().subscribe(val=> {
+      if (val === 'save') {
+        this.api.getSavingGoal().subscribe((data: any) => {
+          this.projects = data;
+        });
+      }
+
     });
   }
 

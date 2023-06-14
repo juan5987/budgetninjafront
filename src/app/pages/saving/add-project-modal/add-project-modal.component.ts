@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, ElementRef,Renderer2 } from '@angular/core';
+import {Component, Inject, OnInit, ElementRef, Renderer2, Input} from '@angular/core';
 import { FormGroup, FormBuilder, Validator, Validators, AbstractControl } from "@angular/forms";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import {ApiServiceService} from "../saving-service/api-service.service";
@@ -9,9 +9,13 @@ import {ApiServiceService} from "../saving-service/api-service.service";
   styleUrls: ['./add-project-modal.component.css']
 })
 export class AddProjectModalComponent implements OnInit {
+
+  @Input() project! : any;
+
   isSubmitClicked: boolean = false;
 
   savingForm!: FormGroup;
+
   minEndDate!: string;
 
   actionBtn : string = "Valider";
@@ -28,6 +32,7 @@ export class AddProjectModalComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+
 
 
     //FORMGROUP
@@ -123,6 +128,8 @@ export class AddProjectModalComponent implements OnInit {
         }
       })
   }
+
+
 
 
 
