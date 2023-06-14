@@ -6,33 +6,33 @@
         </span>
         <img class="modal__container__logo" src="assets/images/logo.png" alt="logo représentant un ninja">
         <h2 class="modal__container__title">Ajouter une transaction</h2>
-        <form class="modal__container__form" (ngSubmit)="handleSubmit($event)">
+        <form class="modal__container__form" [formGroup]="formValues" (ngSubmit)="handleSubmit($event)">
             <div class="modal__container__form__element">
                 <label for="date" class="modal__container__form__element__label" >Date</label>
-                <input type="date" class="modal__container__form__element__input" name="date" id="date">
+                <input type="date" class="modal__container__form__element__input" name="date" id="date" formControlName="date">
             </div>
             <div class="modal__container__form__element">
                 <label for="amount" class="modal__container__form__element__label">Montant</label>
-                <input type="number" class="modal__container__form__element__input" id="amount" name="amount" min="0" step=".01">
+                <input type="number" class="modal__container__form__element__input" id="amount" name="amount" min="0" step=".01" formControlName="amount">
             </div>
             <div class="modal__container__form__element">
                 <label for="description" class="modal__container__form__element__label">Libellé</label>
-                <input type="text" class="modal__container__form__element__input" id="description" name="description">
+                <input type="text" class="modal__container__form__element__input" id="description" name="description" formControlName="description">
             </div>
             <div class="modal__container__form__element">
                 <label for="type" class="modal__container__form__element__label">Type</label>
-                <select name="type" class="modal__container__form__element__input" id="type">
-                    <option class="modal__container__form__element__input" value="">Revenu</option>
-                    <option class="modal__container__form__element__input" value="">Depense</option>
-                    <option class="modal__container__form__element__input" value="">Epargne</option>
+                <select name="type" class="modal__container__form__element__input" id="type" formControlName="type">
+                    <option class="modal__container__form__element__input" value="revenu">Revenu</option>
+                    <option class="modal__container__form__element__input" value="depense">Depense</option>
+                    <option class="modal__container__form__element__input" value="epargne">Epargne</option>
                 </select>
             </div>
             <div class="modal__container__form__element">
                 <label for="category" class="modal__container__form__element__label">Catégorie</label>
-                <select name="category" class="modal__container__form__element__input" id="category">
-                    <option class="modal__container__form__element__input" value="">Carburant</option>
-                    <option class="modal__container__form__element__input" value="">Alimentation</option>
-                    <option class="modal__container__form__element__input" value="">Salaire</option>
+                <select name="category" class="modal__container__form__element__input" id="category" formControlName="category">
+                    <option class="modal__container__form__element__input" value="carburant">Carburant</option>
+                    <option class="modal__container__form__element__input" value="alimentation">Alimentation</option>
+                    <option class="modal__container__form__element__input" value="salaire">Salaire</option>
                 </select>
             </div>
             <button class="main_button modal__container__form__submit" type="submit">valider</button>
