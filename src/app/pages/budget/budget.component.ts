@@ -25,38 +25,37 @@ export class BudgetComponent implements OnInit, OnDestroy {
   constructor(private budgetService: BudgetService, private transactionsService: TransactionsService) { }
 
   ngOnInit(): void {
-    this.subscription = this.budgetService.isAddTransactionModalOpenedSubject.subscribe(
-      (bool: boolean) => {
-        this.isAddTransactionModalOpened = bool;
-      });
-    this.subscription = this.budgetService.isDeleteTransactionModalOpenedSubject.subscribe(
-      (bool: boolean) => {
-        this.isDeleteTransactionModalOpened = bool;
-      });
-    this.subscription = this.budgetService.isUpdateTransactionModalOpenedSubject.subscribe(
-      (bool: boolean) => {
-        this.isUpdateTransactionModalOpened = bool;
-      });
-    this.subscription = this.transactionsService.getTransactions.subscribe(
-      (transactions: Transaction[]) => {
-        this.transactions = transactions;
-      });
-    this.subscription = this.budgetService.soldeGetter.subscribe(
-      (solde: number) => {
-        this.solde = solde;
-      });
-    this.subscription = this.budgetService.revenuTotalGetter.subscribe(
-      (revenuTotal: number) => {
-        this.revenuTotal = revenuTotal;
-      });
-    this.subscription = this.budgetService.depenseTotalGetter.subscribe(
-      (depenseTotal: number) => {
-        this.depenseTotal = depenseTotal;
-      });
-    this.subscription = this.budgetService.resteAVivreGetter.subscribe(
-      (resteAVivre: number) => {
-        this.resteAVivre = resteAVivre;
-      });
+    this.subscription = this.budgetService.isAddTransactionModalOpenedSubject.subscribe(bool => {
+      this.isAddTransactionModalOpened = bool;
+    });
+
+    this.subscription.add(this.budgetService.isDeleteTransactionModalOpenedSubject.subscribe(bool => {
+      this.isDeleteTransactionModalOpened = bool;
+    }));
+
+    this.subscription.add(this.budgetService.isUpdateTransactionModalOpenedSubject.subscribe(bool => {
+      this.isUpdateTransactionModalOpened = bool;
+    }));
+
+    this.subscription.add(this.transactionsService.getTransactions.subscribe(transactions => {
+      this.transactions = transactions;
+    }));
+
+    this.subscription.add(this.budgetService.soldeGetter.subscribe(solde => {
+      this.solde = solde;
+    }));
+
+    this.subscription.add(this.budgetService.revenuTotalGetter.subscribe(revenuTotal => {
+      this.revenuTotal = revenuTotal;
+    }));
+
+    this.subscription.add(this.budgetService.depenseTotalGetter.subscribe(depenseTotal => {
+      this.depenseTotal = depenseTotal;
+    }));
+
+    this.subscription.add(this.budgetService.resteAVivreGetter.subscribe(resteAVivre => {
+      this.resteAVivre = resteAVivre;
+    }));
 
     //TODO: a décommenter quand le back sera prêt
     // this.transactionsService.getAllTransactions().subscribe(
