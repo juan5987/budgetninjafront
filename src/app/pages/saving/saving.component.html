@@ -54,9 +54,9 @@
       </div>
 
 
-
-      <app-saving-project></app-saving-project>
-
+  <div *ngFor="let project of projects">
+      <app-saving-project [project]="project" ></app-saving-project>
+  </div>
 
 
     </div>

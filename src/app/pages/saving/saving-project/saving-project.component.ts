@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ApiServiceService} from "../saving-service/api-service.service";
 import {AddProjectModalComponent} from "../add-project-modal/add-project-modal.component";
 import {MatDialog, MAT_DIALOG_DATA, MatDialogModule} from '@angular/material/dialog';
@@ -10,13 +10,13 @@ import {MatDialog, MAT_DIALOG_DATA, MatDialogModule} from '@angular/material/dia
 })
 export class SavingProjectComponent implements OnInit{
 
-
+@Input() project! : any;
   constructor(private api : ApiServiceService, public dialog: MatDialog) {
   }
 
 
-  ngOnInit() {
-  }
+ngOnInit() {
+}
 
 
   getAllSavingGoal(){
