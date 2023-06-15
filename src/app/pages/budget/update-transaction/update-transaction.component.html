@@ -6,41 +6,55 @@
         </span>
         <img class="modal__container__logo" src="assets/images/logo.png" alt="logo représentant un ninja">
         <h2 class="modal__container__title">Modifier une transaction</h2>
-        <form class="modal__container__form" (ngSubmit)="handleSubmit($event)">
+        <form class="modal__container__form" (ngSubmit)="handleSubmit($event)" [formGroup]="formValues">
             <div class="modal__container__form__element">
                 <label for="date" class="modal__container__form__element__label">Date</label>
-                <input type="date" class="modal__container__form__element__input" name="date" id="date"
-                    value={{transaction.date}} pattern="\d{4}-\d{2}-\d{2}">
+                <input type="date" class="modal__container__form__element__input" name="date" id="date" pattern="\d{4}-\d{2}-\d{2}" formControlName="date">
             </div>
+            <span *ngIf="submitted && form['date'].hasError('required')"
+            class="modal__container__form__element__input__error">
+            Veuillez renseigner une date
+          </span>
             <div class="modal__container__form__element">
                 <label for="amount" class="modal__container__form__element__label">Montant</label>
                 <input type="number" class="modal__container__form__element__input" id="amount" name="amount" min="0"
-                    step=".01" value={{transaction.amount}}>
+                    step=".01" formControlName="amount">
             </div>
+            <span *ngIf="submitted && form['amount'].hasError('required')"
+            class="modal__container__form__element__input__error">
+            Veuillez renseigner un montant
+          </span>
             <div class="modal__container__form__element">
                 <label for="description" class="modal__container__form__element__label">Libellé</label>
-                <input type="text" class="modal__container__form__element__input" id="description" name="description"
-                    value={{transaction.description}}>
+                <input type="text" class="modal__container__form__element__input" id="description" name="description" formControlName="description">
             </div>
             <div class="modal__container__form__element">
                 <label for="type" class="modal__container__form__element__label">Type</label>
-                <select name="type" class="modal__container__form__element__input" id="type" value={{transaction.type}}>
+                <select name="type" class="modal__container__form__element__input" id="type" formControlName="type">
                     <option class="modal__container__form__element__input" value="revenu">Revenu</option>
                     <option class="modal__container__form__element__input" value="depense">Depense</option>
                     <option class="modal__container__form__element__input" value="epargne">Epargne</option>
                 </select>
             </div>
+            <span *ngIf="submitted && form['type'].hasError('required')"
+            class="modal__container__form__element__input__error">
+            Veuillez renseigner un type
+          </span>
             <div class="modal__container__form__element">
                 <label for="category" class="modal__container__form__element__label">Catégorie</label>
-                <select name="category" class="modal__container__form__element__input" id="category"
-                    value={{transaction.category}}>
+                <select name="category" class="modal__container__form__element__input" id="category" formControlName="category">
                     <!-- TODO: boucler sur les categories quand le service gérera l'appel à l'API -->
                     <option class="modal__container__form__element__input" value="carburant">Carburant</option>
                     <option class="modal__container__form__element__input" value="epargne">Épargne</option>
                     <option class="modal__container__form__element__input" value="salaire">Salaire</option>
                     <option class="modal__container__form__element__input" value="santé">Santé</option>
+                    <option class="modal__container__form__element__input" value="loisir">Loisir</option>
                 </select>
             </div>
+            <span *ngIf="submitted && form['category'].hasError('required')"
+            class="modal__container__form__element__input__error">
+            Veuillez renseigner une catégorie
+          </span>
             <button class="main_button modal__container__form__submit" type="submit">valider</button>
         </form>
     </div>

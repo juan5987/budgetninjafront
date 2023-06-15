@@ -31,9 +31,9 @@ export class AddTransactionModalComponent implements OnInit, OnDestroy {
       (bool: boolean) => {
         this.isAddTransactionModalOpened = bool;
       });
-      this.formValues.valueChanges.subscribe(() => {
-        this.submitted = false;
-      })
+    this.formValues.valueChanges.subscribe(() => {
+      this.submitted = false;
+    })
   }
 
   ngOnDestroy() {
@@ -54,13 +54,13 @@ export class AddTransactionModalComponent implements OnInit, OnDestroy {
     if (this.formValues.valid) {
 
       // TODO: a supprimer quand on aura le back
-      this.transactionsService.addTransaction(this.formValues.value);
+      this.transactionsService.updateTransaction(this.formValues.value);
       this.budgetService.isAddTransactionModalOpenedSetter = false;
       this.budgetService.updateAllIndicators();
 
-      this.FormService.addTransaction(this.formValues.value).subscribe(
-        (response:any) => {
-          this.transactionsService.addTransaction(this.formValues.value);
+      this.FormService.updateTransaction(this.formValues.value).subscribe(
+        (response: any) => {
+          this.transactionsService.updateTransaction(this.formValues.value);
           this.budgetService.isAddTransactionModalOpenedSetter = false;
           this.budgetService.updateAllIndicators();
         }

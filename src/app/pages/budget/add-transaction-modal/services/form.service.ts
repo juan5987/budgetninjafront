@@ -29,5 +29,12 @@ export class FormService {
       );
   }
 
+  updateTransaction(FormValues: addTransactionForm): Observable<addTransactionForm> {
+    return this.http.put<addTransactionForm>(this.apiUrl, FormValues)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
   constructor(private http: HttpClient) { }
 }
