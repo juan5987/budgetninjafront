@@ -24,6 +24,9 @@
       &.blue {
         background-color: rgb(105, 32, 251);
       }
+      &.orange {
+        background-color:orange ;
+      }
       @media only screen and (max-width: 1600px) {
         width: 300px;
       }

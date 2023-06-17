@@ -17,6 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ChartModule } from 'angular-highcharts';
 
 
 // Composants
@@ -53,6 +54,7 @@ import { HomeheaderComponent } from './pages/home/components/homeheader/homehead
 import { LoginModalComponent } from './pages/home/components/login-modal/login-modal.component';
 import { SignupModalComponent } from './pages/home/components/signup-modal/signup-modal.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -86,7 +88,7 @@ import { SignupModalComponent } from './pages/home/components/signup-modal/signu
     DeleteSavingProjectModalComponent,
     HomeheaderComponent,
     LoginModalComponent,
-    SignupModalComponent,
+    SignupModalComponent
 
   ],
   imports: [
@@ -114,7 +116,7 @@ import { SignupModalComponent } from './pages/home/components/signup-modal/signu
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    
+    ChartModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

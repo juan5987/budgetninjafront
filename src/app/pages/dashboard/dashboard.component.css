@@ -1,0 +1,9 @@
+.dashboard{
+    display: flex;
+}
+
+.dashboard__content{
+    justify-content: last baseline;
+    /* flex-grow: 1;
+    min-height: 100vh; */
+} 
