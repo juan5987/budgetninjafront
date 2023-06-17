@@ -1,5 +1,7 @@
 import { Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import { Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +10,17 @@ export class ApiServiceService {
 
   constructor(private http : HttpClient) { }
 
+  private savingUpdated: Subject<void> = new Subject<void>();
 
+  getSavingUpdated(): Observable<void> {  // pour un abonnement
+    return this.savingUpdated.asObservable();
+  }
+
+  emitSavingUpdated(): void { // pour émettre un evenement
+    this.savingUpdated.next();
+  }
+
+  // retourne un observable data
   postSavingGoal(data : any){
     return this.http.post<any>("http://localhost:3000/savingList/",data);
   }

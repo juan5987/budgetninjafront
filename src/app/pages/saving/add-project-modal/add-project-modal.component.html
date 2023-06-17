@@ -29,17 +29,6 @@
     </div>
 
 
-    <div class="prioriteListe">
-      <span>Priorité dans la liste</span>
-
-        <select class="categorieDropdown" formControlName="yesOrNo" required>
-          <option value="oui">oui</option>
-          <option value="non">non</option>
-        </select>
-      <div *ngIf="isSubmitClicked && savingForm.get('yesOrNo')?.invalid ">
-        <span class="error-message" [class.show-message]="isSubmitClicked">Veuillez indiquer si cet épargne est prioritaire</span>
-      </div>
-    </div>
 
 
 
@@ -66,7 +55,7 @@
 
 
   <button class="boutonAnnuler" mat-dialog-close>Annuler</button>
-  <button class="boutonAjouter" style="margin-left: 15px" (click)="addSavingGoal()">{{actionBtn}}</button>
+  <button class="boutonAjouter"  style="margin-left: 15px" (click)="addSavingGoal()">{{actionBtn}}</button>
 
 
 </div>

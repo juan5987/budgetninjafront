@@ -10,7 +10,7 @@ import {MatDialog, MAT_DIALOG_DATA, MatDialogModule} from '@angular/material/dia
 })
 export class SavingProjectComponent implements OnInit{
 
-@Input() project! : any;
+@Input() project : any; // ??
 
 
 

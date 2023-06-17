@@ -1,108 +1,59 @@
 <div class="saving">
 
-<app-sidebar></app-sidebar>
+  <app-sidebar></app-sidebar>
 
 
   <div class="saving_content">
 
     <div class="containerSavingsPage">
 
-    <div class="savingAmount">
+      <div class="savingAmount">
 
-      <h1>//Montant//</h1>
-      <h1>Épargne</h1>
+        <h1>//Montant//</h1>
+        <h1>Épargne</h1>
+
+      </div>
+
+
+      <div class="programmedSaving">
+
+        <h2>Épargne programmée</h2>
+        <div><span>/mois</span></div>
+
+        <div>
+          <button class="boutonAjouter" (click)="openSecondDialog()">Ajouter</button>
+        </div>
+
+
+      </div>
+
+
+      <div class="savingsObjectives">
+
+        <h2>Objectifs d'épargnes</h2>
+
+        <mat-divider></mat-divider>
+
+
+
+        <!-- Si il y a un projet (donc en index 0 ) alors le bouton ajouter disparait -->
+        <div *ngIf="!projects || projects.length === 0">
+          <button class="boutonAjouter" (click)="openDialog()">Ajouter</button>
+        </div>
+
+        <!-- On affiche les projets via une itération -->
+        <div *ngIf="projects && projects.length > 0">
+          <app-saving-project [project]="projects[0]"></app-saving-project>
+        </div>
+
+
+      </div>
+
 
     </div>
 
 
-
-
-
-
-
-    <div class="programmedSaving">
-
-      <h2>Épargne programmée</h2>
-      <div><span>/mois</span></div>
-
-      <div>
-        <button class="boutonAjouter" (click)="openSecondDialog()" >Ajouter</button>
-      </div>
-
-
-
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-    <div class="savingsObjectives">
-
-      <h2>Objectifs d'épargnes</h2>
-
-      <mat-divider></mat-divider>
-
-      <div>
-        <button class="boutonAjouter" (click)="openDialog()">Ajouter</button>
-      </div>
-
-
-  <div *ngFor="let project of projects">
-      <app-saving-project [project]="project" ></app-saving-project>
   </div>
-
-
-    </div>
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </div>

@@ -12,8 +12,17 @@ import {ApiServiceService} from "./saving-service/api-service.service";
 })
 export class SavingComponent implements OnInit{
 
-  selectedDate?: Date;
+  selectedDate?: Date; //necessaire car pas de date  ?
+
+
+  // On récupère les savingGoal et on les assignent à projects
   projects!: any;
+
+  /**
+   * Lors de l'initialisation du composant, la méthode getSavingGoal()
+   * du service api, va etre appelée, il y aura un abonnement à l'observable
+   * iisu de la méthode du service qui est data, on assigne la valeur à projects.*/
+
   ngOnInit() {
     this.api.getSavingGoal()
       .subscribe((data : any)=> {
@@ -29,7 +38,8 @@ export class SavingComponent implements OnInit{
 
 
 
-
+/**
+ * Si la valeur val retournée est égale à 'save' alors ngOninit affichera automatiquement les savingGoals */
   openDialog() {
     this.dialog.open(AddProjectModalComponent, {
       width: '50%',

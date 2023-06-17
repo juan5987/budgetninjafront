@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit, ElementRef, Renderer2, Input} from '@angular/core';
-import { FormGroup, FormBuilder, Validator, Validators, AbstractControl } from "@angular/forms";
-import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
+import {FormGroup, FormBuilder, Validator, Validators, AbstractControl} from "@angular/forms";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {ApiServiceService} from "../saving-service/api-service.service";
 
 @Component({
@@ -10,58 +10,55 @@ import {ApiServiceService} from "../saving-service/api-service.service";
 })
 export class AddProjectModalComponent implements OnInit {
 
-  @Input() project! : any;
+  @Input() project!: any; //Input permet au composant de recevoir des valeurs du parent
 
   isSubmitClicked: boolean = false;
 
-  savingForm!: FormGroup;
+  savingForm!: FormGroup; // pour gérer les validations du formulaire
 
-  minEndDate!: string;
+  minEndDate!: string; // représente la date minimale de validation de la date butoire
 
-  actionBtn : string = "Valider";
-
+  actionBtn: string = "Valider";
 
 
   constructor(
     private formBuilder: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public editData: any,
-    private renderer : Renderer2,
-    private elementRef : ElementRef,
-    private api : ApiServiceService,
-    private dialogRef : MatDialogRef<AddProjectModalComponent>
-  ) {}
+    private renderer: Renderer2,
+    private elementRef: ElementRef,
+    private api: ApiServiceService,
+    private dialogRef: MatDialogRef<AddProjectModalComponent>
+  ) {
+  }
 
+
+  /**
+   * ngOnInit initialise les valeurs du formulaire si mise à jour*/
   ngOnInit() {
 
 
-
-    //FORMGROUP
+    // PRODUCTION D'UN FORMGROUP
     this.savingForm = this.formBuilder.group({
       objEpargne: ['', Validators.required],
       amountToGet: ['', Validators.required],
-      yesOrNo: ['', Validators.required],
       endDate: ['']
     });
 
-
-    if(this.editData){
+    /**
+     * La valeur de editData sera fourni via dialog de MAT_DIALOG_DATA */
+    if (this.editData) {
       this.actionBtn = "Mettre à jour"
       this.savingForm.controls['objEpargne'].setValue(this.editData.objEpargne);
       this.savingForm.controls['amountToGet'].setValue(this.editData.amountToGet);
-      this.savingForm.controls['yesOrNo'].setValue(this.editData.yesOrNo);
       this.savingForm.controls['endDate'].setValue(this.editData.endDate);
 
     }
 
 
-
-
-    //DATE
+    //DATE DE J+1
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
-    this.minEndDate = this.formatDate(tomorrow); // Définit la valeur minimale comme étant la date de demain
-
-
+    this.minEndDate = this.formatDate(tomorrow);
 
   }
 
@@ -73,13 +70,11 @@ export class AddProjectModalComponent implements OnInit {
   }
 
 
-
-  // pour date => si used alors checkbox disabled
+ /**
+  * Si la checkbox est utilisée alors le datePicker est inutilisable et inversement*/
   handleDateClick() {
     const checkbox = this.elementRef.nativeElement.querySelector('.checkboxNinja') as HTMLInputElement;
     this.renderer.setStyle(checkbox, 'pointer-events', 'none');
-
-
 
 
   }
@@ -89,50 +84,44 @@ export class AddProjectModalComponent implements OnInit {
     this.renderer.setStyle(datePicker, 'pointer-events', 'none');
   }
 
-
-
-
-  addSavingGoal(){
+/**
+ * Pour ajouter une nouvelle épargne*/
+  addSavingGoal() {
     this.isSubmitClicked = true;
 
-    if(!this.editData){
-      if(this.savingForm.valid){
-        this.api.postSavingGoal(this.savingForm.value)
-          .subscribe({
-            next:(res)=>{
+    if (!this.editData) { // si ce n'est pas une mise à jours alors c'est un ajout
+      if (this.savingForm.valid) {
+        this.api.postSavingGoal(this.savingForm.value) // HTTP POST
+          .subscribe({ // abonnement à l'observale de la requete
+            next: (res) => {
               console.log("L'épargne a été produite avec succès !");
-              this.savingForm.reset();
               this.dialogRef.close('save');
+              this.savingForm.reset();
             },
-            error:()=>{
+            error: () => {
               console.log("Erreur lors de la production de l'alerte")
             }
           })
       }
-    } else{
+    } else {
       this.updateSavingGoal()
     }
   }
 
 
-  updateSavingGoal(){
-    this.api.putSavingGoal(this.savingForm.value,this.editData.id)
+  updateSavingGoal() { // http put
+    this.api.putSavingGoal(this.savingForm.value, this.editData.id)
       .subscribe({
-        next:(res)=>{
+        next: (res) => {
           console.log("L'épargne a été mis à jour avec succès ! ");
           this.savingForm.reset();
           this.dialogRef.close('mettre à jour');
         },
-        error:()=>{
+        error: () => {
           console.log("Erreur lors de la mise à jour de l'épargne !")
         }
       })
   }
-
-
-
-
-
 
 
 }
