@@ -40,6 +40,7 @@ ngOnInit() {
       data : row }).afterClosed().subscribe(val=>{
       if(val === 'mettre à jour'){
         this.getAllSavingGoal();
+        this.api.emitSavingUpdated(); // on émet evenement de mise à jour
       }
     })
 
@@ -52,6 +53,7 @@ ngOnInit() {
         next:(res)=>{
           console.log("L'épargne à été supprimée avec succès !");
           this.getAllSavingGoal();
+          this.api.emitSavingUpdated(); // de meme mais pour la mise à jour
         },
         error:()=>{
           console.log("La suppression de l'épargne n'a pas pu se valider")

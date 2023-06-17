@@ -10,13 +10,14 @@ export class ApiServiceService {
 
   constructor(private http : HttpClient) { }
 
+  // un subject est un observateur et un observable
   private savingUpdated: Subject<void> = new Subject<void>();
 
-  getSavingUpdated(): Observable<void> {  // pour un abonnement
+  getSavingUpdated(): Observable<void> {
     return this.savingUpdated.asObservable();
   }
 
-  emitSavingUpdated(): void { // pour émettre un evenement
+  emitSavingUpdated(): void {
     this.savingUpdated.next();
   }
 

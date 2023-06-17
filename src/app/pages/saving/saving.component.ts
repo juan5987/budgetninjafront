@@ -27,7 +27,12 @@ export class SavingComponent implements OnInit{
     this.api.getSavingGoal()
       .subscribe((data : any)=> {
         this.projects = data
-      })
+      });
+    this.api.getSavingUpdated().subscribe(() => {
+      this.api.getSavingGoal().subscribe((data: any) => {
+        this.projects = data;
+      });
+    });
 
   }
 
