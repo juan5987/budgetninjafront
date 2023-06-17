@@ -10,17 +10,37 @@ import {MatDialog, MAT_DIALOG_DATA, MatDialogModule} from '@angular/material/dia
 })
 export class SavingProjectComponent implements OnInit{
 
-@Input() project : any; // ??
+@Input() project : any;
 
+timeRemaining!: number; // pour stocker le temps restant en secondes
 
 
   constructor(private api : ApiServiceService, public dialog: MatDialog) {
   }
 
 
-ngOnInit() {
-}
+  ngOnInit() {
+    this.calculateTimeRemaining();
+    setInterval(() => {
+      this.calculateTimeRemaining();
+    }, 1000); // Mettre à jour le temps restant toutes les secondes
+  }
 
+  calculateTimeRemaining() {
+    const endDate = new Date(this.project.endDate).getTime(); // Convertir la date d'échéance en millisecondes
+    const now = new Date().getTime(); // Obtenir la date actuelle en millisecondes
+    this.timeRemaining = Math.max(0, Math.floor((endDate - now) / 1000)); // Calculer le temps restant en secondes
+  }
+
+
+  formatTimeRemaining(): string {
+    const days = Math.floor(this.timeRemaining / 86400);
+    const hours = Math.floor((this.timeRemaining % 86400) / 3600);
+    const minutes = Math.floor((this.timeRemaining % 3600) / 60);
+    const seconds = this.timeRemaining % 60;
+
+    return `${days}j ${hours}h ${minutes}min ${seconds}s`;
+  }
 
   getAllSavingGoal(){
     this.api.getSavingGoal()
