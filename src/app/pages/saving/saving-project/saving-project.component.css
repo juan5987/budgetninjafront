@@ -1,6 +1,6 @@
 .contentProject{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .graph, .indicators{
   display: flex;
@@ -9,3 +9,14 @@
   font-size: large;
   gap: 1rem;
 }
+h3{
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border: 2px solid orange;
+  padding: 1rem;
+  border-radius: 30px;
+}
+
+
+
+

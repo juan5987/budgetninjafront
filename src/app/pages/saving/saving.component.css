@@ -16,14 +16,16 @@
 .containerSavingsPage{
   display: flex;
   flex-direction: column;
-  margin-left: 2rem;
+  margin-top: 25px;
+  margin-left: 1rem;
+  align-items: center;
 }
 .saving_content {
   flex-grow: 1;
   min-height: 100vh;
   background-color: #fefefe;
   color: rgb(24, 24, 24);
-  margin-left: 300px;
+  margin-left: 250px;
 
 }
 
@@ -40,12 +42,16 @@
   justify-content: space-between;
   align-self: center;
   width: 90%;
+  margin-left: 6rem;
   margin-right: 2rem;
   margin-top: 5rem;
 }
 
 .savingsObjectives{
   margin-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 

@@ -1,7 +1,7 @@
 <div class="contentProject">
 
-  <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"></highcharts-chart>
 
+  <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"></highcharts-chart>
 
 
 <div class="indicators">
@@ -11,7 +11,8 @@
   <span>Reste à épargner : </span>
 
   <ng-container *ngIf="!isNoEndDateChecked(); else noEndDateTemplate">
-  <span>Temps restant : {{ project.endDate }} otro : {{ formatTimeRemaining() }}</span>
+  <span>Date butoire : {{ project.endDate }}</span>
+    <span> {{ formatTimeRemaining() }}</span>
   </ng-container>
 
   <ng-template #noEndDateTemplate>
