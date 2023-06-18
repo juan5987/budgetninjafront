@@ -42,6 +42,10 @@ timeRemaining!: number; // pour stocker le temps restant en secondes
     return `${days}j ${hours}h ${minutes}min ${seconds}s`;
   }
 
+
+  isNoEndDateChecked(): boolean {
+    return this.project.endDate === true;
+  }
   getAllSavingGoal(){
     this.api.getSavingGoal()
       .subscribe({

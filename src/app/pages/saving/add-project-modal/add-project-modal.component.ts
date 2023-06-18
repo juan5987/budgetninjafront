@@ -20,6 +20,7 @@ export class AddProjectModalComponent implements OnInit {
 
   actionBtn: string = "Valider";
 
+  
 
   constructor(
     private formBuilder: FormBuilder,

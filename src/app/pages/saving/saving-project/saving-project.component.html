@@ -10,9 +10,13 @@
   <h3>{{project.objEpargne}} {{project.amountToGet}}€</h3>
   <span>Reste à épargner : </span>
 
-  <span>Temps restant : {{project.endDate}} otro : {{ formatTimeRemaining() }}</span>
+  <ng-container *ngIf="!isNoEndDateChecked(); else noEndDateTemplate">
+  <span>Temps restant : {{ project.endDate }} otro : {{ formatTimeRemaining() }}</span>
+  </ng-container>
 
-
+  <ng-template #noEndDateTemplate>
+    <span>Aucune date d'échéance</span>
+  </ng-template>
 
   <button mat-icon-button (click)="editSavingGoal(project)" >
     <mat-icon>edit</mat-icon>
