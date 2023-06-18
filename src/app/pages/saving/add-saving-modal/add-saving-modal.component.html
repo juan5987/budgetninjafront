@@ -4,70 +4,50 @@
   <h1>Mon épargne programmée</h1>
 
 
-  <form class="savingFormular" >
+  <form class="savingFormular" [formGroup]="programmedSavingForm" >
 
     <div class="montantAEpargner">
       <span>Montant à épargner</span>
-      <input  maxlength="20"  type="number" min="1" class="dialogInput" placeholder="100€" required>
+      <input formControlName="amountProgrammed" maxlength="20" type="number" min="1" class="dialogInput" placeholder="100€" required>
+
+    </div>
+    <div *ngIf="isSubmitClicked && programmedSavingForm.get('amountProgrammed')?.invalid ">
+      <span class="error-message" [class.show-message]="isSubmitClicked">Veuillez entrer un montant</span>
     </div>
 
     <div class="frequence">
       <span>Choisir la fréquence</span>
 
-        <div class="frequencyByTwo">
-          <input  maxlength="20"  type="number" min="1" class="periodButtonSmall" placeholder="4" required>
+      <div class="frequencyByTwo">
+        <input formControlName="frequencyProgrammed" maxlength="20" type="number" min="1" class="periodButtonSmall" placeholder="4" required>
 
-          <div class="categorieDropdown">
-            <select formControlName="categorie">
-              <option value="jours">jours</option>
-              <option value="semaines">semaines</option>
-              <option value="mois">mois</option>
-            </select>
-          </div>
-
-
+        <div *ngIf="isSubmitClicked && programmedSavingForm.get('frequencyProgrammed')?.invalid ">
+          <span class="error-message" [class.show-message]="isSubmitClicked">Veuillez entrer une fréquence</span>
         </div>
 
-    </div>
+        <div class="categorieDropdown">
+          <select formControlName="PeriodicityProgrammed" >
+            <option value="jours">jours</option>
+            <option value="semaines">semaines</option>
+            <option value="mois">mois</option>
+          </select>
+        </div>
 
-    <div class="dateDebut"></div>
-
-    <span>Date de début</span>
-
-    <input formControlName="debutDate" type="date" name="debutDate" id="dateOfDebutId" >
+        <div *ngIf="isSubmitClicked && programmedSavingForm.get('PeriodicityProgrammed')?.invalid ">
+          <span class="error-message" [class.show-message]="isSubmitClicked">Veuillez entrer une périodicité</span>
+        </div>
 
 
-    <div class="dateFin">
-
-      <span>Date de fin</span>
-
-      <div class="checkboxAndDatePicker">
-      <input  type="date" name="endDate" id="dateOfEndId" >
-      <input class="checkboxNinja" type="checkbox" >
       </div>
 
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     <div mat-dialog-actions [align]="'center'" class="modalButtons">
 
 
       <button class="boutonAnnuler" mat-dialog-close>Annuler</button>
-      <button class="boutonAjouter" style="margin-left: 15px" >valider</button>
+      <button class="boutonAjouter" style="margin-left: 15px" (click)="addProgrammedSaving()">valider</button>
 
 
     </div>

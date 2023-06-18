@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ApiServiceService} from "../saving-service/api-service.service";
@@ -9,7 +9,9 @@ import {ApiServiceService} from "../saving-service/api-service.service";
   templateUrl: './add-saving-modal.component.html',
   styleUrls: ['./add-saving-modal.component.css']
 })
-export class AddSavingModalComponent {
+export class AddSavingModalComponent implements OnInit{
+
+  @Input() proProject! :any;
 
   isSubmitClicked: boolean = false;
 
@@ -24,23 +26,17 @@ export class AddSavingModalComponent {
 
   ngOnInit() {
     this.programmedSavingForm = this.formBuilder.group({
-      alertName : ['', Validators.required],
-      seuilAmount: ['', Validators.required],
-      categorie: ['',Validators.required],
-      periodInput : ['', Validators.required],
-      periodDropdown: ['', Validators.required],
-      commentaries : ['']
+      amountProgrammed : ['', Validators.required],
+      frequencyProgrammed: ['', Validators.required],
+      PeriodicityProgrammed: ['', Validators.required]
+
     });
 
     if(this.editData){
       this.actionBtn = "Mettre à jour"
-      this.programmedSavingForm.controls['alertName'].setValue(this.editData.alertName);
-      this.programmedSavingForm.controls['seuilAmount'].setValue(this.editData.seuilAmount);
-      this.programmedSavingForm.controls['categorie'].setValue(this.editData.categorie);
-      this.programmedSavingForm.controls['periodInput'].setValue(this.editData.periodInput);
-      this.programmedSavingForm.controls['periodDropdown'].setValue(this.editData.periodDropdown);
-      this.programmedSavingForm.controls['commentaries'].setValue(this.editData.commentaries);
-
+      this.programmedSavingForm.controls['amountProgrammed'].setValue(this.editData.amountProgrammed);
+      this.programmedSavingForm.controls['frequencyProgrammed'].setValue(this.editData.frequencyProgrammed);
+      this.programmedSavingForm.controls['PeriodicityProgrammed'].setValue(this.editData.PeriodicityProgrammed)
     }
 
   }

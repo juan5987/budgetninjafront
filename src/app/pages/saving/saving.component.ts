@@ -18,12 +18,18 @@ export class SavingComponent implements OnInit{
   // On récupère les savingGoal et on les assignent à projects
   projects!: any;
 
+  // On récupère les programmedSaving et on les assignent à proProjects
+  proProjects! : any;
+
   /**
    * Lors de l'initialisation du composant, la méthode getSavingGoal()
    * du service api, va etre appelée, il y aura un abonnement à l'observable
    * iisu de la méthode du service qui est data, on assigne la valeur à projects.*/
 
   ngOnInit() {
+
+
+
     this.api.getSavingGoal()
       .subscribe((data : any)=> {
         this.projects = data
@@ -31,6 +37,21 @@ export class SavingComponent implements OnInit{
     this.api.getSavingUpdated().subscribe(() => {
       this.api.getSavingGoal().subscribe((data: any) => {
         this.projects = data;
+      });
+    });
+
+
+
+
+
+
+    this.api.getProgrammedSaving()
+      .subscribe((data : any)=> {
+        this.proProjects = data
+      });
+    this.api.getSavingUpdated().subscribe(() => {
+      this.api.getProgrammedSaving().subscribe((data: any) => {
+        this.proProjects = data;
       });
     });
 
@@ -62,11 +83,13 @@ export class SavingComponent implements OnInit{
   openSecondDialog(){
     this.dialog.open(AddSavingModalComponent, {
       width: '50%',
-    })
+
+    }).afterClosed().subscribe(val=> {
+      if (val === 'save') {
+        this.api.getProgrammedSaving().subscribe((data: any) => {
+          this.proProjects = data;
+        });
+      }
+    });
   }
-
-
-
-
-
 }

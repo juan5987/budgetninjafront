@@ -1,9 +1,17 @@
 {
   "savingList": [
     {
-      "objEpargne": "eres",
-      "amountToGet": 14,
-      "endDate": true,
+      "objEpargne": "test",
+      "amountToGet": 1654,
+      "endDate": "2023-10-20",
+      "id": 1
+    }
+  ],
+  "programmedSavingList": [
+    {
+      "amountProgrammed": 3,
+      "frequencyProgrammed": 5,
+      "PeriodicityProgrammed": "semaines",
       "id": 1
     }
   ]

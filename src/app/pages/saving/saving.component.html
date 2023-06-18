@@ -7,22 +7,23 @@
 
     <div class="containerSavingsPage">
 
-      <div class="savingAmount">
 
-        <h1>//Montant//</h1>
-        <h1>Épargne</h1>
-
-      </div>
 
 
       <div class="programmedSaving">
 
-        <h2>Épargne programmée</h2>
-        <div><span>/mois</span></div>
 
-        <div>
+
+        <div *ngIf="proProjects && proProjects.length > 0">
+          <app-saving-programmed [proProject]="proProjects[0]"></app-saving-programmed>
+        </div>
+
+        <!-- Si il y a un projet (donc en index 0 ) alors le bouton ajouter disparait -->
+        <div *ngIf="!proProjects || proProjects.length === 0">
           <button class="boutonAjouter" (click)="openSecondDialog()">Ajouter</button>
         </div>
+
+
 
 
       </div>
