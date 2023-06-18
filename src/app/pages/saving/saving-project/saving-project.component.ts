@@ -2,7 +2,8 @@ import {Component, Input, OnInit, Output} from '@angular/core';
 import {ApiServiceService} from "../saving-service/api-service.service";
 import {AddProjectModalComponent} from "../add-project-modal/add-project-modal.component";
 import {MatDialog, MAT_DIALOG_DATA, MatDialogModule} from '@angular/material/dialog';
-
+import * as Highcharts from 'highcharts';
+import { Options } from 'highcharts';
 @Component({
   selector: 'app-saving-project',
   templateUrl: './saving-project.component.html',
@@ -12,6 +13,10 @@ export class SavingProjectComponent implements OnInit{
 
 @Input() project : any;
 
+chartOptions!: Options;
+chartColors: string[] = ['#ff8c00', '#b7b7b7'];
+Highcharts: typeof Highcharts = Highcharts;
+
 timeRemaining!: number; // pour stocker le temps restant en secondes
 
 
@@ -20,6 +25,34 @@ timeRemaining!: number; // pour stocker le temps restant en secondes
 
 
   ngOnInit() {
+
+
+    this.chartOptions = {
+      chart: {
+        type: 'pie'
+      },
+      title: {
+        text: ''
+      }, credits: {
+        enabled: false
+      },
+      colors: this.chartColors,
+      series: [{
+        type: 'pie',
+        name: 'Donut',
+        data: [
+          { name: 'Montant accumulé', y: 30 },
+          { name: 'Reste à épargner', y: 20 }
+        ]
+      }]
+    };
+
+
+
+
+
+
+
     this.calculateTimeRemaining();
     setInterval(() => {
       this.calculateTimeRemaining();

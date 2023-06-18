@@ -18,6 +18,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatInputModule} from "@angular/material/input";
+import { HighchartsChartModule } from 'highcharts-angular';
 
 
 
@@ -121,8 +122,8 @@ import { SavingProgrammedComponent } from './pages/saving/saving-programmed/savi
     MatDialogModule,
     MatInputModule,
     MatFormFieldModule,
-    MatNativeDateModule
-
+    MatNativeDateModule,
+    HighchartsChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]
