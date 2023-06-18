@@ -27,7 +27,6 @@ export class AddSavingModalComponent implements OnInit{
   ngOnInit() {
     this.programmedSavingForm = this.formBuilder.group({
       amountProgrammed : ['', Validators.required],
-      frequencyProgrammed: ['', Validators.required],
       PeriodicityProgrammed: ['', Validators.required]
 
     });
@@ -35,7 +34,6 @@ export class AddSavingModalComponent implements OnInit{
     if(this.editData){
       this.actionBtn = "Mettre à jour"
       this.programmedSavingForm.controls['amountProgrammed'].setValue(this.editData.amountProgrammed);
-      this.programmedSavingForm.controls['frequencyProgrammed'].setValue(this.editData.frequencyProgrammed);
       this.programmedSavingForm.controls['PeriodicityProgrammed'].setValue(this.editData.PeriodicityProgrammed)
     }
 

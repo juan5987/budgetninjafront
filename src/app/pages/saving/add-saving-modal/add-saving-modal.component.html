@@ -19,11 +19,6 @@
       <span>Choisir la fréquence</span>
 
       <div class="frequencyByTwo">
-        <input formControlName="frequencyProgrammed" maxlength="20" type="number" min="1" class="periodButtonSmall" placeholder="4" required>
-
-        <div *ngIf="isSubmitClicked && programmedSavingForm.get('frequencyProgrammed')?.invalid ">
-          <span class="error-message" [class.show-message]="isSubmitClicked">Veuillez entrer une fréquence</span>
-        </div>
 
         <div class="categorieDropdown">
           <select formControlName="PeriodicityProgrammed" >
