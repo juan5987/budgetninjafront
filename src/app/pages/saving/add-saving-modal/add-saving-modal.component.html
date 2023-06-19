@@ -9,8 +9,8 @@
 
     <div class="montantAEpargner">
       <span>Montant à épargner</span>
-      <input formControlName="amountProgrammed" maxlength="20" type="number" min="1" class="dialogInput" placeholder="100€" required>
-      <div *ngIf="isSubmitClicked && programmedSavingForm.get('amountProgrammed')?.invalid ">
+      <input formControlName="programmedAmount" maxlength="20" type="number" min="1" class="dialogInput" placeholder="100€" required>
+      <div *ngIf="isSubmitClicked && programmedSavingForm.get('programmedAmount')?.invalid ">
         <span class="error-message" [class.show-message]="isSubmitClicked">Veuillez entrer un montant</span>
       </div>
     </div>

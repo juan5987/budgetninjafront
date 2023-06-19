@@ -17,12 +17,12 @@
         </div>
 
         <div>
-          <div *ngIf="proProjects && proProjects.length > 0">
-            <app-saving-programmed [proProject]="proProjects[0]"></app-saving-programmed>
+          <div *ngIf="programmedSaving && programmedSaving.length > 0">
+            <app-saving-programmed [programmedSaving]="programmedSaving[0]"></app-saving-programmed>
           </div>
 
           <!-- Si il y a un projet (donc en index 0 ) alors le bouton ajouter disparait -->
-          <div *ngIf="!proProjects || proProjects.length === 0">
+          <div *ngIf="!programmedSaving || programmedSaving.length === 0">
             <button class="boutonAjouter" (click)="openSecondDialog()">Ajouter</button>
           </div>
         </div>

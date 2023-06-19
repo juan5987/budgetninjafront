@@ -14,15 +14,16 @@ import {Project} from "./models/project";
 })
 export class SavingComponent implements OnInit{
 
-  selectedDate?: Date; //necessaire car pas de date  ?
+  // selectedDate?: Date;
 
+  // On récupère l'épargne et on l'assigne à saving
   saving! : Saving;
 
   // On récupère les projets et on les assignent à projects
   projects!: any;
 
-  // On récupère les programmedSaving et on les assignent à proProjects
-  proProjects! : any;
+  // On récupère les programmedSaving et on les assignent à programmedSaving
+  programmedSaving! : any;
 
   /**
    * Lors de l'initialisation du composant, la méthode getSavingGoal()
@@ -43,35 +44,11 @@ export class SavingComponent implements OnInit{
       });
 
 
-    // this.api.getSavingUpdated().subscribe(() => {
-    //   this.api.getSavingGoal().subscribe((data: any) => {
-    //     this.projects = data;
-    //   });
-    // });
-    //
-    //
-    //
-    //
-    //
-    //
-    // this.api.getProgrammedSaving()
-    //   .subscribe((data : any)=> {
-    //     this.proProjects = data
-    //   });
-    // this.api.getSavingUpdated().subscribe(() => {
-    //   this.api.getProgrammedSaving().subscribe((data: any) => {
-    //     this.proProjects = data;
-    //   });
-    // });
 
   }
 
   constructor(private dialog: MatDialog, private api : ApiServiceService) {
-
-
   }
-
-
 
 /**
  * Si la valeur val retournée est égale à 'save' alors ngOninit affichera automatiquement les savingGoals */
@@ -95,8 +72,8 @@ export class SavingComponent implements OnInit{
 
     }).afterClosed().subscribe(val=> {
       if (val === 'save') {
-        this.api.getProgrammedSaving().subscribe((data: any) => {
-          this.proProjects = data;
+        this.api.getSavingAmount().subscribe((data: any) => {
+          this.programmedSaving = data;
         });
       }
     });

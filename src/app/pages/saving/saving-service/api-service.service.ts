@@ -21,9 +21,33 @@ export class ApiServiceService {
 
   apiURL = 'http://localhost:8080';
 
-// SAVING : pour le montant de l'épargne affiché dans la page principale
+// SAVING et PROGRAMMED SAVING: pour le montant de l'épargne affiché dans la page principale et pour l'épargne programmée
   getSavingAmount() {
     return this.http.get<Saving>(`${this.apiURL}/savings/user/1`);
+  }
+
+  getSavingByUserId(userId: number) {
+    return this.http.get<Saving>(`${this.apiURL}/savings/user/${userId}`);
+  }
+
+  addSavingToUser(saving: Saving) {
+    return this.http.post<Saving>(`${this.apiURL}/savings/1`, saving);
+  }
+
+  addProgrammedSaving( saving: Saving) {
+    return this.http.post<Saving>(`${this.apiURL}/savings/programmed/1`, saving);
+  }
+
+  updateProgrammedSaving( saving: Saving) {
+    return this.http.put<Saving>(`${this.apiURL}/savings/programmed/1`, saving);
+  }
+
+  updateSaving(savingId: number, saving: Saving) {
+    return this.http.put<Saving>(`${this.apiURL}/savings/${savingId}`, saving);
+  }
+
+  deleteSaving(savingId: number) {
+    return this.http.delete<void>(`${this.apiURL}/savings/${savingId}`);
   }
 
 
@@ -43,37 +67,10 @@ export class ApiServiceService {
   updateProject(projectId: number, project: Project) {
     return this.http.put<Project>(`${this.apiURL}/projects/${projectId}`, project);
   }
-  deleteProject(userId: number){
-    return this.http.delete<Project>(`${this.apiURL}/projects/${userId}`);
+  deleteProject(){
+    return this.http.delete<Project>(`${this.apiURL}/projects/1`);
   }
 
-  // putSavingGoal(data: Saving, id: number) {
-  //   return this.http.put<Saving>(`${this.apiURL}/user/${id}`, data);
-  // }
-  //
-  // deleteSavingGoal(id: number) {
-  //   return this.http.delete<any>(`${this.apiURL}/user/${id}`);
-  // }
-
-
-
-  // PROGRAMMED SAVING : représentent la première partie de la page.
-  postProgrammedSavingAmount(saving: Saving) {
-
-    return this.http.post<Saving>(`${this.apiURL}/programmed/1`, saving);
-  }
-
-  getProgrammedSaving() {
-    return this.http.get<any>(`${this.apiURL}/programmedSavingList/`);
-  }
-
-  putProgrammedSaving(data: any, id: number) {
-    return this.http.put<any>(`${this.apiURL}/programmedSavingList/${id}`, data);
-  }
-
-  deleteProgrammedSaving(id: number) {
-    return this.http.delete<any>(`${this.apiURL}/programmedSavingList/${id}`);
-  }
 
 
 }

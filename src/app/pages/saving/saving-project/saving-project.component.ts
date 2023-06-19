@@ -96,9 +96,10 @@ timeRemaining!: number; // pour stocker le temps restant en secondes
   editProject(row : any){
     this.dialog.open(AddProjectModalComponent, {
       width:'50%',
-      data : row }).afterClosed().subscribe(val=>{
+      data : row })
+      .afterClosed().subscribe(val=>{
       if(val === 'mettre à jour'){
-        this.getAllProject();
+        this.api.updateProject(row.id, row);
         // this.api.emitSavingUpdated(); // on émet evenement de mise à jour
       }
     })
@@ -107,7 +108,7 @@ timeRemaining!: number; // pour stocker le temps restant en secondes
 
 
   deleteProject(id : number){
-    this.api.deleteProject(id)
+    this.api.deleteProject()
       .subscribe({
         next:(res)=>{
           console.log("L'épargne à été supprimée avec succès !");

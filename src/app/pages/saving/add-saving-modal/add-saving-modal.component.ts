@@ -10,7 +10,7 @@ import {ApiServiceService} from "../saving-service/api-service.service";
 })
 export class AddSavingModalComponent implements OnInit{
 
-  @Input() proProject! :any;
+  @Input() programmedSaving! :any;
 
   isSubmitClicked: boolean = false;
 
@@ -25,14 +25,14 @@ export class AddSavingModalComponent implements OnInit{
 
   ngOnInit() {
     this.programmedSavingForm = this.formBuilder.group({
-      amountProgrammed : ['', Validators.required],
+      programmedAmount : ['', Validators.required],
       PeriodicityProgrammed: ['', Validators.required]
 
     });
 
     if(this.editData){
       this.actionBtn = "Mettre à jour"
-      this.programmedSavingForm.controls['amountProgrammed'].setValue(this.editData.amountProgrammed);
+      this.programmedSavingForm.controls['programmedAmount'].setValue(this.editData.programmedAmount);
       this.programmedSavingForm.controls['PeriodicityProgrammed'].setValue(this.editData.PeriodicityProgrammed)
     }
 
@@ -42,7 +42,7 @@ export class AddSavingModalComponent implements OnInit{
 
     if(!this.editData){
       if(this.programmedSavingForm.valid){
-        this.api.postProgrammedSavingAmount(this.programmedSavingForm.value)
+        this.api.addProgrammedSaving(this.programmedSavingForm.value)
           .subscribe({
             next:(res)=>{
               console.log("L'épargne programmée été produite avec succès !");
@@ -60,7 +60,7 @@ export class AddSavingModalComponent implements OnInit{
   }
 
   updateProgrammedSaving(){
-    this.api.putProgrammedSaving(this.programmedSavingForm.value,this.editData.id)
+    this.api.updateProgrammedSaving(this.programmedSavingForm.value)
       .subscribe({
         next:(res)=>{
           console.log("L'épargne programmée a été mis à jour avec succès ! ");

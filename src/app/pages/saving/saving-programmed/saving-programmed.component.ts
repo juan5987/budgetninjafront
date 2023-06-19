@@ -10,7 +10,7 @@ import {AddSavingModalComponent} from "../add-saving-modal/add-saving-modal.comp
 })
 export class SavingProgrammedComponent implements OnInit{
 
-  @Input() proProject : any;
+  @Input() programmedSaving : any;
 
   constructor(private api : ApiServiceService, public dialog : MatDialog) {
   }
@@ -20,7 +20,7 @@ export class SavingProgrammedComponent implements OnInit{
 
 
   getAllProgrammedSaving(){
-    this.api.getProgrammedSaving()
+    this.api.getSavingAmount()
       .subscribe({
         next:(res)=>{
           console.log(res)
@@ -45,7 +45,7 @@ export class SavingProgrammedComponent implements OnInit{
 
 
   deleteProgrammedSaving(id : number){
-    this.api.deleteProgrammedSaving(id)
+    this.api.deleteSaving(id)
       .subscribe({
         next:(res)=>{
           console.log("L'épargne programmée à été supprimée avec succès !");
