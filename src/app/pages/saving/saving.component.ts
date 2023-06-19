@@ -3,6 +3,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {AddProjectModalComponent} from "./add-project-modal/add-project-modal.component";
 import {AddSavingModalComponent} from "./add-saving-modal/add-saving-modal.component";
 import {ApiServiceService} from "./saving-service/api-service.service";
+import {Saving} from "./models/saving";
 
 
 @Component({
@@ -14,6 +15,7 @@ export class SavingComponent implements OnInit{
 
   selectedDate?: Date; //necessaire car pas de date  ?
 
+saving! : Saving;
 
   // On récupère les savingGoal et on les assignent à projects
   projects!: any;
@@ -32,7 +34,7 @@ export class SavingComponent implements OnInit{
 
     this.api.getSavingGoal()
       .subscribe((data : any)=> {
-        this.projects = data
+        this.saving = data
       });
     this.api.getSavingUpdated().subscribe(() => {
       this.api.getSavingGoal().subscribe((data: any) => {
