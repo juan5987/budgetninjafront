@@ -116,7 +116,6 @@ import { UpdateTransactionComponent } from './pages/budget/update-transaction/up
     MatIconModule,
     MatDividerModule,
     FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
   ],
   providers: [],

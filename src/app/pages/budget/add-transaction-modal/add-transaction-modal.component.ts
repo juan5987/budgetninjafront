@@ -17,16 +17,17 @@ export class AddTransactionModalComponent implements OnInit, OnDestroy {
   submitted: boolean = false;
 
   constructor(private formBuilder: FormBuilder, private budgetService: BudgetService, private FormService: FormService, private transactionsService: TransactionsService) { }
+  formValues!: FormGroup;
 
-  formValues: FormGroup = this.formBuilder.group({
-    date: ['', Validators.required],
-    amount: [, Validators.required],
-    description: [''],
-    type: ['', Validators.required],
-    category: ['', Validators.required],
-  })
 
   ngOnInit(): void {
+    this.formValues = this.formBuilder.group({
+      date: ['', Validators.required],
+      amount: [, Validators.required],
+      description: [''],
+      type: ['', Validators.required],
+      category: '',
+    })
     this.subscription = this.budgetService.isAddTransactionModalOpenedSubject.subscribe(
       (bool: boolean) => {
         this.isAddTransactionModalOpened = bool;
@@ -52,18 +53,13 @@ export class AddTransactionModalComponent implements OnInit, OnDestroy {
     event.preventDefault();
     this.submitted = true;
     if (this.formValues.valid) {
-
-      this.transactionsService.createTransaction(this.formValues.value);
+      if(this.formValues.value.category === ''){
+        this.formValues.value.category = null;
+      }
+      this.transactionsService.createTransaction(this.formValues.value).subscribe();
       this.budgetService.isAddTransactionModalOpenedSetter = false;
       this.budgetService.updateAllIndicators();
 
-      this.FormService.updateTransaction(this.formValues.value).subscribe(
-        (response: any) => {
-          this.transactionsService.updateTransaction(this.formValues.value);
-          this.budgetService.isAddTransactionModalOpenedSetter = false;
-          this.budgetService.updateAllIndicators();
-        }
-      )
     }
   }
 
