@@ -48,7 +48,7 @@ export class UpdateTransactionComponent implements OnInit, OnDestroy {
           amount: this.transaction.amount,
           description: this.transaction.description,
           type: this.transaction.type,
-          category: this.transaction.category ? this.transaction.category : '',
+          category: this.transaction.category ? this.transaction.category.name : '',
         })
       });
   }
@@ -71,6 +71,14 @@ export class UpdateTransactionComponent implements OnInit, OnDestroy {
     if (this.formValues.valid) {
       if (this.formValues.value.category === '') {
         this.formValues.value.category = null;
+      }
+      if(this.formValues.value.category === ''){
+        this.formValues.value.category = null;
+      } else {
+        this.formValues.value.category = {
+          name: this.formValues.value.category,
+        }
+
       }
 
       this.transactionsService.updateTransactionById(this.formValues.value, this.transaction.id).subscribe(

@@ -10,6 +10,12 @@ export class TransactionsService {
   userId: number = 1;
   transactionsSubject = new BehaviorSubject<Transaction[]>([]);
 
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
+
   get getTransactions(): BehaviorSubject<Transaction[]> {
     return this.transactionsSubject;
   }
@@ -24,16 +30,12 @@ export class TransactionsService {
   }
 
   createTransaction = (transaction: Transaction) => {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
-    return this.http.post<Transaction>(`http://localhost:8080/transactions/${this.userId}` , transaction, httpOptions);
+
+    return this.http.post<Transaction>(`http://localhost:8080/transactions/${this.userId}` , transaction, this.httpOptions);
   }
 
   updateTransactionById = (transaction: Transaction, transactionId: number) => {
-    return this.http.put<Transaction>(`http://localhost:8080/transactions/${transactionId}`, transaction);
+    return this.http.put<Transaction>(`http://localhost:8080/transactions/${transactionId}`, transaction, this.httpOptions);
   }
 
   deleteTransactionById = (transactionId: number) => {
