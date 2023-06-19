@@ -1,1 +1,35 @@
-<p>categories works!</p>
+<div class="category">
+  <app-sidebar></app-sidebar>
+  <div class="category__content">
+    <div class="container">
+      <h1>Mes Catégories</h1>
+      <div style="margin-top: 10px;">
+        <div class="mat-elevation-z0">
+          <table mat-table [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="categorieName">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> <strong class="text-categorie">Catégorie</strong>  </th>
+              <td mat-cell *matCellDef="let row" class="text-categorie"> {{row.categorieName}} </td>
+            </ng-container>
+            <!-- Name Column -->
+            <ng-container matColumnDef="ajouter">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                <button mat-button color="" (click)="openDialog()">
+                  <img src="../../../assets/images/pluss.png" alt="ajouter" > Ajouter  
+                </button>
+              </th>
+              <td mat-cell *matCellDef="let row">
+                <button mat-icon-button color="primary" (click)="editCategorie(row)">
+                  <img src="../../../assets/images/edit.png" alt="edition">
+                </button>
+                <button mat-icon-button (click)="deleteCategorie(row.id)" color="warn">
+                  <img src="../../../assets/images/corbeille.png" alt="corbeille">
+                </button>
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+        </div>
+      </div>
+    </div>

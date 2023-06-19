@@ -1,89 +1,141 @@
 <div class="budget">
-    <app-sidebar></app-sidebar>
-    <div class="budget__content">
-        <section class="budget__content__indicators">
-          <header class="budget__content__indicators__header">
-            <h2 class="budget__content__indicators__header__title">Mon budget</h2>
-            <a class="budget__content__indicators__header__link" routerLink="/categories">Gérer mes catégories</a>
-          </header>
-          <div class="budget__content__indicators__content">
-            <div class="budget__content__indicators__content__item">
-              <div class="budget__content__indicators__content__item__label">Solde</div>
-              <div class="budget__content__indicators__content__item__value">1500€</div>
-            </div>
-            <div class="budget__content__indicators__content__item">
-              <div class="budget__content__indicators__content__item__label">Revenues</div>
-              <div class="budget__content__indicators__content__item__value">700€</div>
-            </div>
-            <div class="budget__content__indicators__content__item">
-              <div class="budget__content__indicators__content__item__label">Dépenses</div>
-              <div class="budget__content__indicators__content__item__value">500€</div>
-            </div>
-            <div class="budget__content__indicators__content__item">
-              <div class="budget__content__indicators__content__item__label">Reste à vivre</div>
-              <div class="budget__content__indicators__content__item__value">1000€</div>
-            </div>
-          </div>
-        </section>
-        <section class="budget__content__transactions">
-          <header class="budget__content__transactions__header">
-            <h2 class="budget__content__transactions__header__title">Dernières transactions</h2>
-            <button class="budget__content__transactions__header__link">Ajouter une transaction</button>
-          </header>
-          <table class="budget__content__transactions__table">
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Libellé</th>
-                <th>Catégorie</th>
-                <th>Montant</th>
-                <th>Modifier</th>
-                <th>Supprimer</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>01/01/2020</td>
-                <td>Carburant</td>
-                <td>Transport</td>
-                <td>50€</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>01/01/2020</td>
-                <td>Carburant</td>
-                <td>Transport</td>
-                <td>50€</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>01/01/2020</td>
-                <td>Carburant</td>
-                <td>Transport</td>
-                <td>50€</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>01/01/2020</td>
-                <td>Carburant</td>
-                <td>Transport</td>
-                <td>50€</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>01/01/2020</td>
-                <td>Carburant</td>
-                <td>Transport</td>
-                <td>50€</td>
-                <td></td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
+  <app-sidebar></app-sidebar>
+  <div class="budget__content">
+    <section class="budget__content__indicators">
+      <header class="budget__content__indicators__header">
+        <h2 class="budget__content__indicators__header__title">Mon budget</h2>
+      </header>
+      <div class="budget__content__indicators__content">
+        <div class="budget__content__indicators__content__item budget__content__indicators__content__item--orange">
+          <div class="budget__content__indicators__content__item__label">Solde</div>
+          <div class="budget__content__indicators__content__item__value">1500€</div>
+        </div>
+        <div class="budget__content__indicators__content__item budget__content__indicators__content__item--dark">
+          <div class="budget__content__indicators__content__item__label">Reste à vivre</div>
+          <div class="budget__content__indicators__content__item__value">1000€</div>
+        </div>
+        <div class="budget__content__indicators__content__item budget__content__indicators__content__item--green">
+          <div class="budget__content__indicators__content__item__label">Revenus</div>
+          <div class="budget__content__indicators__content__item__value">700€</div>
+        </div>
+        <div class="budget__content__indicators__content__item budget__content__indicators__content__item--red">
+          <div class="budget__content__indicators__content__item__label">Dépenses</div>
+          <div class="budget__content__indicators__content__item__value">500€</div>
+        </div>
       </div>
+    </section>
+    <section class="budget__content__recurrent">
+      <button class="budget__content__recurrent__button">Gérer mes dépenses récurrentes</button>
+    </section>
+    <section class="budget__content__transactions">
+      <header class="budget__content__transactions__header">
+        <h2 class="budget__content__transactions__header__title">Dernières transactions</h2>
+      </header>
+      <div class="budget__content__transactions__buttons">
+        <button class="budget__content__transactions__buttons__add">Ajouter une transaction</button>
+        <a class="budget__content__transactions__buttons__category" routerLink="/categories">Gérer mes catégories</a>
+      </div>
+      <table class="budget__content__transactions__grid">
+        <thead class="budget__content__transactions__grid__head">
+          <tr class="budget__content__transactions__grid__head__row">
+            <th class="budget__content__transactions__grid__row__head">Date</th>
+            <th class="budget__content__transactions__grid__row__head">Libellé</th>
+            <th class="budget__content__transactions__grid__row__head">Catégorie</th>
+            <th class="budget__content__transactions__grid__row__head">Montant</th>
+            <th class="budget__content__transactions__grid__row__head">Modif</th>
+            <th class="budget__content__transactions__grid__row__head">Supp</th>
+          </tr>
+        </thead>
+        <tbody class="budget__content__transactions__grid__body">
+          <tr class="budget__content__transactions__grid__row budget__content__transactions__grid__row--depense">
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--depense">01/01/2020</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--depense">Carburant</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--depense">Transport</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--depense">50€</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--depense">
+              <img class="budget__content__transactions__grid__row__data__edit" src="../../../assets/images/edit.png" alt="edition">
+            </td>
+            <td class="budget__content__transactions__grid__row__data">
+              <img class="budget__content__transactions__grid__row__data__delete" src="../../../assets/images/corbeille.png" alt="corbeille">
+
+            </td>
+          </tr>
+          <tr class="budget__content__transactions__grid__row budget__content__transactions__grid__row--depense">
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--depense">01/01/2020</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--depense">Carburant</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--depense">Transport</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--depense">50€</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--depense">
+              <img class="budget__content__transactions__grid__row__data__edit" src="../../../assets/images/edit.png" alt="edition">
+            </td>
+            <td class="budget__content__transactions__grid__row__data">
+              <img class="budget__content__transactions__grid__row__data__delete" src="../../../assets/images/corbeille.png" alt="corbeille">
+            </td>
+          </tr>
+          <tr class="budget__content__transactions__grid__row budget__content__transactions__grid__row--revenu">
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--revenu">01/01/2020</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--revenu">Remb CPAM</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--revenu">Santé</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--revenu">20€</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--revenu">
+              <img class="budget__content__transactions__grid__row__data__edit" src="../../../assets/images/edit.png" alt="edition">
+            </td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--previsionnel">
+              <img class="budget__content__transactions__grid__row__data__delete" src="../../../assets/images/corbeille.png" alt="corbeille">
+            </td>
+          </tr>
+          <tr class="budget__content__transactions__grid__row budget__content__transactions__grid__row--depense">
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--depense">01/01/2020</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--depense">Carburant</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--depense">Transport</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--depense">50€</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--depense">
+              <img class="budget__content__transactions__grid__row__data__edit" src="../../../assets/images/edit.png" alt="edition">
+            </td>
+            <td class="budget__content__transactions__grid__row__data">
+              <img class="budget__content__transactions__grid__row__data__delete" src="../../../assets/images/corbeille.png" alt="corbeille">
+
+            </td>
+          </tr>
+          <tr class="budget__content__transactions__grid__row budget__content__transactions__grid__row--revenu">
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--revenu">01/01/2020</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--revenu">Salaire</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--revenu">Salaire</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--revenu">1350€</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--revenu">
+              <img class="budget__content__transactions__grid__row__data__edit" src="../../../assets/images/edit.png" alt="edition">
+            </td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--revenu">
+              <img class="budget__content__transactions__grid__row__data__delete" src="../../../assets/images/corbeille.png" alt="corbeille">
+            </td>
+          </tr>
+          <tr class="budget__content__transactions__grid__row budget__content__transactions__grid__row--depense">
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--depense">01/01/2020</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--depense">Carburant</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--depense">Transport</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--depense">50€</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--depense">
+              <img class="budget__content__transactions__grid__row__data__edit" src="../../../assets/images/edit.png" alt="edition">
+            </td>
+            <td class="budget__content__transactions__grid__row__data">
+              <img class="budget__content__transactions__grid__row__data__delete" src="../../../assets/images/corbeille.png" alt="corbeille">
+
+            </td>
+          </tr>
+          <tr class="budget__content__transactions__grid__row budget__content__transactions__grid__row--depense">
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--depense">01/01/2020</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--depense">Carburant</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--depense">Transport</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--depense">50€</td>
+            <td class="budget__content__transactions__grid__row__data budget__content__transactions__grid__row__data--depense">
+              <img class="budget__content__transactions__grid__row__data__edit" src="../../../assets/images/edit.png" alt="edition">
+            </td>
+            <td class="budget__content__transactions__grid__row__data">
+              <img class="budget__content__transactions__grid__row__data__delete" src="../../../assets/images/corbeille.png" alt="corbeille">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
 </div>
