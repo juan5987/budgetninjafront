@@ -60,5 +60,37 @@ export class TransactionsService {
     this.transactionsSubject.next(transactions);
     }
 
+    orderTransactions = (order: string) => {
+      const transactions = this.transactionsSubject.getValue();
+      switch (order) {
+        case 'date':
+          transactions.sort((a, b) => {
+            return new Date(a.date).getTime() - new Date(b.date).getTime();
+          });
+          break;
+        case 'amount':
+          transactions.sort((a, b) => {
+            return a.amount - b.amount;
+          });
+          break;
+        case 'description':
+          transactions.sort((a, b) => {
+            return a.description.localeCompare(b.description);
+          });
+          break;
+        case 'category':
+          transactions.sort((a, b) => {
+            return a.category.name.localeCompare(b.category.name);
+          });
+          break;
+        default:
+          transactions.sort((a, b) => {
+            return new Date(a.date).getTime() - new Date(b.date).getTime();
+          });
+          break;
+      }
+      this.transactionsSubject.next(transactions);
+    }
+
   constructor( private http: HttpClient) { }
 }

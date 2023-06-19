@@ -48,6 +48,15 @@
           transaction</button>
         <a class="budget__content__transactions__buttons__category" routerLink="/categories">Gérer mes catégories</a>
       </div>
+      <div class="budget__content__transactions__order">
+        <label class="budget__content__transactions__order__label" for="order">Trier par:</label>
+        <select class="budget__content__transactions__order__select" name="order" id="order" [(ngModel)]="order" (change)="handleOrderChange($event)">
+          <option class="budget__content__transactions__order__select__option" value="date">Date</option>
+          <option class="budget__content__transactions__order__select__option" value="description">Libellé</option>
+          <option class="budget__content__transactions__order__select__option" value="category">Catégorie</option>
+          <option class="budget__content__transactions__order__select__option" value="amount">Montant</option>
+        </select>
+      </div>
       <table class="budget__content__transactions__grid">
         <thead class="budget__content__transactions__grid__head">
           <tr class="budget__content__transactions__grid__head__row">

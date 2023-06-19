@@ -20,6 +20,7 @@ export class BudgetComponent implements OnInit, OnDestroy {
   depenseTotal: number = 0;
   solde: number = 0;
   resteAVivre: number = 0;
+  order: string = 'date';
 
 
   constructor(private budgetService: BudgetService, private transactionsService: TransactionsService) { }
@@ -99,5 +100,11 @@ export class BudgetComponent implements OnInit, OnDestroy {
 
   stopPropagation = (event: Event) => {
     event.stopPropagation();
+  }
+
+  handleOrderChange = (event: Event) => {
+    const value = (event.target as HTMLSelectElement).value;
+    this.order = value;
+    this.transactionsService.orderTransactions(value);
   }
 }
