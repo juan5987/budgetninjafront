@@ -20,7 +20,8 @@ export class BudgetComponent implements OnInit, OnDestroy {
   depenseTotal: number = 0;
   solde: number = 0;
   resteAVivre: number = 0;
-  order: string = 'date';
+  sort: string = 'date';
+  order: string = 'décroissant';
 
 
   constructor(private budgetService: BudgetService, private transactionsService: TransactionsService) { }
@@ -61,6 +62,7 @@ export class BudgetComponent implements OnInit, OnDestroy {
     this.transactionsService.getAllTransactions().subscribe(
       (transactions: Transaction[]) => {
         this.transactionsService.setTransactions = transactions;
+        this.transactionsService.sortTransactions(this.order, this.sort);
         this.transactions = transactions;
       }
     );
@@ -102,9 +104,15 @@ export class BudgetComponent implements OnInit, OnDestroy {
     event.stopPropagation();
   }
 
-  handleOrderChange = (event: Event) => {
-    const value = (event.target as HTMLSelectElement).value;
-    this.order = value;
-    this.transactionsService.orderTransactions(value);
+  handleSortChange = (event: Event) => {
+    const inputElement = event.target as HTMLInputElement;
+    const name = inputElement.getAttribute('name');
+    if(name === 'order') {
+      this.order = inputElement.value;
+    } else {
+      this.sort = inputElement.value;
+    }
+    console.log(this.sort, this.order)
+    this.transactionsService.sortTransactions(this.order, this.sort);
   }
 }

@@ -18,7 +18,6 @@ export class BudgetTransactionComponent implements OnInit, OnDestroy {
   constructor(private budgetService: BudgetService) { }
 
   ngOnInit(): void {
-    console.log(this.transaction);
     this.subscription = this.budgetService.isDeleteTransactionModalOpenedSubject.subscribe(
       (bool: boolean) => {
         this.isDeleteTransactionModalOpened = bool;
