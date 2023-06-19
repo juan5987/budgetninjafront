@@ -5,7 +5,7 @@ import { TransactionsService } from '../services/transactions.service';
 import { Subscription } from 'rxjs';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { FormService } from '../add-transaction-modal/services/form.service';
-
+import { formatDate } from '@angular/common';
 
 
 @Component({
@@ -27,7 +27,7 @@ export class UpdateTransactionComponent implements OnInit, OnDestroy {
     amount: ['', Validators.required],
     description: [''],
     type: ['', Validators.required],
-    category: ['', Validators.required],
+    category: '',
   })
 
   ngOnInit(): void {
@@ -44,19 +44,13 @@ export class UpdateTransactionComponent implements OnInit, OnDestroy {
           transaction => transaction.id === this.budgetService.updatingTransactionIdGetter.getValue()
         );
         this.formValues.patchValue({
-          date: this.transaction.date,
+          date: formatDate(this.transaction.date, 'yyyy-MM-dd', 'en-US'),
           amount: this.transaction.amount,
           description: this.transaction.description,
           type: this.transaction.type,
-          category: this.transaction.category,
+          category: this.transaction.category ? this.transaction.category : '',
         })
       });
-
-
-    // this.transaction = this.transactionsService.getTransactions.getValue().find(
-    //   transaction => transaction.id === this.budgetService.updatingTransactionIdGetter.getValue()
-    //   );
-
   }
 
   ngOnDestroy() {
@@ -75,20 +69,19 @@ export class UpdateTransactionComponent implements OnInit, OnDestroy {
     event.preventDefault();
     this.submitted = true;
     if (this.formValues.valid) {
-      // TODO: a supprimer quand on aura le back
-      this.transactionsService.updateTransaction(this.formValues.value);
-      this.budgetService.isUpdateTransactionModalOpenedSetter = false;
-      this.budgetService.updateAllIndicators();
+      if (this.formValues.value.category === '') {
+        this.formValues.value.category = null;
+      }
 
-      this.FormService.updateTransaction(this.formValues.value).subscribe(
-        (response: any) => {
-          this.transactionsService.updateTransaction(this.formValues.value);
+      this.transactionsService.updateTransactionById(this.formValues.value, this.transaction.id).subscribe(
+        (response) => {
+          console.log(response)
+          this.transactionsService.updateTransaction(response, this.transaction.id);
           this.budgetService.isUpdateTransactionModalOpenedSetter = false;
           this.budgetService.updateAllIndicators();
         }
       )
     }
-
   }
   public get form() {
     return this.formValues.controls;

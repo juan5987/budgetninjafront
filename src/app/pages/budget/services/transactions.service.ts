@@ -27,8 +27,8 @@ export class TransactionsService {
     return this.http.post<Transaction>(`http://localhost:8080/transactions/${this.userId}` , transaction);
   }
 
-  updateTransactionById = (transaction: Transaction) => {
-    return this.http.put<Transaction>('http://localhost:8080/transactions/' + transaction.id, transaction);
+  updateTransactionById = (transaction: Transaction, transactionId: number) => {
+    return this.http.put<Transaction>(`http://localhost:8080/transactions/${transactionId}`, transaction);
   }
 
   deleteTransactionById = (transactionId: number) => {
@@ -39,9 +39,9 @@ export class TransactionsService {
     this.transactionsSubject.getValue().push(transaction);
   }
 
-  updateTransaction = (transaction: Transaction) => {
+  updateTransaction = (transaction: Transaction, transactionId: number) => {
     const transactions = this.transactionsSubject.getValue();
-    const index = transactions.findIndex((transaction: Transaction) => transaction.id === transaction.id);
+    const index = transactions.findIndex((transaction: Transaction) => transaction.id === transactionId);
     transactions[index] = transaction;
     this.transactionsSubject.next(transactions);
   }

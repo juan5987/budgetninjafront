@@ -87,11 +87,9 @@ export class BudgetComponent implements OnInit, OnDestroy {
   }
 
   handleDeleteTransaction = () => {
-    //TODO : a décommenter quand le back sera prêt
     const transactionId = this.budgetService.updatingTransactionIdGetter.getValue();
     this.transactionsService.deleteTransactionById(transactionId).subscribe(
       (response) => {
-        this.transactionsService.deleteTransactionById(transactionId);
         this.transactionsService.removeTransaction(transactionId);
         this.budgetService.isDeleteTransactionModalOpenedSetter = false;
         this.budgetService.updateAllIndicators();
