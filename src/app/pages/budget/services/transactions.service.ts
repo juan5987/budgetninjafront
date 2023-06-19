@@ -61,6 +61,7 @@ export class TransactionsService {
     }
 
     sortTransactions = (order: string, sort: string) => {
+
       const transactions = this.transactionsSubject.getValue();
       switch (sort) {
         case 'date':

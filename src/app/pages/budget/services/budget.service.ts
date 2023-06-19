@@ -1,6 +1,8 @@
 import { TransactionsService } from './transactions.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Budget } from '../models/budget';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +11,7 @@ export class BudgetService {
   isAddTransactionModalOpenedSubject = new BehaviorSubject<boolean>(false);
   isDeleteTransactionModalOpenedSubject = new BehaviorSubject<boolean>(false);
   isUpdateTransactionModalOpenedSubject = new BehaviorSubject<boolean>(false);
+  isBalanceModalOpenedSubject = new BehaviorSubject<boolean>(false);
   updatingTransactionIdSubject = new BehaviorSubject<number>(0);
 
   revenuTotal = new BehaviorSubject<number>(0);
@@ -16,7 +19,15 @@ export class BudgetService {
   solde = new BehaviorSubject<number>(0);
   resteAVivre = new BehaviorSubject<number>(0);
 
-  constructor(private transactionsService: TransactionsService) { }
+  userId:number = 1;
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
+
+  constructor(private http: HttpClient, private transactionsService: TransactionsService) { }
 
 
   updateAllIndicators = () => {
@@ -32,6 +43,22 @@ export class BudgetService {
       }
     }
     this.resteAVivreSetter = this.solde.getValue() + this.revenuTotalGetter.getValue() - this.depenseTotal.getValue();
+  }
+
+  getBudget = (userId: number) => {
+    return this.http.get<Budget>(`http://localhost:8080/budgets/user/${userId}`);
+  }
+
+  updateBudget = (budget: Budget) => {
+    return this.http.put<Budget>(`http://localhost:8080/budgets/${budget.id}`, budget, this.httpOptions);
+  }
+
+  get isBalanceModalOpenedGetter():BehaviorSubject<boolean> {
+    return this.isBalanceModalOpenedSubject;
+  }
+
+  set isBalanceModalOpenedSetter(bool:boolean) {
+    this.isBalanceModalOpenedSubject.next(bool);
   }
 
   get revenuTotalGetter():BehaviorSubject<number> {

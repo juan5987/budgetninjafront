@@ -3,13 +3,38 @@
   <div class="budget__content">
     <app-add-transaction-modal *ngIf="isAddTransactionModalOpened"></app-add-transaction-modal>
     <app-update-transaction *ngIf="isUpdateTransactionModalOpened"></app-update-transaction>
-    <div class="deleteModal" *ngIf="isDeleteTransactionModalOpened" (click)="handleCloseDeleteModal()"  >
+    <div *ngIf="isBalanceModalOpened" class="modal" (click)="handleCloseBalanceModal()">
+      <div class="modal__container" (click)="stopPropagation($event)">
+        <span class="cross" (click)="handleCloseBalanceModal()">
+          <span class="cross__line cross__line__one">&nbsp;</span>
+          <span class="cross__line cross__line__two">&nbsp;</span>
+        </span>
+        <img class="modal__container__logo" src="assets/images/logo.png" alt="logo représentant un ninja">
+        <h2 class="modal__container__title">Modifier mon solde</h2>
+        <form class="modal__container__form" [formGroup]="formValues" (ngSubmit)="handleSubmitForm($event)">
+          <div class="modal__container__form__element">
+            <label for="balance" class="modal__container__form__element__label">Montant</label>
+            <input type="number" class="modal__container__form__element__input" name="balance" id="balance"
+              formControlName="balance">
+            <span *ngIf="submitted && form['balance'].hasError('required')"
+              class="modal__container__form__element__input__error">
+              Veuillez renseigner un montant
+            </span>
+          </div>
+          <button class="main_button modal__container__form__submit" type="submit">valider</button>
+        </form>
+
+      </div>
+    </div>
+    <div class="deleteModal" *ngIf="isDeleteTransactionModalOpened" (click)="handleCloseDeleteModal()">
       <div class="deleteModal__container" (click)="stopPropagation($event)">
         <h2 class="deleteModal__container__title">Supprimer une transaction</h2>
         <p class="deleteModal__container__content">Êtes-vous sûr de vouloir supprimer cette transaction ?</p>
         <div class="deleteModal__container__buttons">
-          <button class="deleteModal__container__buttons__button deleteModal__container__buttons__button--delete" (click)="handleDeleteTransaction()">Supprimer</button>
-          <button class="deleteModal__container__buttons__button deleteModal__container__buttons__button--cancel" (click)="handleCloseDeleteModal()">Annuler</button>
+          <button class="deleteModal__container__buttons__button deleteModal__container__buttons__button--delete"
+            (click)="handleDeleteTransaction()">Supprimer</button>
+          <button class="deleteModal__container__buttons__button deleteModal__container__buttons__button--cancel"
+            (click)="handleCloseDeleteModal()">Annuler</button>
         </div>
       </div>
     </div>
@@ -21,6 +46,8 @@
         <div class="budget__content__indicators__content__item budget__content__indicators__content__item--orange">
           <div class="budget__content__indicators__content__item__label">Solde</div>
           <div class="budget__content__indicators__content__item__value">{{solde}}€</div>
+          <img class="budget__content__indicators__content__item__edit" src="../../../assets/images/edit.png"
+            alt="edition" (click)="handleOpenBalanceModal()">
         </div>
         <div class="budget__content__indicators__content__item budget__content__indicators__content__item--dark">
           <div class="budget__content__indicators__content__item__label">Reste à vivre</div>
@@ -47,11 +74,12 @@
         <button class="budget__content__transactions__buttons__add" (click)="handleShowModal()">Ajouter une
           transaction</button>
         <a class="budget__content__transactions__buttons__category" routerLink="/categories">Gérer mes catégories</a>
-      </div >
+      </div>
       <div class="budget__content__transactions__filters">
         <div class="budget__content__transactions__sort">
           <label class="budget__content__transactions__sort__label" for="sort">Trier par:</label>
-          <select class="budget__content__transactions__sort__select" name="sort" id="sort" [(ngModel)]="sort" (change)="handleSortChange($event)">
+          <select class="budget__content__transactions__sort__select" name="sort" id="sort" [(ngModel)]="sort"
+            (change)="handleSortChange($event)">
             <option class="budget__content__transactions__sort__select__option" value="date">Date</option>
             <option class="budget__content__transactions__sort__select__option" value="description">Libellé</option>
             <option class="budget__content__transactions__sort__select__option" value="category">Catégorie</option>
@@ -60,9 +88,11 @@
         </div>
         <div class="budget__content__transactions__order">
           <label class="budget__content__transactions__order__label" for="order">Ordre:</label>
-          <select class="budget__content__transactions__order__select" name="order" id="order" [(ngModel)]="order" (change)="handleSortChange($event)">
+          <select class="budget__content__transactions__order__select" name="order" id="order" [(ngModel)]="order"
+            (change)="handleSortChange($event)">
             <option class="budget__content__transactions__order__select__option" value="croissant">Croissant</option>
-            <option class="budget__content__transactions__order__select__option" value="décroissant">Décroissant</option>
+            <option class="budget__content__transactions__order__select__option" value="décroissant">Décroissant
+            </option>
           </select>
         </div>
       </div>
@@ -79,9 +109,11 @@
           </tr>
         </thead>
         <tbody class="budget__content__transactions__grid__body">
-          <span *ngIf="transactions.length == 0" class="budget__content__transactions__grid__body__empty">Aucune transaction</span>
-          <div  *ngIf="transactions.length > 0">
-              <app-budget-transaction *ngFor="let transaction of transactions" [transaction]="transaction"></app-budget-transaction>
+          <span *ngIf="transactions.length == 0" class="budget__content__transactions__grid__body__empty">Aucune
+            transaction</span>
+          <div *ngIf="transactions.length > 0">
+            <app-budget-transaction *ngFor="let transaction of transactions"
+              [transaction]="transaction"></app-budget-transaction>
           </div>
         </tbody>
       </table>
