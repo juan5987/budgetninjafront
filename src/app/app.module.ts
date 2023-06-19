@@ -1,14 +1,22 @@
 // Modules
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatSortModule} from '@angular/material/sort';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+
 
 // Composants
 import { AppComponent } from './app.component';
@@ -43,14 +51,9 @@ import { DeleteSavingProjectModalComponent } from './pages/saving/delete-saving-
 import { HomeheaderComponent } from './pages/home/components/homeheader/homeheader.component';
 import { LoginModalComponent } from './pages/home/components/login-modal/login-modal.component';
 import { SignupModalComponent } from './pages/home/components/signup-modal/signup-modal.component';
-import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './pages/categories/dialog/dialog.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatSortModule} from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -86,26 +89,29 @@ import { MatIconModule } from '@angular/material/icon';
     HomeheaderComponent,
     LoginModalComponent,
     SignupModalComponent,
-    DialogComponent,
+    DialogComponent
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatDividerModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatFormFieldModule,
-    MatDialogModule,
-    MatIconModule
+  AppRoutingModule,
+  BrowserAnimationsModule,
+  MatDividerModule,
+  MatCheckboxModule,
+  MatButtonModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatTableModule,
+  MatDialogModule,
+  ReactiveFormsModule,
+  FormsModule,
+  HttpClientModule,
+  MatToolbarModule,
+  MatSidenavModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
