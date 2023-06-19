@@ -9,13 +9,12 @@
         [ngClass]="(transaction.type === 'revenu') ? 'transaction__row__data transaction__row__data--revenu' : 'transaction__row__data transaction__row__data--depense'">
         {{transaction.category ? transaction.category.name : ""}}</td>
     <td
-        [ngClass]="(transaction.type === 'revenu') ? 'transaction__row__data  transaction__row__data--revenu' : 'transaction__row__data transaction__row__data--depense'">
+        [ngClass]="(transaction.type === 'revenu') ? 'transaction__row__data  transaction__row__data--amount transaction__row__data--revenu' : 'transaction__row__data transaction__row__data--amount transaction__row__data--depense'">
         {{transaction.amount}}€</td>
-    <td
-        [ngClass]="(transaction.type === 'revenu') ? 'transaction__row__data transaction__row__data--revenu' : 'transaction__row__data transaction__row__data--depense'" (click)="handleOpenUpdateModal()">
+    <td class="transaction__row__data transaction__row__data--center">
         <img class="transaction__row__data__edit" src="../../../assets/images/edit.png" alt="edition">
     </td>
-    <td class="transaction__row__data" (click)="handleOpenDeleteModal()">
+    <td class="transaction__row__data transaction__row__data--center" (click)="handleOpenDeleteModal()">
         <img class="transaction__row__data__delete" src="../../../assets/images/corbeille.png" alt="corbeille">
     </td>
 </tr>
