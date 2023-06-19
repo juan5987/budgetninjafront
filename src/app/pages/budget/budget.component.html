@@ -62,9 +62,7 @@
         <tbody class="budget__content__transactions__grid__body">
           <span *ngIf="transactions.length == 0" class="budget__content__transactions__grid__body__empty">Aucune transaction</span>
           <div  *ngIf="transactions.length > 0">
-            <div *ngFor="let transaction of transactions">
-              <app-budget-transaction [transaction]="transaction"></app-budget-transaction>
-            </div>
+              <app-budget-transaction *ngFor="let transaction of transactions" [transaction]="transaction"></app-budget-transaction>
           </div>
         </tbody>
       </table>

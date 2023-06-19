@@ -59,6 +59,7 @@ export class BudgetComponent implements OnInit, OnDestroy {
 
     this.transactionsService.getAllTransactions().subscribe(
       (transactions: Transaction[]) => {
+        this.transactionsService.setTransactions = transactions;
         this.transactions = transactions;
       }
     );
@@ -87,12 +88,15 @@ export class BudgetComponent implements OnInit, OnDestroy {
 
   handleDeleteTransaction = () => {
     //TODO : a décommenter quand le back sera prêt
-    // this.transactionsService.deleteTransactionById(transactionId);
-
-    //TODO: a supprimer quand le back sera prêt
-    this.transactionsService.removeTransaction(this.budgetService.updatingTransactionIdGetter.getValue());
-    this.budgetService.isDeleteTransactionModalOpenedSetter = false;
-    this.budgetService.updateAllIndicators();
+    const transactionId = this.budgetService.updatingTransactionIdGetter.getValue();
+    this.transactionsService.deleteTransactionById(transactionId).subscribe(
+      (response) => {
+        this.transactionsService.deleteTransactionById(transactionId);
+        this.transactionsService.removeTransaction(transactionId);
+        this.budgetService.isDeleteTransactionModalOpenedSetter = false;
+        this.budgetService.updateAllIndicators();
+      }
+    );
   }
 
   stopPropagation = (event: Event) => {

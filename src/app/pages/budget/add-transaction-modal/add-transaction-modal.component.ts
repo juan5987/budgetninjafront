@@ -56,9 +56,13 @@ export class AddTransactionModalComponent implements OnInit, OnDestroy {
       if(this.formValues.value.category === ''){
         this.formValues.value.category = null;
       }
-      this.transactionsService.createTransaction(this.formValues.value).subscribe();
-      this.budgetService.isAddTransactionModalOpenedSetter = false;
-      this.budgetService.updateAllIndicators();
+      this.transactionsService.createTransaction(this.formValues.value).subscribe(
+        (response) => {
+          this.transactionsService.addTransaction(response);
+          this.budgetService.updateAllIndicators();
+          this.budgetService.isAddTransactionModalOpenedSetter = false;
+        }
+      );
 
     }
   }
