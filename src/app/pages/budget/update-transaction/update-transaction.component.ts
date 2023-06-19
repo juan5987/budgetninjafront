@@ -1,3 +1,4 @@
+import { Transaction } from './../models/transaction';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BudgetService } from '../services/budget.service';
 import { TransactionsService } from '../services/transactions.service';
@@ -37,14 +38,25 @@ export class UpdateTransactionComponent implements OnInit, OnDestroy {
     this.formValues.valueChanges.subscribe(() => {
       this.submitted = false;
     })
-    this.transaction = this.transactionsService.getTransactions.getValue().find(transaction => transaction.id === this.budgetService.updatingTransactionIdGetter.getValue());
-    this.formValues.patchValue({
-      date: this.transaction.date,
-      amount: this.transaction.amount,
-      description: this.transaction.description,
-      type: this.transaction.type,
-      category: this.transaction.category,
-    })
+    this.subscription = this.transactionsService.getAllTransactions().subscribe(
+      (transactions: Transaction[]) => {
+        this.transaction = transactions.find(
+          transaction => transaction.id === this.budgetService.updatingTransactionIdGetter.getValue()
+        );
+        this.formValues.patchValue({
+          date: this.transaction.date,
+          amount: this.transaction.amount,
+          description: this.transaction.description,
+          type: this.transaction.type,
+          category: this.transaction.category,
+        })
+      });
+
+
+    // this.transaction = this.transactionsService.getTransactions.getValue().find(
+    //   transaction => transaction.id === this.budgetService.updatingTransactionIdGetter.getValue()
+    //   );
+
   }
 
   ngOnDestroy() {

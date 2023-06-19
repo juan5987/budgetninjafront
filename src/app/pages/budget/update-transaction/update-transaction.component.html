@@ -8,8 +8,8 @@
         <h2 class="modal__container__title">Modifier une transaction</h2>
         <form class="modal__container__form" (ngSubmit)="handleSubmit($event)" [formGroup]="formValues">
             <div class="modal__container__form__element">
-                <label for="date" class="modal__container__form__element__label">Date</label>
-                <input type="date" class="modal__container__form__element__input" name="date" id="date" pattern="\d{4}-\d{2}-\d{2}" formControlName="date">
+                <label for="date" [(ngModel)]="form['date']" class="modal__container__form__element__label">Date</label>
+                <input type="date" class="modal__container__form__element__input" pattern="\d{4}-\d{2}-\d{2}" name="date" id="date" formControlName="date">
             </div>
             <span *ngIf="submitted && form['date'].hasError('required')"
             class="modal__container__form__element__input__error">

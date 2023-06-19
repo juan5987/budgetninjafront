@@ -9,7 +9,7 @@
         <form class="modal__container__form" [formGroup]="formValues" (ngSubmit)="handleSubmit($event)">
             <div class="modal__container__form__element">
                 <label for="date" class="modal__container__form__element__label" >Date</label>
-                <input type="date" class="modal__container__form__element__input" name="date" id="date" formControlName="date" pattern="\d{4}-\d{2}-\d{2}">
+                <input type="date" [(ngModel)]="form['date']" class="modal__container__form__element__input" name="date" id="date" formControlName="date" pattern="\d{4}-\d{2}-\d{2}">
             </div>
             <span *ngIf="submitted && form['date'].hasError('required')"
             class="modal__container__form__element__input__error">
