@@ -1,7 +1,6 @@
 import { Transaction } from '../models/transaction';
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { BudgetService } from '../services/budget.service';
-import { TransactionsService } from '../services/transactions.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -19,6 +18,7 @@ export class BudgetTransactionComponent implements OnInit, OnDestroy {
   constructor(private budgetService: BudgetService) { }
 
   ngOnInit(): void {
+    console.log(this.transaction);
     this.subscription = this.budgetService.isDeleteTransactionModalOpenedSubject.subscribe(
       (bool: boolean) => {
         this.isDeleteTransactionModalOpened = bool;

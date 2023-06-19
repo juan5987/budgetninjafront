@@ -7,7 +7,7 @@
         {{transaction.description}}</td>
     <td
         [ngClass]="(transaction.type === 'revenu') ? 'transaction__row__data transaction__row__data--revenu' : 'transaction__row__data transaction__row__data--depense'">
-        {{transaction.category}}</td>
+        {{transaction.category ? transaction.category.name : ""}}</td>
     <td
         [ngClass]="(transaction.type === 'revenu') ? 'transaction__row__data transaction__row__data--revenu' : 'transaction__row__data transaction__row__data--depense'">
         {{transaction.amount}}€</td>

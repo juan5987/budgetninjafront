@@ -3,6 +3,9 @@ export interface Transaction {
     date: string;
     description: string;
     amount: number;
-    category: string;
+    category: {
+        id: number;
+        name: string;
+    };
     type: string;
 }

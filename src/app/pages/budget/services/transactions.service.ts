@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Transaction} from '../models/transaction';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -24,7 +24,12 @@ export class TransactionsService {
   }
 
   createTransaction = (transaction: Transaction) => {
-    return this.http.post<Transaction>(`http://localhost:8080/transactions/${this.userId}` , transaction);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    return this.http.post<Transaction>(`http://localhost:8080/transactions/${this.userId}` , transaction, httpOptions);
   }
 
   updateTransactionById = (transaction: Transaction, transactionId: number) => {
