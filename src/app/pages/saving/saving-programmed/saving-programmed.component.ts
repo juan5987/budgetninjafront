@@ -37,7 +37,7 @@ export class SavingProgrammedComponent implements OnInit{
       data : row }).afterClosed().subscribe(val=>{
       if(val === 'mettre à jour'){
         this.getAllProgrammedSaving();
-        this.api.emitSavingUpdated(); // on émet evenement de mise à jour
+        // this.api.emitSavingUpdated(); // on émet evenement de mise à jour
       }
     })
 
@@ -50,7 +50,7 @@ export class SavingProgrammedComponent implements OnInit{
         next:(res)=>{
           console.log("L'épargne programmée à été supprimée avec succès !");
           this.getAllProgrammedSaving();
-          this.api.emitSavingUpdated(); // de meme mais pour la mise à jour
+          // this.api.emitSavingUpdated(); // de meme mais pour la mise à jour
         },
         error:()=>{
           console.log("La suppression de l'épargne programmée n'a pas pu se valider")

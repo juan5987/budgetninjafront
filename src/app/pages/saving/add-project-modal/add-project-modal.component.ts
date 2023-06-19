@@ -16,11 +16,11 @@ export class AddProjectModalComponent implements OnInit {
 
   savingForm!: FormGroup; // pour gérer les validations du formulaire
 
-  minEndDate!: string; // représente la date minimale de validation de la date butoire
+  // minEndDate!: string; // représente la date minimale de validation de la date butoire
 
   actionBtn: string = "Valider";
 
-  
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -40,59 +40,59 @@ export class AddProjectModalComponent implements OnInit {
 
     // PRODUCTION D'UN FORMGROUP
     this.savingForm = this.formBuilder.group({
-      objEpargne: ['', Validators.required],
-      amountToGet: ['', Validators.required],
-      endDate: ['']
+      name: ['', Validators.required],
+      goal: ['', Validators.required],
+      // endDate: ['']
     });
 
     /**
      * La valeur de editData sera fourni via dialog de MAT_DIALOG_DATA */
     if (this.editData) {
       this.actionBtn = "Mettre à jour"
-      this.savingForm.controls['objEpargne'].setValue(this.editData.objEpargne);
-      this.savingForm.controls['amountToGet'].setValue(this.editData.amountToGet);
-      this.savingForm.controls['endDate'].setValue(this.editData.endDate);
+      this.savingForm.controls['name'].setValue(this.editData.name);
+      this.savingForm.controls['goal'].setValue(this.editData.goal)
+      // this.savingForm.controls['endDate'].setValue(this.editData.endDate);
 
     }
 
 
     //DATE DE J+1
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    this.minEndDate = this.formatDate(tomorrow);
+    // const tomorrow = new Date();
+    // tomorrow.setDate(tomorrow.getDate() + 1);
+    // this.minEndDate = this.formatDate(tomorrow);
 
   }
 
-  formatDate(date: Date): string {
-    const year = date.getFullYear();
-    const month = (date.getMonth() + 1).toString().padStart(2, '0');
-    const day = date.getDate().toString().padStart(2, '0');
-    return `${year}-${month}-${day}`;
-  }
+  // formatDate(date: Date): string {
+  //   const year = date.getFullYear();
+  //   const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  //   const day = date.getDate().toString().padStart(2, '0');
+  //   return `${year}-${month}-${day}`;
+  // }
 
 
  /**
   * Si la checkbox est utilisée alors le datePicker est inutilisable et inversement*/
-  handleDateClick() {
-    const checkbox = this.elementRef.nativeElement.querySelector('.checkboxNinja') as HTMLInputElement;
-    this.renderer.setStyle(checkbox, 'pointer-events', 'none');
+  // handleDateClick() {
+  //   const checkbox = this.elementRef.nativeElement.querySelector('.checkboxNinja') as HTMLInputElement;
+  //   this.renderer.setStyle(checkbox, 'pointer-events', 'none');
+  //
+  //
+  // }
 
-
-  }
-
-  handleCheckoutClick() {
-    const datePicker = this.elementRef.nativeElement.querySelector('#dateOfEndId') as HTMLInputElement;
-    this.renderer.setStyle(datePicker, 'pointer-events', 'none');
-  }
+  // handleCheckoutClick() {
+  //   const datePicker = this.elementRef.nativeElement.querySelector('#dateOfEndId') as HTMLInputElement;
+  //   this.renderer.setStyle(datePicker, 'pointer-events', 'none');
+  // }
 
 /**
  * Pour ajouter une nouvelle épargne*/
-  addSavingGoal() {
+  addProject() {
     this.isSubmitClicked = true;
-
+console.log(this.savingForm.value);
     if (!this.editData) { // si ce n'est pas une mise à jours alors c'est un ajout
       if (this.savingForm.valid) {
-        this.api.postSavingGoal(this.savingForm.value) // HTTP POST
+        this.api.postProject(this.savingForm.value) // HTTP POST
           .subscribe({ // abonnement à l'observale de la requete
             next: (res) => {
               console.log("L'épargne a été produite avec succès !");
@@ -105,13 +105,13 @@ export class AddProjectModalComponent implements OnInit {
           })
       }
     } else {
-      this.updateSavingGoal()
+      this.updateProject()
     }
   }
 
 
-  updateSavingGoal() { // http put
-    this.api.putSavingGoal(this.savingForm.value, this.editData.id)
+  updateProject() { // http put
+    this.api.updateProject(this.savingForm.value, this.editData.id)
       .subscribe({
         next: (res) => {
           console.log("L'épargne a été mis à jour avec succès ! ");

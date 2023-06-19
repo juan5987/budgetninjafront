@@ -15,9 +15,9 @@ export class SavingComponent implements OnInit{
 
   selectedDate?: Date; //necessaire car pas de date  ?
 
-saving! : Saving;
+  saving! : Saving;
 
-  // On récupère les savingGoal et on les assignent à projects
+  // On récupère les projets et on les assignent à projects
   projects!: any;
 
   // On récupère les programmedSaving et on les assignent à proProjects
@@ -29,33 +29,33 @@ saving! : Saving;
    * iisu de la méthode du service qui est data, on assigne la valeur à projects.*/
 
   ngOnInit() {
-
-
-
-    this.api.getSavingGoal()
+    this.api.getSavingAmount()
       .subscribe((data : any)=> {
+        console.log(data)
         this.saving = data
       });
-    this.api.getSavingUpdated().subscribe(() => {
-      this.api.getSavingGoal().subscribe((data: any) => {
-        this.projects = data;
-      });
-    });
 
 
-
-
-
-
-    this.api.getProgrammedSaving()
-      .subscribe((data : any)=> {
-        this.proProjects = data
-      });
-    this.api.getSavingUpdated().subscribe(() => {
-      this.api.getProgrammedSaving().subscribe((data: any) => {
-        this.proProjects = data;
-      });
-    });
+    // this.api.getSavingUpdated().subscribe(() => {
+    //   this.api.getSavingGoal().subscribe((data: any) => {
+    //     this.projects = data;
+    //   });
+    // });
+    //
+    //
+    //
+    //
+    //
+    //
+    // this.api.getProgrammedSaving()
+    //   .subscribe((data : any)=> {
+    //     this.proProjects = data
+    //   });
+    // this.api.getSavingUpdated().subscribe(() => {
+    //   this.api.getProgrammedSaving().subscribe((data: any) => {
+    //     this.proProjects = data;
+    //   });
+    // });
 
   }
 
@@ -74,7 +74,7 @@ saving! : Saving;
 
     }).afterClosed().subscribe(val=> {
       if (val === 'save') {
-        this.api.getSavingGoal().subscribe((data: any) => {
+        this.api.getAllProject().subscribe((data: any) => {
           this.projects = data;
         });
       }

@@ -6,29 +6,31 @@
 
   <form class="savingFormular" [formGroup]="programmedSavingForm" >
 
+
     <div class="montantAEpargner">
       <span>Montant à épargner</span>
       <input formControlName="amountProgrammed" maxlength="20" type="number" min="1" class="dialogInput" placeholder="100€" required>
-
+      <div *ngIf="isSubmitClicked && programmedSavingForm.get('amountProgrammed')?.invalid ">
+        <span class="error-message" [class.show-message]="isSubmitClicked">Veuillez entrer un montant</span>
+      </div>
     </div>
-    <div *ngIf="isSubmitClicked && programmedSavingForm.get('amountProgrammed')?.invalid ">
-      <span class="error-message" [class.show-message]="isSubmitClicked">Veuillez entrer un montant</span>
-    </div>
 
-    <div class="frequence">
-      <span>Choisir la fréquence</span>
 
+    <div class="dayOrWeekOrMonth">
+      <div>
+      <span  class="inputTitle">Choisir la fréquence</span>
+      </div>
       <div class="frequencyByTwo">
 
         <div class="categorieDropdown">
-          <select formControlName="PeriodicityProgrammed" >
+          <select class="dropdownSelect" formControlName="PeriodicityProgrammed" >
             <option value="jours">jours</option>
             <option value="semaines">semaines</option>
             <option value="mois">mois</option>
           </select>
         </div>
 
-        <div *ngIf="isSubmitClicked && programmedSavingForm.get('PeriodicityProgrammed')?.invalid ">
+        <div style="margin-top: 15px" *ngIf="isSubmitClicked && programmedSavingForm.get('PeriodicityProgrammed')?.invalid ">
           <span class="error-message" [class.show-message]="isSubmitClicked">Veuillez entrer une périodicité</span>
         </div>
 

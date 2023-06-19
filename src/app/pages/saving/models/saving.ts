@@ -1,4 +1,4 @@
 export interface Saving {
-  id:number,
-  amount:number
+  id:number;
+  amount:number;
 }

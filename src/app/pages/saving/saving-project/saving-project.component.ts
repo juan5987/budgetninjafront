@@ -80,7 +80,7 @@ timeRemaining!: number; // pour stocker le temps restant en secondes
     return this.project.endDate === true;
   }
   getAllSavingGoal(){
-    this.api.getSavingGoal()
+    this.api.getSavingAmount()
       .subscribe({
         next:(res)=>{
           console.log(res)
@@ -97,7 +97,7 @@ timeRemaining!: number; // pour stocker le temps restant en secondes
       data : row }).afterClosed().subscribe(val=>{
       if(val === 'mettre à jour'){
         this.getAllSavingGoal();
-        this.api.emitSavingUpdated(); // on émet evenement de mise à jour
+        // this.api.emitSavingUpdated(); // on émet evenement de mise à jour
       }
     })
 
@@ -110,7 +110,7 @@ timeRemaining!: number; // pour stocker le temps restant en secondes
         next:(res)=>{
           console.log("L'épargne à été supprimée avec succès !");
           this.getAllSavingGoal();
-          this.api.emitSavingUpdated(); // de meme mais pour la mise à jour
+          // this.api.emitSavingUpdated(); // de meme mais pour la mise à jour
         },
         error:()=>{
           console.log("La suppression de l'épargne n'a pas pu se valider")

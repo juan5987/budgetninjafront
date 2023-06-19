@@ -1,58 +1,66 @@
-import { Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import { Subject } from 'rxjs';
-import { Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Subject} from 'rxjs';
+import {Observable} from 'rxjs';
 import {Saving} from "../models/saving";
+import {Project} from "../models/project";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiServiceService {
 
-  constructor(private http : HttpClient) { }
+
+
+
+  constructor(private http: HttpClient) {
+  }
 
   // un subject est un observateur et un observable
   private savingUpdated: Subject<void> = new Subject<void>();
 
-  apiURL = 'http://localhost:8080/savings';
+  apiURL = 'http://localhost:8080';
 
-  getSavingUpdated(): Observable<void> {
-    return this.savingUpdated.asObservable();
-  }
-
-  // retourne un observable data
-  emitSavingUpdated(): void {
-    this.savingUpdated.next();
+// SAVING : pour le montant de l'épargne affiché dans la page principale
+  getSavingAmount() {
+    return this.http.get<Saving>(`${this.apiURL}/savings/user/1`);
   }
 
 
-
-
-// SAVING GOALS
-  postSavingGoal(data: Saving) {
-    return this.http.post<Saving>(`${this.apiURL}/user/userId`, data);
+// PROJECTS : représentent la deuxième partie de la page
+  postProject(data: Project) {
+    return this.http.post<Project>(`${this.apiURL}/projects/1`, data);
   }
 
-  getSavingGoal() {
-    return this.http.get<Saving[]>(`${this.apiURL}/user/1`);
+  getProjectById(userId: number) {
+    return this.http.get<Project>(`${this.apiURL}/projects/${userId}`);
   }
 
-  putSavingGoal(data: Saving, id: number) {
-    return this.http.put<Saving>(`${this.apiURL}/user/${id}`, data);
+  getAllProject(){
+    return this.http.get<Project>(`${this.apiURL}/projects`);
   }
 
-  deleteSavingGoal(id: number) {
-    return this.http.delete<any>(`${this.apiURL}/user/${id}`);
+  updateProject(projectId: number, project: Project) {
+    return this.http.put<Project>(`${this.apiURL}/projects/${projectId}`, project);
+  }
+  deleteProject(userId: number){
+    return this.http.delete<Project>(`${this.apiURL}/projects/${userId}`);
   }
 
+  // putSavingGoal(data: Saving, id: number) {
+  //   return this.http.put<Saving>(`${this.apiURL}/user/${id}`, data);
+  // }
+  //
+  // deleteSavingGoal(id: number) {
+  //   return this.http.delete<any>(`${this.apiURL}/user/${id}`);
+  // }
 
 
 
+  // PROGRAMMED SAVING : représentent la première partie de la page.
+  postProgrammedSavingAmount(saving: Saving) {
 
-
-  // PROGRAMMED GOALS
-  postProgrammedSaving(data: any) {
-    return this.http.post<any>(`${this.apiURL}/programmedSavingList/`, data);
+    return this.http.post<Saving>(`${this.apiURL}/programmed/1`, saving);
   }
 
   getProgrammedSaving() {
@@ -66,29 +74,6 @@ export class ApiServiceService {
   deleteProgrammedSaving(id: number) {
     return this.http.delete<any>(`${this.apiURL}/programmedSavingList/${id}`);
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

@@ -7,17 +7,17 @@
 <div class="indicators">
 
 
-  <h3>{{project.objEpargne}} {{project.amountToGet}}€</h3>
+  <h3>{{project.name}} {{project.goal}}€</h3>
   <span>Reste à épargner : </span>
 
-  <ng-container *ngIf="!isNoEndDateChecked(); else noEndDateTemplate">
-  <span>Date butoire : {{ project.endDate }}</span>
-    <span> {{ formatTimeRemaining() }}</span>
-  </ng-container>
+<!--  <ng-container *ngIf="!isNoEndDateChecked(); else noEndDateTemplate">-->
+<!--  <span>Date butoire : {{ project.endDate }}</span>-->
+<!--    <span> {{ formatTimeRemaining() }}</span>-->
+<!--  </ng-container>-->
 
-  <ng-template #noEndDateTemplate>
-    <span>Aucune date d'échéance</span>
-  </ng-template>
+<!--  <ng-template #noEndDateTemplate>-->
+<!--    <span>Aucune date d'échéance</span>-->
+<!--  </ng-template>-->
 
   <button mat-icon-button (click)="editSavingGoal(project)" >
     <mat-icon>edit</mat-icon>

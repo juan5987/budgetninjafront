@@ -7,34 +7,38 @@
 
     <div class="containerSavingsPage">
 
-      <span>{{saving.amount}}</span>
-      <h1>Epargne</h1>
+
+      <h2>{{saving.amount}} €</h2>
+      <h1>Épargne</h1>
 
       <div class="programmedSaving">
-
-
-
-        <div *ngIf="proProjects && proProjects.length > 0">
-          <app-saving-programmed [proProject]="proProjects[0]"></app-saving-programmed>
+        <div>
+          <h3>Mon épargne programmée</h3>
         </div>
 
-        <!-- Si il y a un projet (donc en index 0 ) alors le bouton ajouter disparait -->
-        <div *ngIf="!proProjects || proProjects.length === 0">
-          <button class="boutonAjouter" (click)="openSecondDialog()">Ajouter</button>
+        <div>
+          <div *ngIf="proProjects && proProjects.length > 0">
+            <app-saving-programmed [proProject]="proProjects[0]"></app-saving-programmed>
+          </div>
+
+          <!-- Si il y a un projet (donc en index 0 ) alors le bouton ajouter disparait -->
+          <div *ngIf="!proProjects || proProjects.length === 0">
+            <button class="boutonAjouter" (click)="openSecondDialog()">Ajouter</button>
+          </div>
         </div>
-
-
-
 
       </div>
 
 
       <div class="savingsObjectives">
 
+
+
         <h2>Objectifs d'épargnes</h2>
 
-        <mat-divider></mat-divider>
 
+
+        <div class="graphAndIndicators">
 
 
         <!-- Si il y a un projet (donc en index 0 ) alors le bouton ajouter disparait -->
@@ -42,11 +46,12 @@
           <button class="boutonAjouter" (click)="openDialog()">Ajouter</button>
         </div>
 
-        <!-- On affiche les projets via une itération -->
         <div *ngIf="projects && projects.length > 0">
           <app-saving-project [project]="projects[0]"></app-saving-project>
         </div>
 
+
+        </div>
 
       </div>
 

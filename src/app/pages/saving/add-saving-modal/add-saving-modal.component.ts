@@ -3,7 +3,6 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ApiServiceService} from "../saving-service/api-service.service";
 
-
 @Component({
   selector: 'app-add-saving-modal',
   templateUrl: './add-saving-modal.component.html',
@@ -43,7 +42,7 @@ export class AddSavingModalComponent implements OnInit{
 
     if(!this.editData){
       if(this.programmedSavingForm.valid){
-        this.api.postProgrammedSaving(this.programmedSavingForm.value)
+        this.api.postProgrammedSavingAmount(this.programmedSavingForm.value)
           .subscribe({
             next:(res)=>{
               console.log("L'épargne programmée été produite avec succès !");
