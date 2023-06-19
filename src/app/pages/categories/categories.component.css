@@ -16,10 +16,9 @@
   margin-top: 40px; /* Điều chỉnh giá trị margin-top ở đây */
   /* font-size: 10rem; */
 }
-.mat-elevation-z8 {
+.mat-elevation-z0 {
   padding: 1rem;
   background-color: white; /* Màu nền bảng */
-  border: 1px solid black; /* Đường viền bảng */
   border-radius: 4px;
   width: 50%;
   margin: 0 auto; /* Căn giữa theo chiều ngang */
