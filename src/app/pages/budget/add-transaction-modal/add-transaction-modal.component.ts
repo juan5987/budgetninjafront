@@ -53,8 +53,7 @@ export class AddTransactionModalComponent implements OnInit, OnDestroy {
     this.submitted = true;
     if (this.formValues.valid) {
 
-      // TODO: a supprimer quand on aura le back
-      this.transactionsService.updateTransaction(this.formValues.value);
+      this.transactionsService.createTransaction(this.formValues.value);
       this.budgetService.isAddTransactionModalOpenedSetter = false;
       this.budgetService.updateAllIndicators();
 

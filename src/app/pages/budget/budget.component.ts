@@ -57,21 +57,11 @@ export class BudgetComponent implements OnInit, OnDestroy {
       this.resteAVivre = resteAVivre;
     }));
 
-    //TODO: a décommenter quand le back sera prêt
-    // this.transactionsService.getAllTransactions().subscribe(
-    //   (transactions: Transaction[]) => {
-    //     this.transactions = transactions;
-    //   }
-    // );
-    //TODO: a supprimer quand le back sera prêt
-    this.transactions = this.transactionsService.getTransactions.getValue();
-    for (let transaction of this.transactions) {
-      if (transaction.type === "revenu") {
-        this.revenuTotal += transaction.amount;
-      } else if (transaction.type === "depense" || transaction.type === "epargne") {
-        this.depenseTotal += transaction.amount;
+    this.transactionsService.getAllTransactions().subscribe(
+      (transactions: Transaction[]) => {
+        this.transactions = transactions;
       }
-    }
+    );
     this.resteAVivre = this.solde + this.revenuTotal - this.depenseTotal;
   }
 

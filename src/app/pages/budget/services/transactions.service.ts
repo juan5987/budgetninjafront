@@ -7,48 +7,8 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class TransactionsService {
-  transactionsSubject = new BehaviorSubject<Transaction[]>([
-    {
-      id: 1,
-      date: '2021-01-01',
-      description: 'salaire juin',
-      amount: 1350,
-      category: 'salaire',
-      type: 'revenu'
-    },
-    {
-      id: 2,
-      date: '2021-01-01',
-      description: 'diesel',
-      amount: 50,
-      category: 'carburant',
-      type: 'depense'
-    },
-    {
-      id: 3,
-      date: '2021-01-01',
-      description: 'epargne',
-      amount: 100,
-      category: 'epargne',
-      type: 'epargne'
-    },
-    {
-      id: 4,
-      date: '2021-01-03',
-      description: 'remb CPAM',
-      amount: 20,
-      category: 'santé',
-      type: 'revenu'
-    },
-    {
-      id: 5,
-      date: '2021-01-03',
-      description: 'TV',
-      amount: 500,
-      category: 'loisir',
-      type: 'depense'
-    },
-  ]);
+  userId: number = 1;
+  transactionsSubject = new BehaviorSubject<Transaction[]>([]);
 
   get getTransactions(): BehaviorSubject<Transaction[]> {
     return this.transactionsSubject;
@@ -64,7 +24,7 @@ export class TransactionsService {
   }
 
   createTransaction = (transaction: Transaction) => {
-    return this.http.post<Transaction>('http://localhost:8080/transactions', transaction);
+    return this.http.post<Transaction>(`http://localhost:8080/transactions/${this.userId}` , transaction);
   }
 
   updateTransactionById = (transaction: Transaction) => {
@@ -75,7 +35,6 @@ export class TransactionsService {
     return this.http.delete<number>('http://localhost:8080/transactions/' + transactionId);
   }
 
-  // state
   addTransaction = (transaction: Transaction) => {
     this.transactionsSubject.getValue().push(transaction);
   }
