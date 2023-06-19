@@ -4,6 +4,7 @@ import {AddProjectModalComponent} from "./add-project-modal/add-project-modal.co
 import {AddSavingModalComponent} from "./add-saving-modal/add-saving-modal.component";
 import {ApiServiceService} from "./saving-service/api-service.service";
 import {Saving} from "./models/saving";
+import {Project} from "./models/project";
 
 
 @Component({
@@ -33,6 +34,12 @@ export class SavingComponent implements OnInit{
       .subscribe((data : any)=> {
         console.log(data)
         this.saving = data
+      });
+
+    this.api.getAllProject()
+      .subscribe((data:Project)=> {
+        console.log(data)
+        this.projects=data
       });
 
 

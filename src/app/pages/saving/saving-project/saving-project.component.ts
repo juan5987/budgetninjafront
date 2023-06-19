@@ -53,34 +53,36 @@ timeRemaining!: number; // pour stocker le temps restant en secondes
 
 
 
-    this.calculateTimeRemaining();
-    setInterval(() => {
-      this.calculateTimeRemaining();
-    }, 1000); // Mettre à jour le temps restant toutes les secondes
+    // this.calculateTimeRemaining();
+    // setInterval(() => {
+    //   this.calculateTimeRemaining();
+    // }, 1000); // Mettre à jour le temps restant toutes les secondes
   }
 
-  calculateTimeRemaining() {
-    const endDate = new Date(this.project.endDate).getTime(); // Convertir la date d'échéance en millisecondes
-    const now = new Date().getTime(); // Obtenir la date actuelle en millisecondes
-    this.timeRemaining = Math.max(0, Math.floor((endDate - now) / 1000)); // Calculer le temps restant en secondes
-  }
+  // calculateTimeRemaining() {
+  //   const endDate = new Date(this.project.endDate).getTime(); // Convertir la date d'échéance en millisecondes
+  //   const now = new Date().getTime(); // Obtenir la date actuelle en millisecondes
+  //   this.timeRemaining = Math.max(0, Math.floor((endDate - now) / 1000)); // Calculer le temps restant en secondes
+  // }
+  //
+  //
+  // formatTimeRemaining(): string {
+  //   const days = Math.floor(this.timeRemaining / 86400);
+  //   const hours = Math.floor((this.timeRemaining % 86400) / 3600);
+  //   const minutes = Math.floor((this.timeRemaining % 3600) / 60);
+  //   const seconds = this.timeRemaining % 60;
+  //
+  //   return `${days}j ${hours}h ${minutes}min ${seconds}s`;
+  // }
+  //
+  //
+  // isNoEndDateChecked(): boolean {
+  //   return this.project.endDate === true;
+  // }
 
 
-  formatTimeRemaining(): string {
-    const days = Math.floor(this.timeRemaining / 86400);
-    const hours = Math.floor((this.timeRemaining % 86400) / 3600);
-    const minutes = Math.floor((this.timeRemaining % 3600) / 60);
-    const seconds = this.timeRemaining % 60;
-
-    return `${days}j ${hours}h ${minutes}min ${seconds}s`;
-  }
-
-
-  isNoEndDateChecked(): boolean {
-    return this.project.endDate === true;
-  }
-  getAllSavingGoal(){
-    this.api.getSavingAmount()
+  getAllProject(){
+    this.api.getAllProject()
       .subscribe({
         next:(res)=>{
           console.log(res)
@@ -91,12 +93,12 @@ timeRemaining!: number; // pour stocker le temps restant en secondes
       })
   }
 
-  editSavingGoal(row : any){
+  editProject(row : any){
     this.dialog.open(AddProjectModalComponent, {
       width:'50%',
       data : row }).afterClosed().subscribe(val=>{
       if(val === 'mettre à jour'){
-        this.getAllSavingGoal();
+        this.getAllProject();
         // this.api.emitSavingUpdated(); // on émet evenement de mise à jour
       }
     })
@@ -104,12 +106,12 @@ timeRemaining!: number; // pour stocker le temps restant en secondes
   }
 
 
-  deleteSavingGoal(id : number){
-    this.api.deleteSavingGoal(id)
+  deleteProject(id : number){
+    this.api.deleteProject(id)
       .subscribe({
         next:(res)=>{
           console.log("L'épargne à été supprimée avec succès !");
-          this.getAllSavingGoal();
+          this.getAllProject();
           // this.api.emitSavingUpdated(); // de meme mais pour la mise à jour
         },
         error:()=>{
