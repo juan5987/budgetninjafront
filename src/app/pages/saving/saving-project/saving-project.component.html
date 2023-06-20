@@ -1,1 +1,47 @@
-<p>saving-project works!</p>
+<div class="contentProject">
+
+
+  <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"></highcharts-chart>
+
+
+<div class="indicators">
+
+
+  <h3>{{project.name}} {{project.goal}}€</h3>
+  <span>Reste à épargner : </span>
+
+<!--  <ng-container *ngIf="!isNoEndDateChecked(); else noEndDateTemplate">-->
+<!--  <span>Date butoire : {{ project.endDate }}</span>-->
+<!--    <span> {{ formatTimeRemaining() }}</span>-->
+<!--  </ng-container>-->
+
+<!--  <ng-template #noEndDateTemplate>-->
+<!--    <span>Aucune date d'échéance</span>-->
+<!--  </ng-template>-->
+
+  <button mat-icon-button (click)="editProject(project)" >
+    <mat-icon>edit</mat-icon>
+  </button>
+
+
+  <button mat-icon-button (click)="deleteProject(project)" color="warn">
+    <mat-icon>delete</mat-icon>
+  </button>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

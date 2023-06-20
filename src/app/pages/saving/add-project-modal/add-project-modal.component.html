@@ -1,1 +1,65 @@
-<p>add-project-modal works!</p>
+<div class="modalContent">
+
+
+  <h1>Épargne du ninja</h1>
+
+
+  <form class="savingFormular" [formGroup]="savingForm">
+
+    <div class="nomObjectifEpargne">
+
+      <span>Nom de l'objectif d'épargne</span>
+
+      <input formControlName="name" class="dialogInput" type="text" required>
+      <div *ngIf="isSubmitClicked && savingForm.get('name')?.invalid ">
+        <span class="error-message" [class.show-message]="isSubmitClicked">Veuillez entrer un nom d'épargne</span>
+      </div>
+
+    </div>
+
+
+    <div class="montantAAtteindre">
+
+      <span>Montant à atteindre</span>
+
+      <input formControlName="goal" type="number" min="1" class="dialogInput" placeholder="1600€" required>
+      <div *ngIf="isSubmitClicked && savingForm.get('goal')?.invalid ">
+        <span class="error-message" [class.show-message]="isSubmitClicked">Veuillez entrer un montant</span>
+      </div>
+    </div>
+
+
+
+
+
+
+<!--<div class="datePlusNoDate">-->
+<!--  <div class="dateEcheance">-->
+<!--    <span>Date d'échéance</span>-->
+
+<!--    <input formControlName="endDate" type="date" name="dateOfEnd" id="dateOfEndId" [min]="minEndDate"-->
+<!--           (click)="handleDateClick()">-->
+
+<!--  </div>-->
+
+<!--  <div class="noDate">-->
+
+<!--    <span>aucune</span>-->
+
+<!--    <input formControlName="endDate" class="checkboxNinja" type="checkbox" (click)="handleCheckoutClick()">-->
+
+<!--  </div>-->
+
+<!--</div>-->
+<div mat-dialog-actions [align]="'center'" class="modalButtons">
+
+
+  <button class="boutonAnnuler" mat-dialog-close>Annuler</button>
+  <button class="boutonAjouter"  style="margin-left: 15px" (click)="addProject()">{{actionBtn}}</button>
+
+
+</div>
+
+</form>
+
+</div>

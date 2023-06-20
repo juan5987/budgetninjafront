@@ -1,1 +1,65 @@
-<p>saving works!</p>
+<div class="saving">
+
+  <app-sidebar></app-sidebar>
+
+
+  <div class="saving_content">
+
+    <div class="containerSavingsPage">
+
+
+      <h2>{{saving.amount}} €</h2>
+      <h1>Épargne</h1>
+
+      <div class="programmedSaving">
+        <div>
+          <h3>Mon épargne programmée</h3>
+        </div>
+
+        <div>
+          <div *ngIf="programmedSaving && programmedSaving.length > 0">
+            <app-saving-programmed [programmedSaving]="programmedSaving[0]"></app-saving-programmed>
+          </div>
+
+          <!-- Si il y a un projet (donc en index 0 ) alors le bouton ajouter disparait -->
+          <div *ngIf="!programmedSaving || programmedSaving.length === 0">
+            <button class="boutonAjouter" (click)="openSecondDialog()">Ajouter</button>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="savingsObjectives">
+
+
+
+        <h2>Objectifs d'épargnes</h2>
+
+
+
+        <div class="graphAndIndicators">
+
+
+        <!-- Si il y a un projet (donc en index 0 ) alors le bouton ajouter disparait -->
+        <div *ngIf="!projects || projects.length === 0">
+          <button class="boutonAjouter" (click)="openDialog()">Ajouter</button>
+        </div>
+
+        <div *ngIf="projects && projects.length > 0">
+          <app-saving-project [project]="projects[0]"></app-saving-project>
+        </div>
+
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+</div>

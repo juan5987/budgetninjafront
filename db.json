@@ -1,20 +1,11 @@
 {
-  "categorieList": [
+  "savingList": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "objEpargne": "test",
+      "amountToGet": 1400,
+      "endDate": "2023-07-15",
+      "id": 1
     }
   ],
-  "alertList": [],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  "programmedSavingList": []
 }

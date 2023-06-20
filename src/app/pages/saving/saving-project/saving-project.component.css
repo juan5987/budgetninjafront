@@ -1,0 +1,22 @@
+.contentProject{
+  display: flex;
+  justify-content: space-between;
+}
+.graph, .indicators{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: large;
+  gap: 1rem;
+}
+h3{
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border: 2px solid orange;
+  padding: 1rem;
+  border-radius: 30px;
+}
+
+
+
+
