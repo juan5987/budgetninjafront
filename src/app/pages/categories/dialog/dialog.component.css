@@ -1,0 +1,88 @@
+
+h1{
+  margin-bottom: 25px;
+  color: orange;
+  font-family: "Shojumaru";
+  text-align: center;
+
+}
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.container{
+display: flex;
+flex-direction: column;
+align-items: center;
+background-color: rgb(24,24,24);
+padding: 2rem;
+border-radius: 1rem;
+border: 5px solid orange;
+position: relative;
+
+}
+
+ 
+  .boutonAjouter{
+    background-color: orange;
+    color: white;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    padding: .5em 1em;
+    border-radius: 1em;
+    font-family: 'Shojumaru', 'Roboto', cursive;
+    cursor: pointer;
+    margin-bottom: 2rem;
+  
+  
+  }
+  .boutonAjouter:hover {
+    background-color: white;
+    color: orange;
+  }
+  .inputName{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    align-self: center;
+    padding: 4px;
+  }
+  input{
+    width: 500px;
+    margin-bottom: 20px;
+  }
+  .boutonAnnuler{
+  
+    background-color: white;
+    color: rgb(24,24,24);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    padding: .5em 1em;
+    border-radius: 1em;
+    font-family: 'Shojumaru', 'Roboto', cursive;
+    cursor: pointer;
+    margin-bottom: 2rem;
+  }
+  
+  .boutonAnnuler:hover {
+    background-color: rgb(24,24,24);
+    color: white;
+  }
+
+  .dialogInput{
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    border-color: white;
+    background-color: white;
+    color: black;
+  }
+
+@media only screen and (max-width: 600px) {
+  .inputName {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

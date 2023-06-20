@@ -13,9 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -54,6 +53,9 @@ import { LoginModalComponent } from './pages/home/components/login-modal/login-m
 import { SignupModalComponent } from './pages/home/components/signup-modal/signup-modal.component';
 import { AddTransactionModalComponent } from './pages/budget/add-transaction-modal/add-transaction-modal.component';
 import { UpdateTransactionComponent } from './pages/budget/update-transaction/update-transaction.component';
+import { DialogComponent } from './pages/categories/dialog/dialog.component';
+import { MatIconModule } from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -91,6 +93,7 @@ import { UpdateTransactionComponent } from './pages/budget/update-transaction/up
     SignupModalComponent,
     AddTransactionModalComponent,
     UpdateTransactionComponent,
+    DialogComponent
 
   ],
   imports: [
@@ -117,6 +120,23 @@ import { UpdateTransactionComponent } from './pages/budget/update-transaction/up
     MatDividerModule,
     FormsModule,
     HttpClientModule,
+  AppRoutingModule,
+  BrowserAnimationsModule,
+  MatDividerModule,
+  MatCheckboxModule,
+  MatButtonModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatTableModule,
+  MatDialogModule,
+  ReactiveFormsModule,
+  FormsModule,
+  HttpClientModule,
+  MatToolbarModule,
+  MatSidenavModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
