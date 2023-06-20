@@ -51,6 +51,8 @@ import { DeleteSavingProjectModalComponent } from './pages/saving/delete-saving-
 import { HomeheaderComponent } from './pages/home/components/homeheader/homeheader.component';
 import { LoginModalComponent } from './pages/home/components/login-modal/login-modal.component';
 import { SignupModalComponent } from './pages/home/components/signup-modal/signup-modal.component';
+import { AddTransactionModalComponent } from './pages/budget/add-transaction-modal/add-transaction-modal.component';
+import { UpdateTransactionComponent } from './pages/budget/update-transaction/update-transaction.component';
 import { DialogComponent } from './pages/categories/dialog/dialog.component';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -89,11 +91,35 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeheaderComponent,
     LoginModalComponent,
     SignupModalComponent,
+    AddTransactionModalComponent,
+    UpdateTransactionComponent,
     DialogComponent
 
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatDividerModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatInputModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDividerModule,
+    FormsModule,
+    HttpClientModule,
   AppRoutingModule,
   BrowserAnimationsModule,
   MatDividerModule,
@@ -111,7 +137,6 @@ import { ReactiveFormsModule } from '@angular/forms';
   HttpClientModule,
   MatToolbarModule,
   MatSidenavModule,
-  
   ],
   providers: [],
   bootstrap: [AppComponent]

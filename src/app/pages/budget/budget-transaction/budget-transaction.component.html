@@ -1,1 +1,20 @@
-<p>budget-transaction works!</p>
+<tr [ngClass]="(transaction.type === 'revenu') ? 'transaction__row transaction__row--revenu' : 'transaction__row transaction__row--depense'">
+    <td
+        [ngClass]="(transaction.type === 'revenu') ? 'transaction__row__data transaction__row__data--revenu' : 'transaction__row__data transaction__row__data--depense'">
+        {{ transaction.date | date:'dd/MM/yyyy' }}</td>
+    <td
+        [ngClass]="(transaction.type === 'revenu') ? 'transaction__row__data transaction__row__data--revenu' : 'transaction__row__data transaction__row__data--depense'">
+        {{transaction.description}}</td>
+    <td
+        [ngClass]="(transaction.type === 'revenu') ? 'transaction__row__data transaction__row__data--revenu' : 'transaction__row__data transaction__row__data--depense'">
+        {{transaction.category ? transaction.category.name : ""}}</td>
+    <td
+        [ngClass]="(transaction.type === 'revenu') ? 'transaction__row__data  transaction__row__data--amount transaction__row__data--revenu' : 'transaction__row__data transaction__row__data--amount transaction__row__data--depense'">
+        {{transaction.amount}}€</td>
+    <td class="transaction__row__data transaction__row__data--center" (click)="handleOpenUpdateModal()">
+        <img class="transaction__row__data__edit" src="../../../assets/images/edit.png" alt="edition">
+    </td>
+    <td class="transaction__row__data transaction__row__data--center" (click)="handleOpenDeleteModal()">
+        <img class="transaction__row__data__delete" src="../../../assets/images/corbeille.png" alt="corbeille">
+    </td>
+</tr>
