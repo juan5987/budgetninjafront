@@ -69,9 +69,6 @@ export class UpdateTransactionComponent implements OnInit, OnDestroy {
     event.preventDefault();
     this.submitted = true;
     if (this.formValues.valid) {
-      if (this.formValues.value.category === '') {
-        this.formValues.value.category = null;
-      }
       if(this.formValues.value.category === ''){
         this.formValues.value.category = null;
       } else {

@@ -67,7 +67,6 @@ export class AddTransactionModalComponent implements OnInit, OnDestroy {
           this.transactionsService.addTransaction(response);
           this.budgetService.updateAllIndicators();
           this.budgetService.isAddTransactionModalOpenedSetter = false;
-          console.log(this.transactionsService.getTransactions.getValue());
         }
       );
 
