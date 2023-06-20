@@ -69,14 +69,6 @@ export class BudgetComponent implements OnInit, OnDestroy {
       this.resteAVivre = resteAVivre;
     }));
 
-    this.transactionsService.getAllTransactions().subscribe(
-      (transactions: Transaction[]) => {
-        this.transactionsService.setTransactions = transactions;
-        this.transactionsService.sortTransactions(this.order, this.sort);
-        this.transactions = transactions;
-      }
-    );
-
     this.budgetService.getBudget(1).subscribe(
       (budget: Budget) => {
         budget.balance = budget.balance ? budget.balance : 0;
@@ -87,6 +79,16 @@ export class BudgetComponent implements OnInit, OnDestroy {
         })
       }
     );
+
+    this.transactionsService.getAllTransactions().subscribe(
+      (transactions: Transaction[]) => {
+        this.transactionsService.setTransactions = transactions;
+        this.transactionsService.sortTransactions(this.order, this.sort);
+        this.transactions = transactions;
+        this.budgetService.updateAllIndicators();
+      }
+    );
+
     this.formValues = this.formBuilder.group({
       balance: [this.solde, Validators.required],
     })
@@ -94,8 +96,6 @@ export class BudgetComponent implements OnInit, OnDestroy {
     this.formValues.valueChanges.subscribe(() => {
       this.submitted = false;
     })
-
-    this.resteAVivre = this.solde + this.revenuTotal - this.depenseTotal;
   }
 
   ngOnDestroy() {
