@@ -35,14 +35,23 @@ export class BudgetService {
     this.depenseTotalSetter = 0;
     this.resteAVivreSetter = 0;
 
-    for(let transaction of this.transactionsService.getTransactions.getValue()){
-      if(transaction.type === "revenu"){
-        this.revenuTotalSetter = this.revenuTotalGetter.getValue() + transaction.amount;
-      } else if (transaction.type === "depense" || transaction.type === "epargne"){
-        this.depenseTotalSetter = this.depenseTotalGetter.getValue() + transaction.amount;
+    this.getBudget(this.userId).subscribe(
+      (budget: Budget) => {
+        this.soldeSetter = budget.balance;
+        for(let transaction of this.transactionsService.getTransactions.getValue()){
+          if(transaction.type === "revenu"){
+            this.revenuTotalSetter = this.revenuTotalGetter.getValue() + transaction.amount;
+          } else if (transaction.type === "depense" || transaction.type === "epargne"){
+            this.depenseTotalSetter = this.depenseTotalGetter.getValue() + transaction.amount;
+          }
+        }
+        this.soldeSetter = this.soldeGetter.getValue() + this.revenuTotalGetter.getValue() - this.depenseTotalGetter.getValue();
       }
-    }
-    this.resteAVivreSetter = this.solde.getValue() + this.revenuTotalGetter.getValue() - this.depenseTotal.getValue();
+    );
+
+
+    // TODO: attendre dépenses récurrentes
+    // this.resteAVivreSetter = this.soldeGetter.getValue() - this.depenseRecurrenteGetter.getValue();
   }
 
   getBudget = (userId: number) => {

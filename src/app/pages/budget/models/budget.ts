@@ -1,4 +1,4 @@
 export interface Budget {
-    id: number;
+    id?: number;
     balance: number;
 }

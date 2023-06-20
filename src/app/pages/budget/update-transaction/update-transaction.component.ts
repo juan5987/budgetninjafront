@@ -80,7 +80,6 @@ export class UpdateTransactionComponent implements OnInit, OnDestroy {
 
       this.transactionsService.updateTransactionById(this.formValues.value, this.transaction.id).subscribe(
         (response) => {
-          console.log(response)
           this.transactionsService.updateTransaction(response, this.transaction.id);
           this.budgetService.isUpdateTransactionModalOpenedSetter = false;
           this.budgetService.updateAllIndicators();

@@ -71,9 +71,9 @@ export class BudgetComponent implements OnInit, OnDestroy {
 
     this.budgetService.getBudget(1).subscribe(
       (budget: Budget) => {
-        budget.balance = budget.balance ? budget.balance : 0;
-        this.budgetId = budget.id;
+        this.budgetId = budget.id ? budget.id : 0;
         this.solde = budget.balance;
+        this.budgetService.soldeSetter = budget.balance;
         this.formValues = this.formBuilder.group({
           balance: [this.solde, Validators.required],
         })
