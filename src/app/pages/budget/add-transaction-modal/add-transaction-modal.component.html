@@ -1,0 +1,61 @@
+<div class="modal" (click)="handleCloseModal()">
+    <div class="modal__container" (click)="stopPropagation($event)">
+        <span class="cross" (click)="handleCloseModal()">
+            <span class="cross__line cross__line__one">&nbsp;</span>
+            <span class="cross__line cross__line__two">&nbsp;</span>
+        </span>
+        <img class="modal__container__logo" src="assets/images/logo.png" alt="logo représentant un ninja">
+        <h2 class="modal__container__title">Ajouter une transaction</h2>
+        <form class="modal__container__form" [formGroup]="formValues" (ngSubmit)="handleSubmit($event)">
+            <div class="modal__container__form__element">
+                <label for="date" class="modal__container__form__element__label" >Date</label>
+                <input type="date" class="modal__container__form__element__input" name="date" id="date" formControlName="date" pattern="\d{4}-\d{2}-\d{2}">
+            </div>
+            <span *ngIf="submitted && form['date'].hasError('required')"
+            class="modal__container__form__element__input__error">
+            Veuillez renseigner une date
+          </span>
+            <div class="modal__container__form__element">
+                <label for="amount" class="modal__container__form__element__label">Montant</label>
+                <input type="number" class="modal__container__form__element__input" id="amount" name="amount" min="0" step=".01" formControlName="amount">
+            </div>
+            <span *ngIf="submitted && form['amount'].hasError('required')"
+            class="modal__container__form__element__input__error">
+            Veuillez renseigner un montant
+          </span>
+            <div class="modal__container__form__element">
+                <label for="description" class="modal__container__form__element__label">Libellé</label>
+                <input type="text" class="modal__container__form__element__input" id="description" name="description" formControlName="description">
+            </div>
+            <div class="modal__container__form__element">
+                <label for="type" class="modal__container__form__element__label">Type</label>
+                <select name="type" class="modal__container__form__element__input" id="type" formControlName="type">
+                    <option class="modal__container__form__element__input" value="revenu">Revenu</option>
+                    <option class="modal__container__form__element__input" value="depense">Depense</option>
+                    <option class="modal__container__form__element__input" value="epargne">Epargne</option>
+                </select>
+            </div>
+            <span *ngIf="submitted && form['type'].hasError('required')"
+            class="modal__container__form__element__input__error">
+            Veuillez renseigner un type
+          </span>
+            <div class="modal__container__form__element">
+                <label for="category" class="modal__container__form__element__label">Catégorie</label>
+                <select name="category" class="modal__container__form__element__input" id="category" formControlName="category">
+                    <option class="modal__container__form__element__input" value="" selected>-- aucune catégorie --</option>
+                    <option class="modal__container__form__element__input" value="carburant">Carburant</option>
+                    <option class="modal__container__form__element__input" value="alimentation">Alimentation</option>
+                    <option class="modal__container__form__element__input" value="salaire">Salaire</option>
+                    <option class="modal__container__form__element__input" value="loisir">Loisir</option>
+                    <option class="modal__container__form__element__input" value="sante">Santé</option>
+                    <option class="modal__container__form__element__input" value="autre">Autre</option>
+                </select>
+            </div>
+            <span *ngIf="submitted && form['category'].hasError('required')"
+            class="modal__container__form__element__input__error">
+            Veuillez renseigner une catégorie
+          </span>
+            <button class="main_button modal__container__form__submit" type="submit">valider</button>
+        </form>
+    </div>
+</div>

@@ -10,9 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -56,6 +55,11 @@ import { HomeheaderComponent } from './pages/home/components/homeheader/homehead
 import { LoginModalComponent } from './pages/home/components/login-modal/login-modal.component';
 import { SignupModalComponent } from './pages/home/components/signup-modal/signup-modal.component';
 import { SavingProgrammedComponent } from './pages/saving/saving-programmed/saving-programmed.component';
+import { AddTransactionModalComponent } from './pages/budget/add-transaction-modal/add-transaction-modal.component';
+import { UpdateTransactionComponent } from './pages/budget/update-transaction/update-transaction.component';
+import { DialogComponent } from './pages/categories/dialog/dialog.component';
+import { MatIconModule } from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -92,6 +96,9 @@ import { SavingProgrammedComponent } from './pages/saving/saving-programmed/savi
     LoginModalComponent,
     SignupModalComponent,
     SavingProgrammedComponent,
+    AddTransactionModalComponent,
+    UpdateTransactionComponent,
+    DialogComponent
 
   ],
   imports: [
@@ -117,13 +124,29 @@ import { SavingProgrammedComponent } from './pages/saving/saving-programmed/savi
     MatIconModule,
     MatDividerModule,
     FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
     MatDialogModule,
     MatInputModule,
     MatFormFieldModule,
     MatNativeDateModule,
     HighchartsChartModule
+  AppRoutingModule,
+  BrowserAnimationsModule,
+  MatDividerModule,
+  MatCheckboxModule,
+  MatButtonModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatTableModule,
+  MatDialogModule,
+  ReactiveFormsModule,
+  FormsModule,
+  HttpClientModule,
+  MatToolbarModule,
+  MatSidenavModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
